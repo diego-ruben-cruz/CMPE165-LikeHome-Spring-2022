@@ -1,5 +1,6 @@
 
 .SignUp{
+<<<<<<< HEAD
     max-width: 600px;
     /* margin: 0 auto; */
     /* padding: 30px; */
@@ -36,26 +37,74 @@
     position: relative;
     
     box-sizing: border-box;
+=======
+
+    /* width: 27em;
+    height: 50em;
+    min-height: 35em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    right: 50%;
+    z-index: 99; */
+
+    max-width: 350px;
+    margin: 0 auto;
+    /* border-radius: 5px; */
+    /* overflow: hidden; */
+    /* box-shadow: 0 0 15px rgba (0,0,0,0.15); */
+    padding: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+
+    /* width: 100%; */
+
+
+}
+
+.SignUpForm{
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    
+
+>>>>>>> Basic Signup-starting
 }
 
 
 .RegistrationHeader
 {
     padding: 10px;
+<<<<<<< HEAD
     
     text-align: center;
     
+=======
+    text-align: center;
+>>>>>>> Basic Signup-starting
 }
 
 .SignUp-content{
     padding: 30px;
     margin-bottom: 15px;
+<<<<<<< HEAD
     text-align: center;
     
+=======
+>>>>>>> Basic Signup-starting
 }
 
 .Signup-input
 {
+<<<<<<< HEAD
     Width: 50%;
     padding: 15px 8px;
     border-radius: 10px;
@@ -109,3 +158,12 @@ a:link{
     /* color: rgb(211, 40, 40); */
     color: white;
 }
+=======
+    Width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid;
+    outline: none;
+    margin-top: 30px;
+}
+>>>>>>> Basic Signup-starting
