@@ -1,15 +1,18 @@
 import './App.css';
 import React, { Component } from 'react';
+import SignUp from "./Components/SignUp";
+import Login from "./Components/Login";
+//import HomePage from "./Components/Homepage";
+
 
 function App() {
   return(
-  <div>
-    <body>
-        <p> Hello World</p>
+    //<HomePage />
+   <SignUp />
+
+   // <Login />
   
-    </body> 
-  </div>
-  );
+      );
 
   
 
