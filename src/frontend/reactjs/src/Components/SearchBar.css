@@ -1,0 +1,16 @@
+/* Add a black background color to the top navigation bar */
+.bar {
+    overflow: hidden;
+    color: black;
+    background-color: #1239b8;
+  }
+
+.header {
+  background-color: rgb(167, 163, 163);
+  background-size: 25% 100%;
+  text-align: left;
+}
+
+.button1 {
+  background-color: rgb(167, 163, 163);
+}
