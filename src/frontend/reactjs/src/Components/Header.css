@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+    background: linear-gradient(#1b59b8, #2B6FD4);
+    height: 80px;
+    width: 100;
+}
+
+label {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+  }
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+
+nav ul li a {
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+  }
+
+  nav ul li a:hover {
+    background: rgb(38, 47, 99);
+    transition: .5s;
+  } 

@@ -1,14 +1,12 @@
 import './App.css';
-import React, { Component } from 'react';
-
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
-  return(
-  <div>
-    <body>
-        <p> Hello World</p>
-  
-    </body> 
-  </div>
+  return (
+    <Header/>
+    //,
+    //<Footer/>
   );
 
   
