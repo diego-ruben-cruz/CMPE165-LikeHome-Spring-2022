@@ -1,7 +1,14 @@
 import './Home.css';
+import React from 'react'
+import Banner from './Banner/Banner';
 
-function Home() {
-  
+const Home = () => {
+  return (
+    <>
+        <Banner/>
+        <RecsTable/>
+    </>
+  )
 }
 
-export default Home;
+export default Home
