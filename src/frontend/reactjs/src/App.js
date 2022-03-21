@@ -8,9 +8,9 @@ import Login from "./Components/Login";
 function App() {
   return(
     //<HomePage />
-   <SignUp />
+  //  <SignUp />
 
-   // <Login />
+   <Login />
   
       );
 
