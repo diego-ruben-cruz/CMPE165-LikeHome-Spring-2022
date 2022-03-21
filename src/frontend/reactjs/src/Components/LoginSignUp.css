@@ -1,23 +1,34 @@
 
 .SignUp{
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 30px;
+    max-width: 600px;
+    /* margin: 0 auto; */
+    /* padding: 30px; */
     margin-bottom: 10px;
     text-align: center;
-    width: 100%; 
+    width: 50%; 
+    height: 65%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-100%);
-    
+    transform: translateX(-50%) translateY(-50%);
+    background: #2B6FD4;
+    border-color: black;
+    border-radius: 30px;
+    outline-style: solid;
     /* left: calc(50% -50px); */
 }
 
 .SignUp h1{
     text-align: center;
+    padding: 25px 0 30px 0;
+    border-bottom: 2px solid black;
+    margin-bottom: 35px;
+    background: #202020;
+    margin-top: 0px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    color: azure;
     
-    /* left: 10%; */
 }
 
 .SignUp form
@@ -40,16 +51,46 @@
     padding: 30px;
     margin-bottom: 15px;
     text-align: center;
+    
 }
 
 .Signup-input
 {
-    Width: 100%;
-    padding: 30px 10px;
+    Width: 50%;
+    padding: 15px 8px;
     border-radius: 10px;
     border: 2px solid;
     outline: none;
-    margin-top: 30px;
-    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 110px;
+    text-align: center;
+    background-color: #d0d0d0;
+    display: block;
+}
+
+.Signup-input:focus
+{
+    background-color: white;
+}
+
+
+.Button
+{
+    margin-top: 25px;
+    width: 75%;
+    height: 50px;
+    border-radius: 30px;
+    border-color: black;
+   /* 0 outline-style: double; */
+    background-color: whitesmoke;
+    box-shadow: 0 8px 30px 0 rgba(0,0,0,0.2);
+}
+
+
+.LabelHeader
+{
+   font-weight: 900;
     
+   
 }
