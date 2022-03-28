@@ -1,12 +1,12 @@
 import './Home.css';
 import React from 'react'
-import Banner from './Banner/Banner';
+import Banner from '.Banner';
 
 const Home = () => {
   return (
     <>
         <Banner/>
-        <RecsTable/>
+        <RecTable/>
     </>
   )
 }
