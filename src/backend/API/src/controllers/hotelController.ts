@@ -1,4 +1,5 @@
 import httpStatus from 'http-status';
+import { db } from '../db';
 
 import * as hotelServices from '../services/hotelServices';
 
@@ -27,6 +28,17 @@ export const listHotels = async (req: any, res: any, next: any) => {
     // call api and get data
     const resp = await hotelServices.list(req.query)
     res.status(httpStatus.OK).json(resp.data.body.searchResults.results);
+    // const sample = {
+    //   name: 'motel 69',
+    //   rooms: ['4','2','0'],
+    //   ammenities: {
+    //     cat: true,
+    //     dog: true,
+    //     cars: 3
+    //   }
+    // }
+    // await db.collection('Hotels').doc('Motel96').set(sample, {merge:true});
+    // res.status(httpStatus.OK).json({'uh': 'huh'});
   } catch (err) {
     console.log('search error');
     next(err);
