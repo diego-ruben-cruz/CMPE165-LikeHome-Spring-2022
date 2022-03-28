@@ -17,7 +17,7 @@ var axios = require("axios").default;
 
 var options = {
 method: 'GET',
-url: 'http://localhose:8080/api/hotel/search',
+url: 'http://localhost:8080/api/hotel/search',
 params: {location: 'San Jose', sortOrder: 'STAR_RATING_HIGHEST_FIRST'},
 };
 
