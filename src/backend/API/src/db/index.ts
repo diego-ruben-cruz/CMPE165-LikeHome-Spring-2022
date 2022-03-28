@@ -1,8 +1,13 @@
-import { initializeApp } from 'firebase/app';
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
-// TODO: Replace the following with your app's Firebase project configuration
-const firebaseConfig = {
-  //...
-};
+const admin = require("firebase-admin");
+const serviceAccount = require('./keys/likehome-16818-firebase-adminsdk-qhujy-2447896d63.json');
 
-const firebase = initializeApp(firebaseConfig);
+export const initDB = () => {
+  initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
+}
+
+export const db = getFirestore();
