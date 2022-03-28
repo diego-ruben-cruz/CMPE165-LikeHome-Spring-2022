@@ -1,16 +1,20 @@
 import './Header.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 function Header() {
     return (
+        <>
         <nav className="navHeader">
             <label>LikeHome</label>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><Link to="/">Home</Link></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Sign Up</a></li>
+                <li> <Link to="/login">Log in</Link></li>
+                <li> <Link to="/signup">Sign Up</Link></li>
             </ul>
         </nav>
+        </>
     );
 }
 

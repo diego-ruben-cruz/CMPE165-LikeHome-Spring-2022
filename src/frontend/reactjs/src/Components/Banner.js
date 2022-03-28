@@ -22,9 +22,9 @@ const useStyles=makeStyles(() => ({
 
 const Banner = () => {
   return (
-    <div className={classes.banner}>
-        <Container className={classes.bannerContent}>
-            <div className={classes.description}>
+    <div className="banner">
+        <Container className="bannerContent">
+            <div className="description">
                 <Typography
                     style={{
                         fontWeight: "bold",
@@ -45,4 +45,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default Banner;

@@ -1,11 +1,14 @@
 import './LoginSignUp.css';
 import React, { Component } from "react";
+import Header from './Header';
 //import { render } from 'react-dom';
 
-function SignUp() {
+function Login() {
 
-    return(
-        
+    return(    
+        <login>
+           <Header>
+            </Header> 
         <div className='SignUp'>
             <h1>Login</h1>
             <form>
@@ -35,7 +38,8 @@ function SignUp() {
             </form>
 
         </div>
+        </login>
     );
 }
 
-export default SignUp;
+export default Login;
