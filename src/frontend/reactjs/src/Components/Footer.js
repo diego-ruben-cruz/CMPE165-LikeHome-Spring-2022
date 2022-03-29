@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './Footer.css';
+import React, { Component } from "react";
+
 function Footer() {
     return (
+        <>
     <footer>
         <nav className="navFooter">
             <h3>LikeHome</h3>
@@ -17,6 +20,7 @@ function Footer() {
             </div>
         </nav>
     </footer>
+    </>
     );
 }
 

@@ -9,4 +9,4 @@ const RecTable = () => {
   )
 }
 
-export default RecTable
+export default RecTable;

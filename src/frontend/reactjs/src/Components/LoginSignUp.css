@@ -106,5 +106,6 @@
 }
 
 a:link{
-    color: rgb(211, 40, 40);
+    /* color: rgb(211, 40, 40); */
+    color: white;
 }

@@ -1,11 +1,14 @@
 import './LoginSignUp.css';
 import React, { Component } from "react";
+import Header from './Header';
 //import { render } from 'react-dom';
 
 function SignUp() {
 
     return(
-        
+        <signup>
+            <Header>
+            </Header>
         <div className='SignUp'>
             <h1>Sign Up</h1>
             <form>
@@ -42,6 +45,7 @@ function SignUp() {
             </form>
 
         </div>
+        </signup>
     );
 }
 
