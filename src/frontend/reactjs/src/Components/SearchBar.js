@@ -13,7 +13,7 @@ function SearchBar(){
                 <input type = "text" placeholder = "Check In" class = "text2" name = "check-in"/>
                 <input type = "text" placeholder = "Check Out" class = "text3"  name = "check-out"/>
                 <input type = "text" placeholder = "Guests" class = "text4"  name = "guests"/>
-                <button type = "submit" class = "button1">Search</button>
+                <button type = "submit" class = "button1" onClick={"LikeHome.com/SearchPage"}>Search</button>
             </div>
         </div>
     );
