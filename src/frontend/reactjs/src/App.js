@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Home from './Components/Home';
-import SearchBar from './Components/SearchBar';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
+import SearchPage from './Components/SearchPage';
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -15,6 +13,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/searchpage" component={SearchPage} />
     <Home/>
     </Switch>
     </div>

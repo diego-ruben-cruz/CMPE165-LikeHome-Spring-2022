@@ -1,31 +1,48 @@
 /* Make all the text size Large*/
-* {
+/* * {
   font-size: medium;
   text-align: center;
   padding: 5px 14px;
+} */
+.searchbar {
+  position: relative;
+  left: 18%;
+  background: linear-gradient(#2B6FD4, #1b59b8);
+  height: 115px;
+  width: 64%;
+  border-radius: 50px;
+
+  /* margin: 16px 100px 50px 60px; */
+}
+
+.header {
+  font-size:30px;
+  padding-left: 60px;
+  /* padding-left: 10%; */
+  /* background-color: #1b59b8; */
+  color: white;
+  width: 8.4%;
+  /* transform: translateX(-20%); */
 }
 
 /*The Search Bar with the text inputs, blue background, and button*/
-.bar {
-  border-color: black;
-  border-style: solid;
-  background-color: #1239b8;
-  height: 75px;
-  width: 1300px;
+.bar input {
+  border-radius: 100px;
+  height:45px;
+  text-align: center;
 }
 
 /* Grey Background for the text 'Where to?' as well as make it left leaning */
-.header {
-  border-style: solid solid none solid;
-  border-color: black;
+/* .header {
   background-color: rgb(167, 163, 163);
   background-size: contain;
   text-align:justify;
   width: 160px;
   height: 40px; 
-}
+} */
 
 .text1 {
+  width:300px;
   margin: 16px 100px 50px 60px;
 }
 
@@ -38,21 +55,22 @@
 }
 
 .text4 {
+  width:300px;
   margin: 16px 50px 100px 60px;
 }
 
 /* Design of the Search Button*/
 .button1 {
-  background-color: rgb(134, 134, 134);
-  width: 80px;
+  width: 80px; 
   height: 45px; 
-  border: black;
+  /* border: black; */
   text-align: center;
   opacity: 20;
   transition: 0.3s;
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
+  border-radius: 50px;
 }
 
 .button1:hover {
