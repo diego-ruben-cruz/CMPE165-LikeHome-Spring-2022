@@ -6,7 +6,7 @@ function Header() {
     return (
         <>
         <nav className="navHeader">
-            <label>LikeHome</label>
+            <label className = "label">LikeHome</label>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><a href="#">About Us</a></li>

@@ -5,7 +5,7 @@ const RecTable = () => {
     
     
   return (
-    <div>RecTable</div>
+    <div></div>
   )
 }
 
