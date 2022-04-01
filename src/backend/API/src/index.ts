@@ -1,12 +1,15 @@
 import express from 'express';
 
 import routes from './routes';
+import { initDB } from './db';
 
 // initialize firebase
+initDB();
 
-const app = express()
+const app = express();
 const port = 8080;
 
+app.use(express.json());
 // define a route handler for the default home page
 app.use("/api", routes);
 
