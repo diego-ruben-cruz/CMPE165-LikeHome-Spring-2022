@@ -32,8 +32,24 @@ export const getReservation = async (req: any, res: any, next: any) => {
         next(err)
     }
 }
+// {"hotelName": "???",
+// "checkin": "03/31/2022",
+// "checkout": "04/02/2022",
+// "guests": "5"}
+
 //req.body
 //delete reservation in firebase
 export const deleteReservation = async (req: any, res: any, next: any) => {
+    const {accountId} = req.params
+    const {hotelName} = req.body;
+    const reserveration = {hotelName};
+    try{
+        await db.collection('Reservations').doc(accountId).delete();
+        res.status(httpStatus.OK).json({});
+    }
+    catch (err){
+        console.log('you fucked up')
+        next(err)
+    }
     res.status(httpStatus.OK).json({});
 }
