@@ -8,9 +8,9 @@ export const getAccounts = async(req: any, res: any, next: any) => {
 
     try {
         db.collection('Users').get().then((snapshot) => {
-            console.log(snapshot.docs);
+            snapshot.docs.map((doc => doc.data));
+            res.status(httpStatus.OK).json(snapshot.docs);
         })
-        res.status(httpStatus.OK).json({});
     } catch (err) {
         console.log("Could not get accounts");
         next(err);
