@@ -5,8 +5,8 @@ import { db } from '../db';
 //create a resrvation in firebase
 export const createReservation = async (req: any, res: any, next: any) => {
     const {accountId} = req.params
-    const {hotelName} = req.body;
-    const reserveration = {hotelName};
+    const {hotelName, checkin, checkout, guests} = req.body;
+    const reserveration = {hotelName, checkin, checkout, guests};
     try{
         await db.collection('Reservations').doc(accountId).set(reserveration, {merge:true});
         res.status(httpStatus.OK).json({});
