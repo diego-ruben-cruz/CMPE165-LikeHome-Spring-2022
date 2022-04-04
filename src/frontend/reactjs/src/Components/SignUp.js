@@ -1,11 +1,15 @@
 import './LoginSignUp.css';
 import React, { Component } from "react";
+import Header from './Header';
+import Footer from './Footer';
 //import { render } from 'react-dom';
 
 function SignUp() {
 
     return(
-        
+        <signup>
+            <Header>
+            </Header>
         <div className='SignUp'>
             <h1>Sign Up</h1>
             <form>
@@ -21,13 +25,13 @@ function SignUp() {
 
 
                 <div className='SignUp-Content'>
-                    <label className = "LabelHeader"> Email </label>
+                    <label className = "LabelHeader2"> Email </label>
                     <input class = "Signup-input" type= "text" placeholder='Enter your email'/>
                 </div>
 
 
                 <div className='SignUp-Content'>
-                    <label className = "LabelHeader"> Password </label>
+                    <label className = "LabelHeader3"> Password </label>
                     <input class = "Signup-input" type= "password" placeholder='Enter a password'/>
                 </div>
                    
@@ -42,6 +46,9 @@ function SignUp() {
             </form>
 
         </div>
+        <Footer>
+            </Footer> 
+        </signup>
     );
 }
 

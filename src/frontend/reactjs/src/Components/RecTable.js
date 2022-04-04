@@ -5,8 +5,8 @@ const RecTable = () => {
     
     
   return (
-    <div>RecTable</div>
+    <div></div>
   )
 }
 
-export default RecTable
+export default RecTable;

@@ -1,14 +1,10 @@
-import './App.css';
-
-
 import React, { Component } from 'react';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
+import Home from './Components/Home';
+import SearchPage from './Components/SearchPage';
 import SignUp from "./Components/SignUp";
-import Home from "./Components/Home";
+import Login from "./Components/Login";
+import Payment from "./Components/Payment";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Alert from './Components/Alert';
-import SearchPage from "./Components/SearchBar";
 
 function App() {
   return (
@@ -16,13 +12,13 @@ function App() {
       <div className="App">
         <Switch>
         <Route path="/" exact component={Home} />
-
+        <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/searchpage" component={SearchPage} />
+        <Route path="/payment" component={Payment} />
     <Home/>
     </Switch>
     </div>
-    <Alert/>
     </Router>
     //,
     //<Footer/>

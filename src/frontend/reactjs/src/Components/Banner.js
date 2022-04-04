@@ -1,5 +1,6 @@
 import React from 'react'
 import {Typography, Container, makeStyles} from '@material-ui/core';
+import './Banner.css'
 
 const useStyles=makeStyles(() => ({
     banner: {
@@ -25,22 +26,20 @@ const Banner = () => {
 const classes = useStyles();
 
   return (
-    <div className={classes.banner}>
-        <Container className={classes.bannerContent}>
-            <div className={classes.description}>
+    <div className="banner">
+        <Container className="bannerContent">
+            <div className="description">
                 <Typography
                     style={{
                         fontWeight: "bold",
                         marginBottom:15,
                     }}
                 >
-                    LikeHome.com
                 </Typography>
 
                 <Typography
                     variant='subtitle2'
                 >
-                    Anywhere in the world can be just like home!
                 </Typography>
             </div>
         </Container>
@@ -48,4 +47,4 @@ const classes = useStyles();
   )
 }
 
-export default Banner
+export default Banner;
