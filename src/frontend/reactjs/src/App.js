@@ -5,17 +5,10 @@ import React, { Component } from 'react';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import SignUp from "./Components/SignUp";
-<<<<<<< Updated upstream
-import Login from "./Components/Login";
-//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-function App() {
-  return (
-    <Header/>
-=======
-
+import Home from "./Components/Home";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Alert from './Components/Alert';
-
+import SearchPage from "./Components/SearchBar";
 
 function App() {
   return (
@@ -31,7 +24,6 @@ function App() {
     </div>
     <Alert/>
     </Router>
->>>>>>> Stashed changes
     //,
     //<Footer/>
     //<HomePage />
