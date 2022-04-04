@@ -21,6 +21,21 @@ export const searchHotels = async (req: any, res: any, next: any) => {
   }
 }
 
+export const getDetails = async (req: any, res: any, next: any) => {
+  console.log('Called getDetails method');
+
+  const { hotelId } = req.params;
+
+  try {
+    // call api and get data
+    const resp = await hotelServices.details(hotelId);
+    res.status(httpStatus.OK).json(resp.data);
+  } catch (err) {
+    console.log('search error');
+    next(err);
+  }
+}
+
 export const listHotels = async (req: any, res: any, next: any) => {
   console.log('Called listHotels method');
 
