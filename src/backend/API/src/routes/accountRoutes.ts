@@ -4,7 +4,7 @@ import * as account from '../controllers/accountController';
  
 const router = express.Router();
 
-router.route('/test').get(account.getAccounts);
+router.route('/').get(account.getAccounts);
 
 router.route('/:accountId').get(account.getAccount);
 //router.route('/:accountId').post(account.createAccount);
