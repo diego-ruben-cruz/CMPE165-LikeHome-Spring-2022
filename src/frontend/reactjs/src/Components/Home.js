@@ -32,6 +32,7 @@ const Home = () => {
         >
           <SearchBar/>
         </div>
+        
         <Footer/>
     </>
   )

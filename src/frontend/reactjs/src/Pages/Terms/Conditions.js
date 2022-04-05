@@ -15,13 +15,17 @@ USE OF THE WEBSITE
 
 As a condition of your use of this Website, you warrant that
 
+<Typography>
+
 1. you are at least 18 years of age,
 2. you possess the legal authority to create a binding legal obligation,
 3. you will use this Website in accordance with this Agreement,
 4. you will only use this Website to make legitimate reservations for you or for another person for whom you are legally authorized to act,
 5. all information supplied by you on this Website is true, accurate, current and complete, and
 6. if you have an LikeHome.com account, you will safeguard your account information and will supervise and be completely responsible for any use of your account by anyone other than you. We retain the right at our sole discretion to deny access to anyone to this Website and the services we offer, at any time and for any reason, including, but not limited to, for violation of this Agreement.
+</Typography>
 
+<Typography>
 
 DISPUTES; ARBITRATION
 
@@ -47,7 +51,9 @@ To begin an arbitration proceeding, you must send a letter requesting arbitratio
  
   
 This arbitration agreement shall be governed by and enforced in accordance with the Federal Arbitration Act and federal arbitration law. An arbitration decision may be confirmed by any court with competent jurisdiction.
+</Typography>
 
+<Typography>
 PROHIBITED ACTIVITIES
 
 The content and information on this Website (including, but not limited to, price and availability of travel services), as well as the infrastructure used to provide such content and information, is proprietary to us or our suppliers and providers. While you may make limited copies of your travel itinerary (and related documents) for travel or services booked through this Website, you agree not to otherwise modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell or re-sell any information, software, products, or services obtained from or through this Website. Additionally, you agree not to:
@@ -59,6 +65,7 @@ The content and information on this Website (including, but not limited to, pric
 5. take any action that imposes, or may impose, in our discretion, an unreasonable or disproportionately large load on our infrastructure;
 6. deep-link to any portion of this Website (including, without limitation, the purchase path for any travel services) for any purpose without our express written permission; or
 7. "frame", "mirror" or otherwise incorporate any part of this Website into any other website without our prior written authorization.
+</Typography>
 
 Without limitation, any speculative, false, or fraudulent reservation or any reservation in anticipation of demand is prohibited. You agree that the travel services reservations facilities of this website shall be used only to make legitimate reservations or purchases for you or for another person for whom you are legally authorized to act. You understand that overuse, suspicious activity, signs of fraud, or abuse of the travel services reservation facilities of this website may result in LikeHome.com cancelling any bookings associated with your name, email address, or account, and closing any associated LikeHome.com accounts. LikeHome.com may also cancel any bookings associated with your name, email address, or account, and close any associated LikeHome.com accounts if you have made multiple reservations on this website and LikeHome.com considers (acting reasonably) that any such reservation is for the purposes of reselling). If such reservations cancelled are non-refundable bookings, LikeHome.com reserves its right not to refund you for the cancelled reservations. In addition, LikeHome.com may verify (i.e. preauthorize) your credit card. If you have conducted any fraudulent activity, LikeHome.com reserves the right to take any necessary legal action and you may be liable for monetary losses to LikeHome.com, including litigation costs and damages. To contest the cancellation of a booking, or freezing or closure of an account, please contact customer service.
 
