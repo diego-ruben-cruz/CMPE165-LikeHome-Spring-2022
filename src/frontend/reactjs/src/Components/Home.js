@@ -6,6 +6,8 @@ import RecTable from './RecTable';
 import SearchBar from './SearchBar';
 import Footer from './Footer';
 import {makeStyles} from '@material-ui/core';
+import Checkbox from '../MUI components/Checkbox';
+import Conditions from '../Pages/Terms/Conditions';
 
 const useStyles = makeStyles(() => ({
   banner: {
@@ -30,7 +32,6 @@ const Home = () => {
         >
           <SearchBar/>
         </div>
-        
         <Footer/>
     </>
   )

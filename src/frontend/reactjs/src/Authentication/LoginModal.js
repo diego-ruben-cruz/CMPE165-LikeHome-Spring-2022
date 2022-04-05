@@ -15,12 +15,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: 'Montserrat',
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    fontFamily: 'Montserrat',
   },
 }));
 
@@ -49,7 +51,8 @@ export default function LoginModal() {
         style={{
             height: 40,
             backgroundColor: "transparent",
-            color: 'white'
+            color: 'white',
+            fontFamily: 'Montserrat',
         }}
         onClick={handleOpen}
       >
