@@ -1,7 +1,11 @@
 import './Home.css';
 import React from 'react'
+import Header from './Header';
 import Banner from './Banner';
 import RecTable from './RecTable';
+import SearchBar from './SearchBar';
+import Footer from './Footer';
+
 
 const Home = () => {
   return (

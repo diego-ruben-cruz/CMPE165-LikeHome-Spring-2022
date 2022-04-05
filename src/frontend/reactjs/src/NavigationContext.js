@@ -1,4 +1,6 @@
+import { onAuthStateChanged } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "./firebase";
 
 const Navigation = createContext();
 
@@ -11,7 +13,10 @@ const NavigationContext = ({ children }) => {
   })
 
   useEffect(() => {
-    
+    onAuthStateChanged(auth, user => {
+        if(user) setUser(user);
+        else setUser(null);
+    });
   },);
 
   return (
@@ -19,6 +24,8 @@ const NavigationContext = ({ children }) => {
       value={{
         alert,
         setAlert,
+        user,
+        setUser,
       }}
     >
       {children}

@@ -1,13 +1,10 @@
-import React from 'react';
 import { Snackbar } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
-import { useState } from 'react';
-import { NavigationState } from '../NavigationContext';
-
+import { NavigationState } from "../NavigationContext";
+import React from "react";
 
 const Alert = () => {
-
-    const { alert, setAlert } = NavigationState();
+  const { alert, setAlert } = NavigationState();
 
   const handleCloseAlert = (event, reason) => {
     if (reason === "clickaway") {

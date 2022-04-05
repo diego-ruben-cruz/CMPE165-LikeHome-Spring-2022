@@ -1,9 +1,14 @@
 import './Header.css';
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import LoginModal from '../Authentication/LoginModal';
+import { NavigationState } from "../NavigationContext";
+import { auth } from '../firebase';
 
 function Header() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const { user} = NavigationState();
+    
 
     return (
         <>
@@ -12,10 +17,12 @@ function Header() {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><a href="#">About Us</a></li>
-                <li> <LoginModal/></li>
-                <li> <Link to="/signup">Sign Up</Link></li>
+                <li>{user ? "Logout" : <LoginModal/> }</li>
+                
             </ul>
+            
         </nav>
+        
         </>
     );
 }
