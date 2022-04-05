@@ -3,6 +3,8 @@ import Home from './Components/Home';
 import SearchPage from './Components/SearchPage';
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
+import ReservationPage from "./Components/ReservationPage";
+import Payment from "./Components/Payment";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/searchpage" component={SearchPage} />
+        <Route path="/reservationpage" component={ReservationPage} />
+        <Route path="/payment" component={Payment} />
     <Home/>
     </Switch>
     </div>
