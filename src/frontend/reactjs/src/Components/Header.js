@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import LoginModal from '../Authentication/LoginModal';
 import { NavigationState } from "../NavigationContext";
 import { auth } from '../firebase';
+import SideDrawer from '../MUI components/SideDrawer';
 
 function Header() {
 
@@ -17,7 +18,7 @@ function Header() {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><a href="#">About Us</a></li>
-                <li>{user ? "Logout" : <LoginModal/> }</li>
+                <li>{user ? <SideDrawer/> : <LoginModal/> }</li>
                 
             </ul>
             
