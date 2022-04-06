@@ -8,6 +8,9 @@ import Footer from './Footer';
 import {makeStyles} from '@material-ui/core';
 import Checkbox from '../MUI components/Checkbox';
 import Conditions from '../Pages/Terms/Conditions';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import hotel from './hotel.jpg';
 
 const useStyles = makeStyles(() => ({
   banner: {
@@ -33,6 +36,26 @@ const Home = () => {
           <SearchBar/>
         </div>
         
+        <div>
+          <Typography>
+              Recommended Hotels:
+          </Typography>
+          <Container>
+            <Typography
+            
+            >
+                Example 1:
+            </Typography>
+           
+            <img 
+            className ="rec1"src={hotel}
+            >
+              
+            </img>
+
+          </Container>
+        </div>
+
         <Footer/>
     </>
   )
