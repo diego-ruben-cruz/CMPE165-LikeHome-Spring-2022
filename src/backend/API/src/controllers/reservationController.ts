@@ -20,11 +20,11 @@ export const createReservation = async (req: any, res: any, next: any) => {
 //get resveration via email
 export const getReservation = async (req: any, res: any, next: any) => {
     //console.log("running get reservation")
-    const sodumb = await req.query;
-    console.log("this isthe " + sodumb.email)
+    const { accountId } = req.params;
+    console.log("this isthe " + accountId)
     //console.log(db.collection('Reservations').doc('Jimbo').get())
     try {
-        const cringe = await db.collection('Reservations').doc(sodumb.email).get()
+        const cringe = await db.collection('Reservations').doc(accountId).get()
         //const cringe = await db.collection('Reservations').doc('Jimbo').get()
         res.status(httpStatus.OK).json(cringe.data()) 
     } catch (err) {
@@ -51,5 +51,4 @@ export const deleteReservation = async (req: any, res: any, next: any) => {
         console.log('you fucked up')
         next(err)
     }
-    res.status(httpStatus.OK).json({});
 }

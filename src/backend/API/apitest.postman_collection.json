@@ -55,7 +55,7 @@
 							"variable": [
 								{
 									"key": "hotelId",
-									"value": null
+									"value": "624429"
 								}
 							]
 						}
@@ -233,7 +233,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": null
+									"value": "jerry1@hotmail.com"
 								}
 							]
 						}
@@ -247,7 +247,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"hotelName\": \"???\",\r\n    \"checkin\": \"03/31/2022\",\r\n    \"checkout\": \"04/02/2022\",\r\n    \"guests\": \"5\"\r\n}",
+							"raw": "{\r\n    \"hotelName\": \"motel 7\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -269,7 +269,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": null
+									"value": "jerry1@hotmail.com"
 								}
 							]
 						}
@@ -283,7 +283,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"hotelName\": \"motel 6\"\r\n}",
+							"raw": "{\r\n    \"hotelName\": \"motel 7\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -305,7 +305,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": null
+									"value": "jerry1@hotmail.com"
 								}
 							]
 						}
