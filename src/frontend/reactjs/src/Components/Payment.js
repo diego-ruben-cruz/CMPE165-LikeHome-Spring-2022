@@ -1,9 +1,8 @@
-import CheckBox from '../MUI components/Checkbox';
+
 import './Payment.css';
 import React, { Component } from "react";
 import Header from './Header';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
 //import { render } from 'react-dom';
 
 function Payment() {
@@ -69,22 +68,6 @@ function Payment() {
                                 
                                 <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billing 
 
-                                <div
-                                    style={{
-                                        marginTop:15,
-                                    }}
-                                >
-                                <Link to="/ConditionsPage">Terms and Conditions</Link>
-                                </div>
-
-                                <div
-                                    style={{
-                                        marginTop:15,
-                                    }}
-                                >
-                                <CheckBox></CheckBox>
-                                </div>
-                                
 
                             
 

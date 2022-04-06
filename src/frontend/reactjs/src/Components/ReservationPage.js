@@ -12,7 +12,7 @@ const ReservationPage = () => {
     <div className='div'>
         <Header/>
         <div className='Box'>
-        {/* <button type = "submit" class = "button1" onClick={"/PaymentPage"}><Link to="/PaymentPage">Back</Link></button> */}
+        {/* <button type = "submit" class = "button1" onClick={"/searchpage"}><Link to="/searchpage">Back</Link></button> */}
         <img className ="hotel1"src={hotel}></img>
         <div className='title'>
         <h1 className='Reservation-name'>Example Hotel</h1>
@@ -28,7 +28,7 @@ const ReservationPage = () => {
                 <li>Sleeps 4</li>
                 <li>19 sq m</li>
                 <li>Free Wifi</li>
-                <button type = "submit" class = "button1" onClick={"/PaymentPage"}><Link to="/PaymentPage">Book Now</Link></button>
+                <button type = "submit" class = "button1" onClick={"/searchpage"}><Link to="/searchpage">Book Now</Link></button>
             </ul>
           </div>
           <div className='flex2'>
@@ -39,7 +39,7 @@ const ReservationPage = () => {
                 <li>Sleeps 4</li>
                 <li>19 sq m</li>
                 <li>Free Wifi</li>
-                <button type = "submit" class = "button1" onClick={"/PaymentPage"}><Link to="/PaymentPage">Book Now</Link></button>
+                <button type = "submit" class = "button1" onClick={"/searchpage"}><Link to="/searchpage">Book Now</Link></button>
             </ul>
           </div>
           <div className='flex3'>
@@ -50,7 +50,7 @@ const ReservationPage = () => {
                 <li>Sleeps 4</li>
                 <li>19 sq m</li>
                 <li>Free Wifi</li>
-                <button type = "submit" class = "button1" onClick={"/PaymentPage"}><Link to="/PaymentPage">Book Now</Link></button>
+                <button type = "submit" class = "button1" onClick={"/searchpage"}><Link to="/searchpage">Book Now</Link></button>
             </ul>
           </div>
           </div>

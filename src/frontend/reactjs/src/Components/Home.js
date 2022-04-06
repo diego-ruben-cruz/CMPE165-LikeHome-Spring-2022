@@ -11,8 +11,6 @@ import Conditions from '../Pages/Terms/Conditions';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import hotel from './hotel.jpg';
-import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   banner: {
@@ -39,39 +37,22 @@ const Home = () => {
         </div>
         
         <div>
-          <Typography
-            style= {{
-              fontWeight: "bold",
-            }}
-          >
+          <Typography>
               Recommended Hotels:
           </Typography>
           <Container>
             <Typography
-              style= {{
-                fontWeight: "bold",
-              }}
+            
             >
-                Example 1: Example Hotel
-                1234 Sample Street, City, State, Country
+                Example 1:
             </Typography>
            
             <img 
             className ="rec1"src={hotel}
             >
-            </img>
-            <Button
-              style={{
-                marginTop: 35,
-                right:258
-              }}
               
-            >
-              <Link to="/ReservationPage">Book Now</Link>
-                
-                
-              </Button>
-          
+            </img>
+
           </Container>
         </div>
 
