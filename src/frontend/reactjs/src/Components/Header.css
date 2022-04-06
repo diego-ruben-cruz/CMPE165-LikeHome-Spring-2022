@@ -7,38 +7,42 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.navHeader {
+nav {
     background: linear-gradient(#1b59b8, #2B6FD4);
-    height: 80px;
+    height: 100px;
     width: 100;
 }
 
-.label {
+label {
     color: white;
     font-size: 35px;
     line-height: 80px;
     padding: 0 100px;
 }
 
-.navHeader ul {
+nav ul {
     float: right;
     margin-right: 20px;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+   
   }
 
-.navHeader ul li {
+nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
   }
 
-.navHeader ul li a {
+nav ul li a {
     color: white;
     font-size: 17px;
     padding: 7px 13px;
     border-radius: 3px;
   }
 
-.navHeader ul li a:hover {
+  nav ul li a:hover {
     background: rgb(38, 47, 99);
     transition: .5s;
   } 

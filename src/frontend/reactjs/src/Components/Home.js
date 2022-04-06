@@ -7,7 +7,6 @@ import SearchBar from './SearchBar';
 import Footer from './Footer';
 import {makeStyles} from '@material-ui/core';
 import Checkbox from '../MUI components/Checkbox';
-import Conditions from '../Pages/Terms/Conditions';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import hotel from './hotel.jpg';
@@ -26,8 +25,8 @@ const Home = () => {
   return (
     <>
         <Header/>
-        <Banner/>
-        <RecTable/>
+        
+       
         <h1 className='home'>A Home Far Away From Home</h1>
         <div 
         className="h1"
@@ -46,7 +45,7 @@ const Home = () => {
           >
               Recommended Hotels:
           </Typography>
-          <Container>
+          <div>
             <Typography
               style= {{
                 fontWeight: "bold",
@@ -60,22 +59,22 @@ const Home = () => {
             className ="rec1"src={hotel}
             >
             </img>
-            <Button
+            
+              <Link to="/ReservationPage"
               style={{
-                marginTop: 35,
-                right:258
+                marginTop: 100,
               }}
-              
-            >
-              <Link to="/ReservationPage">Book Now</Link>
+              >Book Now</Link>
                 
                 
-              </Button>
+
           
-          </Container>
+          </div>
         </div>
 
-        <Footer/>
+        <Footer>
+
+        </Footer>
     </>
   )
 }
