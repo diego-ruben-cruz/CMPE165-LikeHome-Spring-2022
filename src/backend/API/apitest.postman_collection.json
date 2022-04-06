@@ -313,6 +313,41 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "pay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"jerry\",\r\n    \"hotelName\": \"motel 7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/payment/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"payment",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

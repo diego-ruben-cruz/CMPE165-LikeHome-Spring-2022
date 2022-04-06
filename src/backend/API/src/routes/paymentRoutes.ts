@@ -4,6 +4,6 @@ import * as payment from '../controllers/paymentController';
 
 const router = express.Router();
 
-router.route('/pay').get(payment.pay);
+router.route('/').post(payment.pay);
 
 export default router;
