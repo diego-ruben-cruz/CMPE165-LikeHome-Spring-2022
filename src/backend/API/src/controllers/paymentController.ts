@@ -20,16 +20,17 @@ export const pay = async (req: any, res: any, next: any) => {
   try {
     if (!temp.paymentDetails) {
       const doc = await db.collection('Users').doc(temp.accountId).get();
-      temp = {...temp, paymentDetails: doc.data()?.Payment}
-      if (temp.saveDetails)
-        await db.collection('Users').doc(temp.accountId).set({Payment: temp.paymentDetails}, {merge: true})
+      if (doc)
+        temp = {...temp, paymentDetails: doc.data()?.Payment}
     }
+    if (temp.saveDetails)
+      await db.collection('Users').doc(temp.accountId).set({Payment: temp.paymentDetails}, {merge: true})
 
     if (validateCardNumber(temp.paymentDetails)) {
-      res.status(httpStatus.OK).send('Payment recieved 😏');
-    } else {
-      res.status(httpStatus.BAD_REQUEST).set('Invalid payment details');
-    }
+      await db.collection('Reservations').doc(temp.reservationId).set({payed: true}, {merge: true});
+      res.status(httpStatus.OK).send('Payment successful');
+    } else
+      res.status(httpStatus.BAD_REQUEST).send('Invalid payment details');
   } catch (err) {
     console.log('payment error');
     next(err);
@@ -38,11 +39,20 @@ export const pay = async (req: any, res: any, next: any) => {
 
 const validateCardNumber = (pd: any) => {
   let regex = new RegExp("^[0-9]{13,19}$");
-  if (!regex.test(pd.number)) return false;
-  regex = new RegExp("\d\d/\d\d");
-  if (!regex.test(pd.exp)) return false;
-  regex = new RegExp("[0-9]+\d\d3");
-  if (!regex.test(pd.exp)) return false;
+  if (!regex.test(pd.number)) {
+    console.log('invalid num');
+    return false;
+  }
+  regex = new RegExp("[01][0-9]\/[0123][0-9]");
+  if (!regex.test(pd.exp)) {
+    console.log('invalid exp');
+    return false;
+  }
+  regex = new RegExp("[0-9][0-9][0-9]");
+  if (!regex.test(pd.cvc)) {
+    console.log('invalid cvc');
+    return false;
+  }
 
   return true;
 }

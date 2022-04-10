@@ -29,6 +29,11 @@
 								{
 									"key": "location",
 									"value": "San Jose"
+								},
+								{
+									"key": "sortOrder",
+									"value": "PRICE",
+									"disabled": true
 								}
 							]
 						}
@@ -214,6 +219,36 @@
 			"name": "reservation",
 			"item": [
 				{
+					"name": "create/update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"jerry@hotmail.com\",\r\n    \"hotelId\": 624429,\r\n    \"checkIn\": \"03-23-19\",\r\n    \"checkOut\": \"03-24-19\",\r\n    \"guests\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/reservation/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reservation",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "getres",
 					"request": {
 						"method": "GET",
@@ -233,43 +268,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": "jerry1@hotmail.com"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"hotelName\": \"motel 7\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/reservation/:accountId",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"reservation",
-								":accountId"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": "jerry1@hotmail.com"
+									"value": "jerry@hotmail.com"
 								}
 							]
 						}
@@ -283,7 +282,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"hotelName\": \"motel 7\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -291,7 +290,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/reservation/:accountId",
+							"raw": "http://localhost:8080/api/reservation/:reservationId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -300,12 +299,12 @@
 							"path": [
 								"api",
 								"reservation",
-								":accountId"
+								":reservationId"
 							],
 							"variable": [
 								{
-									"key": "accountId",
-									"value": "jerry1@hotmail.com"
+									"key": "reservationId",
+									"value": null
 								}
 							]
 						}
@@ -324,7 +323,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"accountId\": \"jerry\",\r\n    \"hotelName\": \"motel 7\"\r\n}",
+							"raw": "{\r\n  \"accountId\": \"jerry@hotmail.com\",\r\n  \"reservationId\": \"08592959-0906-4086-a50c-05dc3ac5c8ec\",\r\n  \"paymentDetails\": {\r\n    \"number\": \"4242424242424242\",\r\n    \"exp\": \"03/32\",\r\n    \"cvc\": \"123\",\r\n    \"address\": \"123 whatever\",\r\n    \"city\": \"San Jose\",\r\n    \"state\": \"CA\",\r\n    \"zip\": \"64044\"\r\n  },\r\n  \"saveDetails\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -332,7 +331,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/payment/",
+							"raw": "http://localhost:8080/api/payment/pay",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -341,7 +340,7 @@
 							"path": [
 								"api",
 								"payment",
-								""
+								"pay"
 							]
 						}
 					},

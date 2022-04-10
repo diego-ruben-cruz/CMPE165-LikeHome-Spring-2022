@@ -6,10 +6,10 @@ import { db } from '../db';
 //create a resrvation in firebase
 export const createReservation = async (req: any, res: any, next: any) => {
     const id = v4();
-    const reservation = {...req.body, id};
+    const reservation = {...req.body, payed: false, id};
     try{
         await db.collection('Reservations').doc(id).set(reservation, {merge:true});
-        res.status(httpStatus.OK).json({});
+        res.status(httpStatus.OK).json({id});
     }
     catch (err){
         console.log('you fucked up')
@@ -49,7 +49,7 @@ export const deleteReservation = async (req: any, res: any, next: any) => {
 
     try{
         await db.collection('Reservations').doc(reservationId).delete();
-        res.status(httpStatus.OK).json({});
+        res.status(httpStatus.OK).send(`Successfully deleted reservation ${reservationId}`);
     }
     catch (err){
         console.log('you fucked up')
