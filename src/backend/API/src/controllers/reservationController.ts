@@ -1,14 +1,14 @@
 import httpStatus from 'http-status';
+import { v4 } from 'uuid';
 import { db } from '../db';
 //tldr just make it do the stuff in firebase
 //req.body <= has data
 //create a resrvation in firebase
 export const createReservation = async (req: any, res: any, next: any) => {
-    const {accountId} = req.params
-    const {hotelName} = req.body;
-    const reserveration = {hotelName};
+    const id = v4();
+    const reservation = {...req.body, id};
     try{
-        await db.collection('Reservations').doc(accountId).set(reserveration, {merge:true});
+        await db.collection('Reservations').doc(id).set(reservation, {merge:true});
         res.status(httpStatus.OK).json({});
     }
     catch (err){
@@ -24,9 +24,14 @@ export const getReservation = async (req: any, res: any, next: any) => {
     console.log("this isthe " + accountId)
     //console.log(db.collection('Reservations').doc('Jimbo').get())
     try {
-        const cringe = await db.collection('Reservations').doc(accountId).get()
+        const cringe = await db.collection('Reservations').where('accountId', '==', accountId).get()
         //const cringe = await db.collection('Reservations').doc('Jimbo').get()
-        res.status(httpStatus.OK).json(cringe.data()) 
+        let temp: any = [];
+        cringe.forEach(doc => {
+            temp.push(doc.data());
+        })
+
+        res.status(httpStatus.OK).json({reservations: temp}) 
     } catch (err) {
         console.log("ya fuked up")
         next(err)
@@ -40,11 +45,10 @@ export const getReservation = async (req: any, res: any, next: any) => {
 //req.body
 //delete reservation in firebase
 export const deleteReservation = async (req: any, res: any, next: any) => {
-    const {accountId} = req.params
-    const {hotelName} = req.body;
-    const reserveration = {hotelName};
+    const {reservationId} = req.params
+
     try{
-        await db.collection('Reservations').doc(accountId).delete();
+        await db.collection('Reservations').doc(reservationId).delete();
         res.status(httpStatus.OK).json({});
     }
     catch (err){
