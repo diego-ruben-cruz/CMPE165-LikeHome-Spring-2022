@@ -1,21 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #ffffff;
-}
-
-footer {
+.footer {
     position: absolute;
     bottom: 0;
     background: linear-gradient(#2B6FD4, #1b59b8);
     height: auto;
     width: 100vw;
     font-family: 'Montserrat', sans-serif;
-    padding-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     color: #ffffff;
 }
 

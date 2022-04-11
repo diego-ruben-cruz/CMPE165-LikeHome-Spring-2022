@@ -1,60 +1,69 @@
-/* Make all the text size Large*/
-* {
-  font-size: medium;
-  text-align: center;
-  padding: 5px 14px;
+.searchbar {
+  position: relative;
+  left: 18%;
+  background: linear-gradient(#2B6FD4, #1b59b8);
+  height: 110px;
+  width: 64%;
+  border-radius: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.header {
+  font-size:34px;
+  padding-left: 44px;
+  color: white;
+  width: 180px;
+  height: 40px; 
+  padding-top: 5px;
 }
 
 /*The Search Bar with the text inputs, blue background, and button*/
-.bar {
-  border-color: black;
-  border-style: solid;
-  background-color: #1239b8;
-  height: 75px;
-  width: 1300px;
+.bar input {
+  border-radius: 100px;
+  height:45px;
+  text-align: center;
 }
 
-/* Grey Background for the text 'Where to?' as well as make it left leaning */
-.header {
-  border-style: solid solid none solid;
-  border-color: black;
-  background-color: rgb(167, 163, 163);
-  background-size: contain;
-  text-align:justify;
-  width: 160px;
-  height: 40px; 
-}
-
+/*Location Text-box*/
 .text1 {
-  margin: 16px 100px 50px 60px;
+  width: 250px;
+  margin: 9px 100px 50px 30px;
 }
 
+/*Beginning date to leave*/
 .text2{
-  margin: 0px 0px 0px 0px;
+  margin: 9px 0px 0px 0px;
 }
 
+/*End Date*/
 .text3{
-  margin: 16px 0px 0px 0px;
+  margin: 9px 0px 100px 0px;
 }
 
+/* Number of Guests*/
 .text4 {
-  margin: 16px 50px 100px 60px;
+  margin: 9px 75px 80px 100px;
 }
 
 /* Design of the Search Button*/
 .button1 {
-  background-color: rgb(134, 134, 134);
-  width: 80px;
+  width: 80px; 
   height: 45px; 
-  border: black;
+  transition: all .5s ease;
+  color: #fff;
+  border: 3px solid white;
+  font-family:'Montserrat', sans-serif;
+  text-transform: uppercase;
   text-align: center;
-  opacity: 20;
-  transition: 0.3s;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
+  line-height: 1;
+  background-color : transparent;
+  padding: 10px;
+  outline: none;
+  border-radius: 50px;
 }
 
 .button1:hover {
-  opacity: 0.6;
+  color: #001F3F;
+  background-color: #fff;
 }
