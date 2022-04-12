@@ -7,7 +7,7 @@ const router = express.Router();
 router.route('/').get(account.getAccounts);
 
 router.route('/:accountId').get(account.getAccount);
-//router.route('/:accountId').post(account.createAccount);
+router.route('/create').post(account.createAccount);
 //router.route('/:accountId').patch(account.updateAccount);
 //router.route('/:accountId').delete(account.deleteAccount);
 

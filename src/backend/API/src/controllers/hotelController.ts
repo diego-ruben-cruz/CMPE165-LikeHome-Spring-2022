@@ -36,7 +36,7 @@ export const listHotels = async (req: any, res: any, next: any) => {
     //     dog: true,
     //     cars: 3
     //   }
-    // }
+    // }  
     // await db.collection('Hotels').doc('Motel96').set(sample, {merge:true});
     // res.status(httpStatus.OK).json({'uh': 'huh'});
   } catch (err) {
