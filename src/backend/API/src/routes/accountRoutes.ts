@@ -7,8 +7,8 @@ const router = express.Router();
 router.route('/').get(account.getAccounts);
 
 router.route('/:accountId').get(account.getAccount);
-router.route('/create').post(account.createAccount);
-//router.route('/:accountId').patch(account.updateAccount);
-//router.route('/:accountId').delete(account.deleteAccount);
+router.route('/').post(account.createAccount);
+router.route('/:accountId').patch(account.updateAccount);
+router.route('/:accountId').delete(account.deleteAccount);
 
 export default router;
