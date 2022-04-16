@@ -33,7 +33,7 @@ const Home = () => {
           height: 500,
         }}
         >
-          <SearchBar/>
+          <SearchBar location="City, State" numberOfPeople="Number of Guests"/>
         </div>
         
         <div>
