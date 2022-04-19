@@ -24,7 +24,7 @@ export const pay = async (req: any, res: any, next: any) => {
         temp = {...temp, paymentDetails: doc.data()?.Payment}
     }
     if (temp.saveDetails)
-      await db.collection('Users').doc(temp.accountId).set({Payment: temp.paymentDetails}, {merge: true})
+      await db.collection('Users').doc(temp.accountId).set({payment: temp.paymentDetails}, {merge: true})
 
     if (validateCardNumber(temp.paymentDetails)) {
       await db.collection('Reservations').doc(temp.reservationId).set({payed: true}, {merge: true});

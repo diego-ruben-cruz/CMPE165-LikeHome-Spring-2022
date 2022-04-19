@@ -47,9 +47,9 @@ export const createAccount = async(req: any, res: any, next: any) => {
             creditCard,
             payment
         }
-        const ret = await db.collection('Users').doc(name).set(toAdd, {merge:true});
+        const ret = await db.collection('Users').doc(email).set(toAdd, {merge:true});
         console.log("Created");
-        const accRef = db.collection('Users').doc(name);
+        const accRef = db.collection('Users').doc(email);
         const doc = await accRef.get();
         res.status(httpStatus.OK).json(doc.data());
     } catch(err) {
@@ -71,18 +71,19 @@ export const updateAccount = async(req: any, res: any, next: any) => {
             console.log("Account does not exist!");
         }
         else {
-        const {name, password, email, phone, creditCard, payment} = req.body;
-        const toAdd = {
-            name,
-            password,
-            email,
-            phone,
-            creditCard,
-            payment
-        }
-        const ret = await db.collection('Users').doc(name).set(toAdd, {merge:true});
+        const toAdd = req.body;
+        // update can be anything
+        // const toAdd = {
+        //     name,
+        //     password,
+        //     email,
+        //     phone,
+        //     creditCard,
+        //     payment
+        // }
+        const ret = await db.collection('Users').doc(accountId).set(toAdd, {merge:true});
         console.log("Updated");
-        const accRef = db.collection('Users').doc(name);
+        const accRef = db.collection('Users').doc(accountId);
         const doc = await accRef.get();
         }
         res.status(httpStatus.OK).json(doc.data());
