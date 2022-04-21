@@ -62,7 +62,8 @@ const api = {
   reservation: {
     // {
     //   accountId: "jerry@hotmail.com",
-    //   hotelId: 624429,
+    //   hotelId: "624429",
+    //   price: "125"
     //   checkIn: "03-23-19",
     //   checkOut: "03-24-19",
     //   guests: "1"
