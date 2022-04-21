@@ -25,17 +25,17 @@ export const getAccount = async(req: any, res: any, next: any) => {
         let doc = await accRef.get();
         if (!doc.exists) {
             console.log("No document found, creating...");
-            const user = await admin.auth().getUserByEmail(accountId);
-            if (user) {
-                await accRef.set({email: accountId, seals: 0});
-                doc = await accRef.get();
-            }
-            else {
-                console.log("User does not exist");
-                return res.status(NOT_FOUND).send('User does not exist');
-            }  
-        }
-        res.status(httpStatus.OK).json(doc.data());
+            admin.auth().getUserByEmail(accountId).then(async (user) => {
+                    await accRef.set({email: accountId, seals: 0});
+                    doc = await accRef.get();
+                })
+                .catch((er) => {
+                    console.log("User does not exist");
+                    res.status(NOT_FOUND).send('User does not exist');
+                });
+             
+        } else
+            res.status(httpStatus.OK).json(doc.data());
     } catch (err) {
         console.log("Could not get account");
         next(err);
