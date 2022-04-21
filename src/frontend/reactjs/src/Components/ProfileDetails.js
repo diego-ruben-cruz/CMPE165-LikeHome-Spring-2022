@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, TextField, Typography } from "@material-ui/core";
 import { NavigationState } from '../NavigationContext';
 import { auth, db } from '../firebase';
-import { signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase/auth';
 import Header from './Header';
 import Footer from './Footer';
 import { doc, setDoc } from 'firebase/firestore';
@@ -13,7 +13,6 @@ const Profile = ({handleClose}) => {
   const [firstName, setFirstName ]= useState("");
   const [lastName, setLastName ]= useState("");
   const [email, setEmail ]= useState("");
-  const [email2, setEmail2 ]= useState("");
   const {setAlert} = NavigationState();
 
   const handleSubmit = async () => {
@@ -40,14 +39,9 @@ const Profile = ({handleClose}) => {
       const result1 = await setDoc(doc(db, "Users", auth.currentUser.uid), {
         firstName:firstName ,
         lastName: lastName,
+        email: email,
       });
-
-          setAlert({
-            open:true,
-            message: `You did it`,
-            type: 'success',
-          });
-
+      
           
     }catch (error) {
       setAlert({
@@ -76,7 +70,7 @@ const Profile = ({handleClose}) => {
     </Typography>
     <Box 
         p={3}
-        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500}}
+        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 700, marginTop: 60}}
         >
           
           <TextField
@@ -124,16 +118,7 @@ const Profile = ({handleClose}) => {
           >
           </TextField>
 
-          <TextField
-           variant="outlined"
-            label="Confirm email"
-            type="email2"
-            value={email2}
-            onChange={(e) => setEmail2(e.target.value)}
-            fullWidth
-            style={{marginTop: 0,}}
-          >
-          </TextField>
+     
 
           <Button
             variant="contained"
