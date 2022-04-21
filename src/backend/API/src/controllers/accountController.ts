@@ -1,5 +1,5 @@
-import { ActionToHTTPMethod } from '@google-cloud/storage/build/src/file';
-import httpStatus from 'http-status';
+import admin from 'firebase-admin';
+import httpStatus, { NOT_FOUND } from 'http-status';
 import { db } from '../db';
 
 export const getAccounts = async(req: any, res: any, next: any) => {
@@ -22,11 +22,19 @@ export const getAccount = async(req: any, res: any, next: any) => {
 
     try {
         const accRef = db.collection('Users').doc(accountId);
-        const doc = await accRef.get();
-        if (!doc.exists) 
-            console.log("No such document!");
-        else 
-            console.log("Document found");   
+        let doc = await accRef.get();
+        if (!doc.exists) {
+            console.log("No document found, creating...");
+            const user = await admin.auth().getUserByEmail(accountId);
+            if (user) {
+                await accRef.set({email: accountId, seals: 0});
+                doc = await accRef.get();
+            }
+            else {
+                console.log("User does not exist");
+                return res.status(NOT_FOUND).send('User does not exist');
+            }  
+        }
         res.status(httpStatus.OK).json(doc.data());
     } catch (err) {
         console.log("Could not get account");
@@ -66,11 +74,11 @@ export const updateAccount = async(req: any, res: any, next: any) => {
     try {
         //Check if account exists
         const accRef = db.collection('Users').doc(accountId);
-        const doc = await accRef.get();
-        if (!doc.exists) {
-            console.log("Account does not exist!");
-        }
-        else {
+        // const doc = await accRef.get();
+        // if (!doc.exists) {
+        //     console.log("Account does not exist!");
+        // }
+        // else {
         const toAdd = req.body;
         // update can be anything
         // const toAdd = {
@@ -83,9 +91,9 @@ export const updateAccount = async(req: any, res: any, next: any) => {
         // }
         const ret = await db.collection('Users').doc(accountId).set(toAdd, {merge:true});
         console.log("Updated");
-        const accRef = db.collection('Users').doc(accountId);
+        // const accRef = db.collection('Users').doc(accountId);
         const doc = await accRef.get();
-        }
+        // }
         res.status(httpStatus.OK).json(doc.data());
     } catch(err) {
         console.log("Could not update account");
