@@ -77,7 +77,7 @@ const api = {
     // { *=optional
     //   accountId: "jerry@hotmail.com",
     //   reservationId: "08592959-0906-4086-a50c-05dc3ac5c8ec",
-    //   paymentDetails: {
+    //   *paymentDetails: {
     //     number: "4242424242424242",
     //     exp: "03/32",
     //     cvc: "123",
@@ -86,7 +86,8 @@ const api = {
     //     *state: "CA",
     //     *zip: "64044"
     //   },
-    //   *saveDetails": true
+    //   *saveDetails": true,
+    //   *useSeals: false
     // }
     pay: (body) => callApi('POST', 'payment/pay',{},body).then((resp) => resp.data)
   }
