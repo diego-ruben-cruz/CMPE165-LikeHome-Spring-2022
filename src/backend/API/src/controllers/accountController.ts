@@ -46,14 +46,15 @@ export const createAccount = async(req: any, res: any, next: any) => {
     console.log("Called createAccount method");
     
     try {
-        const {name, password, email, phone, creditCard, payment} = req.body;
+        const {name, password, email, phone, creditCard, payment} = req.body, seals = 0;
         const toAdd = {
             name,
             password,
             email,
             phone,
             creditCard,
-            payment
+            payment,
+            seals
         }
         const ret = await db.collection('Users').doc(email).set(toAdd, {merge:true});
         console.log("Created");
