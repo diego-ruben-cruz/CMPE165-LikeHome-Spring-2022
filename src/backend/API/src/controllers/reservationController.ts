@@ -6,9 +6,34 @@ import { db } from '../db';
 //create a resrvation in firebase
 export const createReservation = async (req: any, res: any, next: any) => {
     const id = v4();
+    const accountId = req.body.accountId
     const reservation = {...req.body, payed: false, id};
     try{
-        await db.collection('Reservations').doc(id).set(reservation, {merge:true});
+        const cringe = await db.collection('Reservations').where('accountId', '==', accountId).get()
+        let temp: any = [];
+        cringe.forEach(doc => {
+            temp.push(doc.data());
+        })
+        var multi
+        if (temp.length == 0) {
+            multi = false
+        }
+        else {
+            for (let i = 0; i < temp.length; i++) {
+                for (let j = i; j < temp.length; j++) {
+                    var firstDate = temp[i].checkIn
+                    var secondDate = temp[j].checkIn
+                    if (firstDate == secondDate) {
+                        multi = true
+                    }
+                }
+                
+            }
+        }
+        if (multi == false) {
+            console.log("mutli")
+            await db.collection('Reservations').doc(id).set(reservation, {merge:true});    
+        }
         res.status(httpStatus.OK).json({id});
     }
     catch (err){
