@@ -29,6 +29,11 @@ function App() {
     <Alert/>
     </div>
     </Router>
+    //,
+    //<Footer/>
+    //<HomePage />
+
+   // <Login />
   
       );
 
