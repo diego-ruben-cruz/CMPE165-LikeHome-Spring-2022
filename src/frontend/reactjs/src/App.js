@@ -17,6 +17,7 @@ import ReservationPage from "./Components/ReservationPage";
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Alert from './Components/Alert';
+import ProfileDetails from './Components/ProfileDetails';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/searchpage" component={SearchPage} />
         <Route path="/reservationpage" component={ReservationPage} />
-        
+        <Route path="/profile" component={ProfileDetails}/>
     <Home/>
     </Switch>
     <Alert/>
