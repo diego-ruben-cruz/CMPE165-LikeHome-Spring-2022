@@ -12,7 +12,7 @@ const axios = require("axios");
 // endpoint: 'hotel/search'
 // params: { location: San Jose }
 // body: {}
-export const callApi = (method, endpoint, params, body) => {
+const callApi = (method, endpoint, params, body) => {
   const options = {
     method,
     url: 'http://localhost:8080/api/' + endpoint,
@@ -20,7 +20,7 @@ export const callApi = (method, endpoint, params, body) => {
     body
   };
 
-  axios.request(options).then(function (response) {
+  return axios.request(options).then(function (response) {
       return response;
   }).catch(function (error) {
       console.error(error);
@@ -93,4 +93,4 @@ const api = {
     pay: (body) => callApi('POST', 'payment/pay',{},body).then((resp) => resp.data)
   }
 }
-export default api;
+module.exports = api;
