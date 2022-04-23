@@ -13,24 +13,24 @@ export const createReservation = async (req: any, res: any, next: any) => {
         let temp: any = [];
         cringe.forEach(doc => {
             temp.push(doc.data());
+            // console.log(doc.data())
         })
-        var multi
+        var hasMultiple = false
         if (temp.length == 0) {
-            multi = false
+            hasMultiple = false
         }
         else {
             for (let i = 0; i < temp.length; i++) {
-                for (let j = i; j < temp.length; j++) {
-                    var firstDate = temp[i].checkIn
-                    var secondDate = temp[j].checkIn
-                    if (firstDate == secondDate) {
-                        multi = true
-                    }
+                var firstDate = temp[i].checkIn
+                // console.log(firstDate)
+                // console.log(reservation.checkIn)
+                if (firstDate == reservation.checkIn) {
+                    hasMultiple = true
+                    break
                 }
-                
             }
         }
-        if (multi == false) {
+        if (hasMultiple == false) {
             console.log("mutli")
             await db.collection('Reservations').doc(id).set(reservation, {merge:true});    
         }
