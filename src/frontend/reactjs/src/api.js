@@ -12,18 +12,19 @@ const axios = require("axios");
 // endpoint: 'hotel/search'
 // params: { location: San Jose }
 // body: {}
-export const callApi = (method, endpoint, params, body) => {
+const callApi = (method, endpoint, params, body) => {
   const options = {
     method,
     url: 'http://localhost:8080/api/' + endpoint,
     params,
-    body
+    data: body
   };
 
-  axios.request(options).then(function (response) {
+  return axios.request(options).then(function (response) {
       return response;
   }).catch(function (error) {
-      console.error(error);
+      // console.error(error.response.data);
+      return error.response;
   });
 }
 
@@ -63,7 +64,7 @@ const api = {
     // {
     //   accountId: "jerry@hotmail.com",
     //   hotelId: "624429",
-    //   price: "125"
+    //   price: "125",
     //   checkIn: "03-23-19",
     //   checkOut: "03-24-19",
     //   guests: "1"
@@ -93,4 +94,4 @@ const api = {
     pay: (body) => callApi('POST', 'payment/pay',{},body).then((resp) => resp.data)
   }
 }
-export default api;
+module.exports = api;
