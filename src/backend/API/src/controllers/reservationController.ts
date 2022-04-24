@@ -21,6 +21,7 @@ export const createReservation = async (req: any, res: any, next: any) => {
         }
         else {
             for (let i = 0; i < temp.length; i++) {
+                hasMultiple = false
                 let newDateIn = reservation.checkIn.split('-')
                 //console.log(newDateIn)
                 let newDayIn = `20${newDateIn[2]}-${newDateIn[0]}-${newDateIn[1]}`
@@ -56,7 +57,7 @@ export const createReservation = async (req: any, res: any, next: any) => {
                     hasMultiple = true
                     break
                 }
-                else if (newDateCheckIn <= savedDateCheckIn && newDateCheckOut <= savedDateCheckOut) {    //old checkin in between
+                else if (newDateCheckIn <= savedDateCheckIn && newDateCheckOut >= savedDateCheckIn) {    //old checkin in between
                     console.log('failed test 2')
                     hasMultiple = true
                     break
@@ -74,10 +75,6 @@ export const createReservation = async (req: any, res: any, next: any) => {
                 else if (newDateCheckIn <= savedDateCheckIn && newDateCheckOut >= savedDateCheckOut) {    //old checkin and checkout in between new
                     console.log('failed test 5')
                     hasMultiple = true
-                    break
-                }
-                else {
-                    hasMultiple = false
                     break
                 }
             }
