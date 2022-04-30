@@ -15,7 +15,11 @@ function SearchBar() {
   // let  local = localStorage;
   // document.getElementById("input").value = local;
 
-  // const localData = localStorage.setItem("San Jose");
+  const [guests, setGuests] = useState("5");
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("guests", guests);
+  }, [guests]);
   // var name = localStorage.getItem("location");
   // console.log(name);
   // localStorage.clear();
@@ -93,6 +97,8 @@ function SearchBar() {
               color="primary"
               size="medium"
               label="Name"
+              value={guests}
+              onChange={(a) => setGuests(a.target.value)}
               fullWidth
               InputProps={{
                 startAdornment: (
