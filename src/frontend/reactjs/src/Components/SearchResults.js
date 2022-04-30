@@ -1,21 +1,20 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
 import HotelData from './data.json';
-// import Axios from 'axios';
+import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useEffect } from 'react';
+import SearchBar from './SearchBar';
+import * as api from '../api';
+
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -49,19 +48,65 @@ const useStyles = makeStyles((theme) => ({
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   // const getData = ()  => {
-  //   Axios.get('http://localhost:8080/api/hotel/search?location=Los Angeles');
+  //   Axios.get('http://localhost:8080/api/hotel/search?location=Los Angeles').then((response)=> {
+  //     console.log(response);
+  //   })
   // }
   
+// async componentDidMount() {     
+//         const { data } = await axios.get('/api/all')
+//         this.setState({posts: data, isLoading: false})
+//         console.log(this.state.posts)
+//     }
+  var name = localStorage.getItem("name");
+  console.log(name);
+
+  const handleSubmit = async () => {
+  const hotelInfo = await api.hotel.getInfo("624429");
+  console.log(hotelInfo);
+  }
+
     export default function SearchResults (){
     const classes = useStyles();
+    
+    const [state, setState] = useState([])
+    const [loading, setLoading] = useState(false)
+    
+    useEffect(() => {
+      getData();
+    }, [])
+  
+    const getData = async () => {
+      try {
+        setLoading(true);
+        fetch(`http://localhost:8080/api/hotel/search?location=${name}`)
+       .then(response => response.json())
+       .then(res => setState(res))
+      } catch (err) {
+        alert(err.message)
+      }
+    }
+
+  //   useEffect(() => {
+  //     fetch("http://localhost:8080/api/hotel/search?location=Las Vegas")
+  //     .then(response => response.json())
+  //     .then(res => setState(res))
+  //  }, [])
+ 
+  //  const getContacts = async () => {
+  //    try {
+  //      const res = axios.get("http://localhost:8080/api/hotel/search?location=Los Angeles")
+  //      setContacts(res)
+  //      setLoading(true);
+  //    } catch (err) {
+  //      alert(err.message)
+  //    }
+  //  }
+      
+
     return (
         <Grid container spacing={4}>
-          <Button onClick={() => {
-    alert('clicked');
-  }} href='/reservationpage/' size="small" color="primary" >
-                  Book Now
-                </Button>
-        {HotelData.map((card, index) => (
+        {loading && state.map((card, index) => (
           <Grid item key={card} xs={12} sm={6} md={7}>
             <Card className={classes.card} key={index} link='/reservationpage/${card.id}'>
                 <Box>
