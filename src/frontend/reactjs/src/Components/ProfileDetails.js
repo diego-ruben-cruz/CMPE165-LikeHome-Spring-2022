@@ -10,8 +10,8 @@ import { doc, setDoc } from 'firebase/firestore';
 const Profile = ({handleClose}) => {
 
   const [displayName, setDisplayName] = useState("");
-  const [firstName, setFirstName ]= useState("");
-  const [lastName, setLastName ]= useState("");
+  const [fullName, setFullName ]= useState("");
+  const [phoneNumber, setPhoneNumber ]= useState("");
   const [email, setEmail ]= useState("");
   const {setAlert} = NavigationState();
 
@@ -23,7 +23,7 @@ const Profile = ({handleClose}) => {
 
           setAlert({
             open:true,
-            message: `Welcome Back ${auth.currentUser.displayName}`,
+            message: `Profile Details Set ${auth.currentUser.displayName}`,
             type: 'success',
           });
 
@@ -37,9 +37,10 @@ const Profile = ({handleClose}) => {
     }
     try{
       const result1 = await setDoc(doc(db, "Users", auth.currentUser.uid), {
-        firstName:firstName ,
-        lastName: lastName,
+        Name:fullName ,
+        Phone: phoneNumber,
         email: email,
+
       });
       
           
@@ -87,10 +88,10 @@ const Profile = ({handleClose}) => {
             
           <TextField
             variant="outlined"
-            label="First Name"
-            type="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            label="Full Name"
+            type="fullName"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
             fullWidth
             style={{marginTop: 0,}}
           />
@@ -98,10 +99,10 @@ const Profile = ({handleClose}) => {
           
           <TextField
            variant="outlined"
-            label="Last Name"
+            label="Phone Number"
             type="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
             fullWidth
             style={{marginTop: 0,}}
           >
