@@ -16,6 +16,7 @@ function SearchPage(){
     return (
         <>
         <Header/>
+        <SearchBar/>
         <br/>
         <br/>
         <br/>

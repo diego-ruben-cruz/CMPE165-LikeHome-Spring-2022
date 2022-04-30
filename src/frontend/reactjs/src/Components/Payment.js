@@ -43,12 +43,12 @@ const Payment = ({handleClose}) => {
         
         accountId: email,
         // hotelId: "624429",
-        price: "690",
+        price: "300",
         checkIn: "04-23-19",
         checkOut: "04-24-19",
-        guests: "2"
-
+        guests: localStorage.getItem("guests")
       }) 
+
 
       const paymentResp = await api.payment.pay({
 
