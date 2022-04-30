@@ -8,6 +8,7 @@ import ReservationPage from "./Components/ReservationPage";
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Alert from './Components/Alert';
+import ProfileDetails from './Components/ProfileDetails';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/searchpage" component={SearchPage} />
         <Route path="/reservationpage" component={ReservationPage} />
+        <Route path="/profile" component={ProfileDetails}/>
         <Route path="/payment" component={Payment} />
     <Home/>
     </Switch>
