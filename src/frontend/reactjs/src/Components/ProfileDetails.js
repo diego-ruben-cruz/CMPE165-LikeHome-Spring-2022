@@ -41,7 +41,9 @@ const Profile = ({handleClose}) => {
         Phone: phoneNumber,
         email: email,
 
-      });
+      },
+     {merge: true}
+      );
       
           
     }catch (error) {
@@ -60,6 +62,7 @@ const Profile = ({handleClose}) => {
       style={{
         fontSize:50,
         alignItems: 'center',
+        marginTop: 50,
         marginInlineStart: 900,
         fontFamily: [
           'Monserrat',
@@ -69,9 +72,10 @@ const Profile = ({handleClose}) => {
     >
         Profile
     </Typography>
+    <div>
     <Box 
         p={3}
-        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 700, marginTop: 60}}
+        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 100, marginTop: 60}}
         >
           
           <TextField
@@ -85,7 +89,7 @@ const Profile = ({handleClose}) => {
           
           
           
-            
+ 
           <TextField
             variant="outlined"
             label="Full Name"
@@ -130,6 +134,17 @@ const Profile = ({handleClose}) => {
             Confirm
           </Button>
         </Box>
+        <Box 
+        p={3}
+        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 100, marginTop: 60}}
+        >
+          <Typography
+          style={{ marginTop: -590,  marginLeft:900}}
+          >
+            Rewards:
+          </Typography>
+        </Box>
+        </div>
         <Footer/>
         </>
   )
