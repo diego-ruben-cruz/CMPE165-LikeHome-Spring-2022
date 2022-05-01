@@ -18,32 +18,51 @@ function SearchBar() {
   // let  local = localStorage;
   // document.getElementById("input").value = local;
 
-  const [guests, setGuests] = useState("5");
+  const [guests, setGuests] = useState(() => {
+  const saved = localStorage.getItem("guests");
+  const initialValue = saved;
+  return initialValue || "";
+  });
   useEffect(() => {
-    // storing input name
     localStorage.setItem("guests", guests);
   }, [guests]);
 
-  const [checkin, setCheckIn] = useState("01-10-03");
+  const [checkin, setCheckIn] = useState(() => {
+  const saved = localStorage.getItem("checkin");
+  const initialValue = saved;
+  return initialValue || "";
+  });
+
   useEffect(() => {
-    // storing input name
     localStorage.setItem("checkin", checkin);
   }, [checkin]);
 
-  const [checkout, setCheckOut] = useState("01-11-03");
+  const [checkout, setCheckOut] =  useState(() => {
+  const saved = localStorage.getItem("checkout");
+  const initialValue = saved;
+  return initialValue || "";
+  });
+
   useEffect(() => {
-    // storing input name
     localStorage.setItem("checkout", checkout);
   }, [checkout]);
-  // var name = localStorage.getItem("location");
-  // console.log(name);
-  // localStorage.clear();
-  const [name, setName] = useState("");
+
+
+  const [name, setName] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("name");
+    const initialValue = saved;
+    return initialValue || "";
+  });
+
   useEffect(() => {
-    // storing input name
     localStorage.setItem("name", name);
   }, [name]);
-  // const [values, setValue] = useLocalStorage('key', 'initialValue');
+
+
+
+
+  
   const [value, setValue] = React.useState(null);
   return (
     <Box

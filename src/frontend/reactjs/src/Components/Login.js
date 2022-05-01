@@ -112,6 +112,12 @@ const Login = () => {
         </Card>
       </Container>
     </Box>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <Footer/>
     </>
   );

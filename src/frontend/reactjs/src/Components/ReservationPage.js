@@ -77,19 +77,8 @@ const ReservationPage = () => {
         alert(err.message)
       }
     }
-    
-  // console.log(hotelInfo);
 
   console.log(state);
-  const fs = require("fs");
-  const jsonString = JSON.stringify(state)
-  fs.writeFile('./newCustomer.json', jsonString, err => {
-    if (err) { 
-        console.log('Error writing file', err)
-    } else {
-        console.log('Successfully wrote file')
-    }
-})
 
   return (
       <>
