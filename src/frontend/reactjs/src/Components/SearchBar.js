@@ -10,6 +10,12 @@ import Typography from "@mui/material/Typography";
 import InputAdornment from "@mui/material/InputAdornment";
 import Input from "@material-ui/core/Input";
 import useLocalStorage from "./useLocalStorage";
+import PersonIcon from '@mui/icons-material/Person';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+
 
 function SearchBar() {
   // let  local = localStorage;
@@ -20,6 +26,18 @@ function SearchBar() {
     // storing input name
     localStorage.setItem("guests", guests);
   }, [guests]);
+
+  const [checkin, setCheckIn] = useState("01-10-03");
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("checkin", checkin);
+  }, [checkin]);
+
+  const [checkout, setCheckOut] = useState("01-11-03");
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("checkout", checkout);
+  }, [checkout]);
   // var name = localStorage.getItem("location");
   // console.log(name);
   // localStorage.clear();
@@ -29,7 +47,7 @@ function SearchBar() {
     localStorage.setItem("name", name);
   }, [name]);
   // const [values, setValue] = useLocalStorage('key', 'initialValue');
-
+  const [value, setValue] = React.useState(null);
   return (
     <Box
       padding={{ xs: 3, sm: 6 }}
@@ -40,6 +58,7 @@ function SearchBar() {
         zIndex: 100,
         position: "absolute",
         top: "400px",
+        left: "40px"
       }}
     >
       <form noValidate autoComplete="off">
@@ -89,14 +108,80 @@ function SearchBar() {
                 ),
               }}
             />
-            <TextField
+             <TextField
               sx={{
                 height: 54,
+                marginRight: { xs: 0, md: 2 },
+                marginBottom: { xs: 4, md: 0 },
               }}
               variant="outlined"
               color="primary"
               size="medium"
-              label="Name"
+              label="Check in"
+              value={checkin}
+              onChange={(i) => setCheckIn(i.target.value)}
+              fullWidth
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment type="number" position="start">
+                    <Box
+                      component={"svg"}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      width={24}
+                      height={24}
+                      color={"primary.main"}
+                    >
+                      <CalendarTodayIcon/>
+                    </Box>
+                  </InputAdornment>
+                ),
+              }}
+            />
+             <TextField
+              sx={{
+                height: 54,
+                marginRight: { xs: 0, md: 2 },
+                marginBottom: { xs: 4, md: 0 },
+              }}
+              variant="outlined"
+              color="primary"
+              size="medium"
+              label="Check Out"
+              value={checkout}
+              onChange={(o) => setCheckOut(o.target.value)}
+              fullWidth
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment type="number" position="start">
+                    <Box
+                      component={"svg"}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      width={24}
+                      height={24}
+                      color={"primary.main"}
+                    >
+                      <CalendarTodayIcon/>
+                    </Box>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <TextField
+              sx={{
+                height: 54,
+                marginRight: { xs: 0, md: 2 },
+                marginBottom: { xs: 4, md: 0 },
+              }}
+              variant="outlined"
+              color="primary"
+              size="medium"
+              label="Guests"
               value={guests}
               onChange={(a) => setGuests(a.target.value)}
               fullWidth
@@ -113,12 +198,7 @@ function SearchBar() {
                       height={24}
                       color={"primary.main"}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
+                      <PersonIcon/>
                     </Box>
                   </InputAdornment>
                 ),
