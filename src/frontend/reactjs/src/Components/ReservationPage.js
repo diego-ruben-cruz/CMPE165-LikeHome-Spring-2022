@@ -62,10 +62,34 @@ const ReservationPage = () => {
   //     alert(err.message)
   //   }
   // }
-  const handleSubmit = async () => {
-  const hotelInfo = await api.hotel.getInfo("624429");
+  const [state, setState] = useState([])
+    
+    useEffect(() => {
+      getData();
+    }, [])
+  
+    const getData = async () => {
+      try {
+        fetch(`http://localhost:8080/api/hotel/111803`)
+       .then(response => response.json())
+       .then(res => setState(res))
+      } catch (err) {
+        alert(err.message)
+      }
+    }
+    
   // console.log(hotelInfo);
-  }
+
+  console.log(state);
+  const fs = require("fs");
+  const jsonString = JSON.stringify(state)
+  fs.writeFile('./newCustomer.json', jsonString, err => {
+    if (err) { 
+        console.log('Error writing file', err)
+    } else {
+        console.log('Successfully wrote file')
+    }
+})
 
   return (
       <>
@@ -85,7 +109,7 @@ const ReservationPage = () => {
         src={room}
       />
                     <Grid item xs={12}>
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h5" component="h1">
             {HotelData.data.body.propertyDescription.name}
             </Typography>
             <Typography variant="h5" component="h2">
