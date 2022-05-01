@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 
 import routes from './routes';
 import { initDB } from './db';
@@ -9,8 +10,9 @@ initDB();
 const app = express();
 const port = 8080;
 
-app.use(express.json());
+app.use(cors());
 // define a route handler for the default home page
+app.use(express.json());
 app.use("/api", routes);
 
 // start the Express server

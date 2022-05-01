@@ -1,3 +1,4 @@
+import './App.css';
 import React, { Component } from 'react';
 import Home from './Components/Home';
 import SearchPage from './Components/SearchPage';
@@ -28,12 +29,11 @@ function App() {
     <Alert/>
     </div>
     </Router>
-    //,
-    //<Footer/>
-    //<HomePage />
-    //<SignUp />
-    //<Login />
-  );
+  
+      );
+
+  
+
 }
 
 export default App;
