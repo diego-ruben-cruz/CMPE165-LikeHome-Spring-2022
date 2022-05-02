@@ -19,6 +19,7 @@ const Login = ({handleClose}) => {
       });
       return;
     }
+    
     try{
       const result = await signInWithEmailAndPassword(
         auth,email, password

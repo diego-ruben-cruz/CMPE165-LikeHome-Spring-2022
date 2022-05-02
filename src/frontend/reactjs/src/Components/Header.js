@@ -8,6 +8,8 @@ import { auth } from '../firebase';
 import SideDrawer from '../MUI components/SideDrawer';
 import {Typography, AppBar, CssBaseline, Toolbar, Tabs, Box, Tab, Button} from '@material-ui/core'
 import { withTheme } from '@emotion/react';
+import Logout from '../Authentication/Logout';
+import ProfileButton from '../Authentication/ProfileButton';
 
 const Header = () => {
 
@@ -24,8 +26,15 @@ const Header = () => {
                     <Tabs style={{marginLeft: 'auto'}} color = 'white'>
                         <Tab label="Search"/>
                         <Tab label="About us"/>
+<<<<<<< Updated upstream
                         <LoginModal/>
                         <RegisterModal/>    
+=======
+                        {user? <Logout/>: <LoginModal/>}
+                        {user? <ProfileButton/>: <RegisterModal/>}   
+                        
+                        
+>>>>>>> Stashed changes
                     </Tabs>
                 </Toolbar>
             </AppBar>
