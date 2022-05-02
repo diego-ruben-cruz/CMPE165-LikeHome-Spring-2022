@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {useState, useEffect } from "react";
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -21,18 +21,44 @@ import './Filter.css';
 
 export default function Filter() {
     {/*Opens/Closes the category menu*/}
-    const [open1, setOpen1] = React.useState(true);
-    const [open2, setOpen2] = React.useState(true);
-    const [open3, setOpen3] = React.useState(true);
+    const [open1, setOpen1] = React.useState(false);
+    const [open2, setOpen2] = React.useState(false);
+    const [open3, setOpen3] = React.useState(false);
 
-    {/*Sets the filter for each object*/}
-    const [hotelName, setHotelName] = React.useState();
-    const [stars,setStars] = React.useState();
-    const [sortPrice, setSortPrice] = React.useState();
     
-
     {/*Sets the filter for each object*/}
-    const handleClick = () => {
+    const [filterHotelName, setFilterHotelName] = useState(() =>{
+      const saved = localStorage.getItem("filterHotelName");
+      const initialValue = saved;
+      return initialValue || "";
+    });
+    useEffect(() => {
+      localStorage.setItem("filterHotelName", filterHotelName);
+      
+    }, [filterHotelName]);
+
+    const [filterStars,setFilterStars]= useState(() =>{
+      const saved = localStorage.getItem("filterStars");
+      const initialValue = saved;
+      return initialValue || "";
+    });
+    useEffect(() => {
+      localStorage.setItem("filterStars", filterStars);
+      
+    }, [filterStars]);
+
+    const [filterPrice, setFilterPrice] = useState(() =>{
+      const saved = localStorage.getItem("filterPrice");
+      const initialValue = saved;
+      return initialValue || "";
+    });
+    useEffect(() => {
+      localStorage.setItem("filterPrice", filterPrice);
+
+    }, [filterPrice]);
+
+      {/*Sets the filter for each object*/}
+      const handleClick = () => {
         setOpen1(!open1);
       };
     
@@ -43,30 +69,7 @@ export default function Filter() {
       const handleClick3 = () => {
         setOpen3(!open3);
       };
-      
-      {/*Changes based on event*/}
-      const setFilter1 = (event) => {
         
-      };
-
-      const setFilter2 = (event) => {
-
-      };
-
-      const setFilter3 = (event) => {
-          if(sortPrice.equals("50<")){
-
-          }
-          else if(sortPrice.equals(">500")){
-
-          }
-          else{
-            const values = sortPrice.split("-",2);
-
-          }
-      };
-    
-      
       return (
         <List
           sx={{ width: '150px' }}
@@ -94,8 +97,9 @@ export default function Filter() {
                 <TextField 
                 id="hotelName" 
                 label="Hotel Name" 
-                variant="standard" 
-                onChange={setFilter1}
+                variant="standard"
+                value = {filterHotelName} 
+                onChange={(x) => setFilterHotelName(x.target.value)}
                 />
               </ListItemButton>
             </List>
@@ -116,8 +120,8 @@ export default function Filter() {
                   <RadioGroup
                     aria-labelledby="star-buttons-group-label"
                     name="stars-group"
-                    value = {stars}
-                    onChange={setFilter2}
+                    value = {filterStars}
+                    onChange={(y) => setFilterStars(y.target.value)}
                   >
                     <FormControlLabel value={10} control={<Radio />} label="10 Stars" />
                     <FormControlLabel value={9} control={<Radio />} label="9 Stars" />
@@ -150,8 +154,8 @@ export default function Filter() {
                   <RadioGroup
                     aria-labelledby="price-buttons-group-label"
                     name="price-group"
-                    value = {sortPrice}
-                    onChange={setFilter3}
+                    value = {filterPrice}
+                    onChange={(z) => setFilterPrice(z.target.value)}
                   >
                     <FormControlLabel value="50<" control={<Radio />} label="Less than $50" />
                     <FormControlLabel value="50-60" control={<Radio />} label="$50 - $60" />
