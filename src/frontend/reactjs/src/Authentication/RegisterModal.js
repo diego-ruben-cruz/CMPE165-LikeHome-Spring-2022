@@ -91,9 +91,5 @@ export default function RegisterModal() {
       </>
   );
 }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 

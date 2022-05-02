@@ -5,7 +5,7 @@ import { auth, db } from '../firebase';
 import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase/auth';
 import Header from './Header';
 import Footer from './Footer';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const Profile = ({handleClose}) => {
 
@@ -13,6 +13,7 @@ const Profile = ({handleClose}) => {
   const [fullName, setFullName ]= useState("");
   const [phoneNumber, setPhoneNumber ]= useState("");
   const [email, setEmail ]= useState("");
+  const[sealNumber, setSealNumber] = useState("");
   const {setAlert} = NavigationState();
 
   const handleSubmit = async () => {
@@ -55,6 +56,25 @@ const Profile = ({handleClose}) => {
     }
   };
   
+  const startQuery = async () =>{
+    try{
+      const docRef = doc(db, "Users", auth.currentUser.email);
+      const docSnap = await getDoc(docRef);
+      console.log(docSnap.data)
+      
+     setSealNumber(docSnap.data().seals)
+     console.log(sealNumber)
+    }
+    catch (error){
+      setAlert({
+        open: true,
+        message: error.message,
+        type: 'error',
+      });
+    }
+  }
+
+
   return (
     <>
     <Header/>
@@ -141,7 +161,10 @@ const Profile = ({handleClose}) => {
           <Typography
           style={{ marginTop: -590,  marginLeft:900}}
           >
-            Rewards:
+            Rewards:{sealNumber}
+          </Typography>
+          <Typography>
+            {sealNumber}
           </Typography>
         </Box>
         </div>

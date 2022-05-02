@@ -26,15 +26,10 @@ const Header = () => {
                     <Tabs style={{marginLeft: 'auto'}} color = 'white'>
                         <Tab label="Search"/>
                         <Tab label="About us"/>
-<<<<<<< Updated upstream
-                        <LoginModal/>
-                        <RegisterModal/>    
-=======
                         {user? <Logout/>: <LoginModal/>}
                         {user? <ProfileButton/>: <RegisterModal/>}   
                         
                         
->>>>>>> Stashed changes
                     </Tabs>
                 </Toolbar>
             </AppBar>

@@ -45,6 +45,8 @@ const Register = ({handleClose}) => {
         type: 'error',
       });
     }
+    
+    
   };
  
   
