@@ -60,10 +60,75 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var name = localStorage.getItem("name");
 console.log(name);
 
-const handleSubmit = async () => {
-  const hotelInfo = await api.hotel.getInfo("624429");
-  console.log(hotelInfo);
-};
+{/*Holds the the sort and filter options*/}
+var params = {};
+
+{/*Changes based on what user wants to Sort*/}
+var sortOrder = localStorage.getItem("setOrder");
+
+{/*Changes based on event*/}
+var filterHotelName = localStorage.getItem("filterHotelName");
+var filterStars = localStorage.getItem("filterStars");
+var filterPrice= localStorage.getItem("filterPrice");
+
+ {/*Get Info about the Sort*/}
+function checkSort(){
+  if(sortOrder === ""){
+    return;
+  }
+
+  if(sortOrder == 1 ){
+     params = {...params, sortOrder: "PRICE_HIGHEST_FIRST" };
+  }
+  else if(sortOrder == 2){
+    params = {...params, sortOrder: "PRICE_LOWEST_FIRST"};
+  }
+  else if(sortOrder == 3 ){
+    params = {...params, sortOrder: "STAR_RATING_HIGHEST_FIRST"};
+  }
+  else if(sortOrder == 4){
+     params = {...params, sortOrder: "STAR_RATING_LOWEST_FIRST"};
+  }
+  else if(sortOrder == 5){
+    params = {...params, sortOrder: "BEST_SELLER"};
+  }
+  else if(sortOrder == 6){
+     params = {...params, sortOrder: "PRICE"};
+   }  
+}
+ function checkFilterStars(){
+   if(filterStars === ""){
+     return;
+   }
+   params = {...params, starsRatings: filterStars};
+ }
+
+
+ {/*Check if there is max/min price filter, then retrieve it*/}
+ function checkFilterPrice(){
+   if(filterPrice === ""){
+      return;
+   }
+
+  var pointOne = 0;
+  var pointTwo = 0;
+  if(filterPrice === "50<"){
+    pointOne = 50;
+    params = {...params, maxPrice: pointOne};
+  }
+  else if(filterPrice === ">500"){
+    pointOne = 500;
+    params = {... params, minPrice: pointOne};
+  }
+  else{
+    const arr = filterPrice.split("-");
+    pointOne = arr[0];
+    pointTwo = arr[1];
+    params = {...params, minPrice: pointOne, maxPrice: pointTwo};
+  }
+ }
+
+ 
 
 export default function SearchResults() {
   const classes = useStyles();
@@ -74,6 +139,19 @@ export default function SearchResults() {
     localStorage.setItem("price", price);
   }, [price]);
 
+  const [urlimage, setUrlimage] = useState(urlimage);
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("urlimage", urlimage);
+  }, [urlimage]);
+
+  const [hotelname, setHotelName] = useState(hotelname);
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("hotelname", hotelname);
+  }, [hotelname]);
+
+
   const [state, setState] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -81,12 +159,16 @@ export default function SearchResults() {
     getData();
   }, []);
 
+  checkSort();
+
+  checkFilterPrice();
+
+  checkFilterStars();
+  
   const getData = async () => {
     try {
       setLoading(true);
-      fetch(`http://localhost:8080/api/hotel/search?location=${name}`)
-        .then((response) => response.json())
-        .then((res) => setState(res));
+      api.hotel.search({...params, location: name}).then((res) =>setState(res));
     } catch (err) {
       alert(err.message);
     }
@@ -144,9 +226,9 @@ export default function SearchResults() {
                     onChange={(card) => setPrice(card.ratePlan.price.current)}
                     sx={{ position: "absolute", top: "-305px", left: "380px" }}
                     onClick={() => {
-                      localStorage.setItem("price", card.ratePlan.price.current); 
-                      localStorage.setItem("id", card.id);
-                      localStorage.setItem("url", card.optimizedThumbUrls.srpDesktop);
+                      localStorage.setItem("price", card.ratePlan.price.current)
+                      localStorage.setItem("urlimage", card.optimizedThumbUrls.srpDesktop)
+                      localStorage.setItem("hotelname", card.name)
                     }}
                     href="/reservationpage/"
                   >

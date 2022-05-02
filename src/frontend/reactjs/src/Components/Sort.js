@@ -1,9 +1,10 @@
-import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import React, {useState, useEffect } from "react";
 
 {/*
 The variable 'order' holds the value, between 0 - 5 of what to user wants to order the list.
@@ -15,56 +16,43 @@ The variable 'order' holds the value, between 0 - 5 of what to user wants to ord
 5 - Order by Name Starting at Z - A
 */}
 export default function Sort() {
-    const [checked, setChecked] = React.useState(false);
-  
-    const handleChange = (event) => {
-      setChecked(event.target.value);
-      switch(checked){
-        case 0:
-
-            break;
-        case 1:
-            break;
-        case 2:
-              break;
-        case 3:
-              break;
-        case 4:
-              break;
-        case 5:
-              break;
-
-      }
-    };
-  
-    return (
+    const [sortOrder, setSortOrder] = useState(() =>{
+        const saved = localStorage.getItem("sortOrder");
+        const initialValue = saved;
+        return initialValue || "";
+      });
+      useEffect(() => {
+        localStorage.setItem("sortOrder", sortOrder);
+      }, [sortOrder]);
+    
+    return ( 
       <Box sx={{ minWidth: 150 }}>
         <FormControl fullWidth>
-          <InputLabel id="sorting">Sort by:</InputLabel>
+          <InputLabel id="sorting">Sort:</InputLabel>
           <Select
             labelId="SortByOrderLabel"
             id="SortbyOrder"
-            value={checked}
+            value={sortOrder}
             label="Order"
-            onChange={handleChange}
+            onChange={(r) => setSortOrder(r.target.value)}
           >
-            
-            <MenuItem value={0}>
+    
+            <MenuItem value={1}>
                 High Price 
             </MenuItem>
-            <MenuItem value={1}>
+            <MenuItem value={2}>
                 Low Price 
             </MenuItem>
-            <MenuItem value={2}>
+            <MenuItem value={3}>
                 High Rating 
             </MenuItem>
-            <MenuItem value={3}>
+            <MenuItem value={4}>
                 Low Rating
             </MenuItem>
-            <MenuItem value={4}>
+            <MenuItem value={5}>
                 High Hotel Name 
             </MenuItem>
-            <MenuItem value={5}>
+            <MenuItem value={6}>
                Low Hotel Name
             </MenuItem>
             

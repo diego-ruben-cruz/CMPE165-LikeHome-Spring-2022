@@ -25,9 +25,10 @@ const Header = () => {
                         <Tab label="About us"/>
                         <Button  href='/login/' style={{borderRadius: '50px'}}variant="contained">Log in</Button>
                         <Button  href='/signup/'style={{marginLeft: '10px', borderRadius: '50px'}} variant="contained">Sign Up</Button>
-                    </Tabs>
-                </Toolbar>
-            </AppBar>
+                        {user? "HELLO" : <LoginModal/>}
+                        {user? "HELLO" : <RegisterModal/>}   
+                        
+           
         </>
     );
 }

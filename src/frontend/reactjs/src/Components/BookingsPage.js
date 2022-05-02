@@ -14,8 +14,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import * as api from "../api";
-import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase/auth';
+import { signInWithEmailAndPassword, updateEmail, updateProfile, onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../firebase';
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { async } from "@firebase/util";
+import { doc, setDoc } from 'firebase/firestore';
+import ChangeDateModal from "./ChangeDateModal";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -77,62 +83,109 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   //    }
   //  }
 
-  
+
+
+
+export default function BookingsPage(props) {
+
+const classes = useStyles();
+
+const [checkout, setCheckOut] = useState("");
+const [checkin, setCheckin] = useState("");
 
 const getReservation = async () => {
 
     try{
-        const reservationGet = await api.reservation.getAll(auth.currentUser.email)
+        // console.log(auth.currentUser.email)
+        // const reservationGet = await api.reservation.getAll(auth.updateCurrentUser.email)
+        // console.log(auth.currentUser.email)
+        // setState(reservationGet)
+        let reservationGet = [];
+        onAuthStateChanged(auth, async (user) => {
+          reservationGet = await api.reservation.getAll(user.email);
+          console.log(reservationGet);
+          setState(reservationGet.reservations)
+        })
+        
+        
+       
+
+
+
 
     } catch(error) {
         console.log(error);
+        
     }
-
-
 };
 
-  return (
+    const [state, setState] = useState([]);
+
+    useEffect(() => {
+        getReservation();
+      }, []);
+
+
+      // (!state.name)? 'Nope':state.name;
+      // (!state.url)? 'Nope':state.url;
+      // (!state.checkin)? 'Nope':state.checkin;
+      // (!state.checkout)? 'Nope':state.checkout;
+      // (!state.price)? 'Nope':state.price;
+
+
+  return(
     <Grid container spacing={4}>
-      {loading &&
+      {
         state.map((card, index) => (
           <Grid item key={card} xs={12} sm={6} md={7}>
             <Card
               className={classes.card}
               key={index}
-              link="/reservationpage/${card.id}"
+             
             >
               <Box>
                 <CardMedia
                   className={classes.cardMedia}
-                  image={card.optimizedThumbUrls.srpDesktop}
+                  image={card.url}
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h1">
-                    {card.name}
+                    Name : {card.hotename}
                   </Typography>
                   <Typography gutterBottom variant="h6" component="h1">
-                    {card.address.streetAddress}, {card.address.locality},{" "}
-                    {card.address.postalCode}, {card.address.region}
-                  </Typography>
-                  <Typography>Rewards</Typography>
-                  <Typography>{card.guestReviews.rating}</Typography>
-                  <Typography>Price: {card.ratePlan.price.current}</Typography>
+                    Check in: {card.checkIn},{" "}
+                    Check out: {card.checkOut}
+                    </Typography>
+                  
+                  
+                  <Typography>Price: {card.price}</Typography>
+
+                  
+
+
                 </CardContent>
+                
                 <CardActions>
+                  <ChangeDateModal id = {card.id} />
+
                   <Button
                     variant="contained"
                     color="secondary"
-                    value={price}
-                    onChange={(card) => setPrice(card.ratePlan.price.current)}
-                    sx={{ position: "absolute", top: "-305px", left: "380px" }}
-                    onClick={() => {
-                      localStorage.setItem("price", card.ratePlan.price.current)
-                    }}
-                    href="/reservationpage/"
+
+                    onClick = {async() => {
+                       await api.reservation.delete(card.id)
+                       window.location.reload()
+                      }
+                    
+                      
+                    }
+                    
                   >
-                    Book Now
-                  </Button>
+                    Cancel Reservation
+                  </Button> 
+
+                  
                 </CardActions>
               </Box>
             </Card>
@@ -143,4 +196,4 @@ const getReservation = async () => {
 }
 
 
-// export default BookingsPage;
+ 

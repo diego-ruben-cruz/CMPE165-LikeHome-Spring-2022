@@ -10,9 +10,12 @@ import Card from '@mui/material/Card';
 import Footer from './Footer';
 import Header from './Header';
 import { auth, db } from '../firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, query, setDoc, collection, getDocs, where } from 'firebase/firestore';
 import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase/auth';
 import * as api from '../api';
+import { NavigationState } from '../NavigationContext';
+
+
 
 
 const Payment = ({handleClose}) => {
@@ -31,22 +34,46 @@ const Payment = ({handleClose}) => {
   const [address, setAddress] = useState("");
   const [zip, setZip] = useState("");
   const [cardname, setCardName] = useState("");
-
+  const {setAlert} = NavigationState();
   
   //const [name, setName] = useState("");
   
 
   const handleSubmit = async () => {
+    
+    console.log(auth.currentUser.email)
 
     try {
+      const q = query(collection(db,"Reservations"), where("accountId", "==", auth.currentUser.email));
+      const querySnapshot= await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        const date = doc.data().checkIn
+        console.log(doc.data().checkIn)
+        console.log(localStorage.getItem("checkin"))
+
+        if(date == (localStorage.getItem("checkin"))){
+          console.log(doc.data().checkIn)
+          setAlert({
+            open: true,
+            message: 'Cannot Reserve a Hotel on the same day',
+            type:'error',
+          });
+          return;
+        }
+      });
+
       const reservationResp = await api.reservation.create({
         
         accountId: email,
         // hotelId: "624429",
+        hotename: localStorage.getItem("hotelname"),
         price: localStorage.getItem("price"),
         checkIn: localStorage.getItem("checkin"),
         checkOut: localStorage.getItem("checkout"),
-        guests: localStorage.getItem("guests")
+        guests: localStorage.getItem("guests"),
+        url: localStorage.getItem("url")
       }) 
 
 
