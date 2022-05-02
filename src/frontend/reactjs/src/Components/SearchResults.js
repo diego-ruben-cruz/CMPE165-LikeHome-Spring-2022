@@ -144,7 +144,9 @@ export default function SearchResults() {
                     onChange={(card) => setPrice(card.ratePlan.price.current)}
                     sx={{ position: "absolute", top: "-305px", left: "380px" }}
                     onClick={() => {
-                      localStorage.setItem("price", card.ratePlan.price.current)
+                      localStorage.setItem("price", card.ratePlan.price.current); 
+                      localStorage.setItem("id", card.id);
+                      localStorage.setItem("url", card.optimizedThumbUrls.srpDesktop);
                     }}
                     href="/reservationpage/"
                   >

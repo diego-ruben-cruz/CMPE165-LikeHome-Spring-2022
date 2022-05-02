@@ -9,7 +9,6 @@ import Link from '@mui/material/Link';
 import Footer from './Footer';
 import Header from './Header';
 import Container from './Container';
-import HotelData from './data.json';
 import CardMedia from '@material-ui/core/CardMedia';
 import room from './room.jpg';
 import { makeStyles } from '@material-ui/core/styles';
@@ -40,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
 
 // var hi = localStorage.getItem("location");
 // var key = "Things to do";
-
+var id = localStorage.getItem("id");
+var url = localStorage.getItem("url");
 
 const ReservationPage = () => {
 
@@ -63,14 +63,14 @@ const ReservationPage = () => {
   //   }
   // }
   const [state, setState] = useState([])
-    
+  
     useEffect(() => {
       getData();
     }, [])
   
     const getData = async () => {
       try {
-        fetch(`http://localhost:8080/api/hotel/111803`)
+        fetch(`http://localhost:8080/api/hotel/${id}`)
        .then(response => response.json())
        .then(res => setState(res))
       } catch (err) {
@@ -95,26 +95,25 @@ const ReservationPage = () => {
               minHeight={300}
         component="img"
         alt="The house from the offer."
-        src={room}
+        src={url}
       />
                     <Grid item xs={12}>
                     <Typography variant="h5" component="h1">
-            {HotelData.data.body.propertyDescription.name}
+            {(!state.data)? 'Nope':state.data.body.propertyDescription.name}
             </Typography>
             <Typography variant="h5" component="h2">
-            Star Rating: {HotelData.data.body.propertyDescription.starRatingTitle}
+            Star Rating: {(!state.data)? 'Nope': state.data.body.propertyDescription.starRatingTitle}
           </Typography>
-              <Typography>
-            {HotelData.data.body.propertyDescription.address.fullAddress}
+              <Typography variant="h5" component="h2">
+            {(!state.data)? 'Nope': state.data.body.propertyDescription.address.fullAddress}
           </Typography>
-          <Typography>
-            Guest Rating: {HotelData.data.body.guestReviews.brands.formattedRating}
+          <Typography variant="h5" component="h2">
+            Guest Rating: {(!state.data)? 'Nope': state.data.body.guestReviews.brands.formattedRating}
           </Typography>
-          <img
-                src={HotelData.data.body.propertyDescription.mapWidget.staticMapUrl}
-              />
+          <br/>
+          <br/>
               </Grid>
-              {HotelData.data.body.amenities.map((card, index) => (
+              {(!state.data)? 'Nope': state.data.body.amenities.map((card, index) => (
                 <Grid xs={12} sm={6} md={7}>
                 <Typography>
                  {card.heading}: {card.listItems.map((card2, index) => (
@@ -129,8 +128,12 @@ const ReservationPage = () => {
               </Grid>
 
             </Grid>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <Grid container spacing={4}>
-            {HotelData.data.body.propertyDescription.roomTypeNames.map((card) => (
+            {(!state.data)? 'Nope': state.data.body.propertyDescription.roomTypeNames.map((card) => (
               
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card className={card}>
