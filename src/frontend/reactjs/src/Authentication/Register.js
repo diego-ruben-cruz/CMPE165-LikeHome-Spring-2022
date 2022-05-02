@@ -92,7 +92,7 @@ const Register = ({handleClose}) => {
       >
         
         Sign Up
-        <Link to="/Login"> </Link>
+       
 
       </Button>
     </Box>
