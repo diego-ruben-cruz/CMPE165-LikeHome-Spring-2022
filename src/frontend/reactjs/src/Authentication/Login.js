@@ -4,7 +4,6 @@ import { NavigationState } from '../NavigationContext';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
-
 const Login = ({handleClose}) => {
 
   const [email, setEmail] = useState("");

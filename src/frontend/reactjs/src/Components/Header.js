@@ -26,8 +26,6 @@ const Header = () => {
                         <Tab label="About us"/>
                         <LoginModal/>
                         <RegisterModal/>    
-                        
-                        
                     </Tabs>
                 </Toolbar>
             </AppBar>

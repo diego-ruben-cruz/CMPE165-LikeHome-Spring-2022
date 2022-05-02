@@ -9,8 +9,7 @@ import Link from '@mui/material/Link';
 import Footer from './Footer';
 import Header from './Header';
 import Container from './Container';
-import CardMedia from '@mui/material/CardMedia';
-import town from './town.svg';
+
 const Login = () => {
   return (
       <>
@@ -31,7 +30,7 @@ const Login = () => {
           <Typography color="text.secondary">
             Login to manage your account.
           </Typography>
-        </Box> 
+        </Box>
         <Card sx={{ p: { xs: 4, md: 6 } }}>
           <form>
             <Grid container spacing={4}>
@@ -95,14 +94,14 @@ const Login = () => {
                       <Link
                         component={'a'}
                         color={'primary'}
-                        href={'/login/'}
+                        href={'#'}
                         underline={'none'}
                       >
                         Sign up here.
                       </Link>
                     </Typography>
                   </Box>
-                  <Button  href='/login/' size={'large'} variant={'contained'} type={'submit'}>
+                  <Button size={'large'} variant={'contained'} type={'submit'}>
                     Login
                   </Button>
                 </Box>
