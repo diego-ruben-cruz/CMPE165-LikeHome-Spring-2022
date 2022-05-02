@@ -3,6 +3,7 @@ import { Box, Button, TextField } from "@material-ui/core";
 import { NavigationState } from '../NavigationContext';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const Register = ({handleClose}) => {
 
@@ -46,7 +47,7 @@ const Register = ({handleClose}) => {
       });
     }
     
-    
+
   };
  
   
@@ -89,7 +90,10 @@ const Register = ({handleClose}) => {
         style={{ backgroundColor: "#0055A2", marginTop: 30, color:'white',}}
         onClick={handleSubmit}
       >
+        
         Sign Up
+        <Link to="/Login"> </Link>
+
       </Button>
     </Box>
   )
