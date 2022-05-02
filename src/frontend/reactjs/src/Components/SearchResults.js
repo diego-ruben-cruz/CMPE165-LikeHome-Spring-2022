@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import * as api from "../api";
+import { WindowSharp } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -44,19 +45,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-// const getData = ()  => {
-//   Axios.get('http://localhost:8080/api/hotel/search?location=Los Angeles').then((response)=> {
-//     console.log(response);
-//   })
-// }
-
-// async componentDidMount() {
-//         const { data } = await axios.get('/api/all')
-//         this.setState({posts: data, isLoading: false})
-//         console.log(this.state.posts)
-//     }
 var name = localStorage.getItem("name");
 console.log(name);
 
@@ -64,7 +52,7 @@ console.log(name);
 var params = {};
 
 {/*Changes based on what user wants to Sort*/}
-var sortOrder = localStorage.getItem("setOrder");
+var sortOrder = localStorage.getItem("sortOrder");
 
 {/*Changes based on event*/}
 var filterHotelName = localStorage.getItem("filterHotelName");
@@ -96,11 +84,12 @@ function checkSort(){
      params = {...params, sortOrder: "PRICE"};
    }  
 }
+
  function checkFilterStars(){
    if(filterStars === ""){
      return;
    }
-   params = {...params, starsRatings: filterStars};
+   params = {...params, guestRatingMin: Number(filterStars)};
  }
 
 
@@ -114,21 +103,19 @@ function checkSort(){
   var pointTwo = 0;
   if(filterPrice === "50<"){
     pointOne = 50;
-    params = {...params, maxPrice: pointOne};
+    params = {...params, priceMax: pointOne};
   }
   else if(filterPrice === ">500"){
     pointOne = 500;
-    params = {... params, minPrice: pointOne};
+    params = {... params, priceMin: pointOne};
   }
   else{
     const arr = filterPrice.split("-");
-    pointOne = arr[0];
-    pointTwo = arr[1];
-    params = {...params, minPrice: pointOne, maxPrice: pointTwo};
+    pointOne = Number(arr[0]);
+    pointTwo = Number(arr[1]);
+    params = {...params, priceMin: pointOne, priceMax: pointTwo};
   }
  }
-
- 
 
 export default function SearchResults() {
   const classes = useStyles();
@@ -146,15 +133,14 @@ export default function SearchResults() {
     getData();
   }, []);
 
-  checkSort();
-
+  checkSort()
   checkFilterPrice();
-
   checkFilterStars();
   
   const getData = async () => {
     try {
       setLoading(true);
+      console.log(params);
       api.hotel.search({...params, location: name}).then((res) =>setState(res));
     } catch (err) {
       alert(err.message);
@@ -179,8 +165,7 @@ export default function SearchResults() {
 
   return (
     <Grid container spacing={4}>
-      {loading &&
-        state.map((card, index) => (
+      {state.map((card, index) => (
           <Grid item key={card} xs={12} sm={6} md={7}>
             <Card
               className={classes.card}

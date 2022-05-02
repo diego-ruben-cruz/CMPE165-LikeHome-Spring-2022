@@ -17,6 +17,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import './Filter.css';
+import { WindowSharp } from "@mui/icons-material";
 
 
 export default function Filter() {
@@ -44,7 +45,6 @@ export default function Filter() {
     });
     useEffect(() => {
       localStorage.setItem("filterStars", filterStars);
-      
     }, [filterStars]);
 
     const [filterPrice, setFilterPrice] = useState(() =>{
@@ -99,7 +99,10 @@ export default function Filter() {
                 label="Hotel Name" 
                 variant="standard"
                 value = {filterHotelName} 
-                onChange={(x) => setFilterHotelName(x.target.value)}
+                onChange={(x) => {
+                  setFilterHotelName(x.target.value);
+                  window.location.reload();
+                 } }
                 />
               </ListItemButton>
             </List>
@@ -121,7 +124,10 @@ export default function Filter() {
                     aria-labelledby="star-buttons-group-label"
                     name="stars-group"
                     value = {filterStars}
-                    onChange={(y) => setFilterStars(y.target.value)}
+                    onChange={(y) => {
+                      setFilterStars(y.target.value);
+                      window.location.reload();
+                    }}
                   >
                     <FormControlLabel value={10} control={<Radio />} label="10 Stars" />
                     <FormControlLabel value={9} control={<Radio />} label="9 Stars" />
@@ -155,7 +161,10 @@ export default function Filter() {
                     aria-labelledby="price-buttons-group-label"
                     name="price-group"
                     value = {filterPrice}
-                    onChange={(z) => setFilterPrice(z.target.value)}
+                    onChange={(z) => {
+                      setFilterPrice(z.target.value);
+                      window.location.reload();
+                    } }
                   >
                     <FormControlLabel value="50<" control={<Radio />} label="Less than $50" />
                     <FormControlLabel value="50-60" control={<Radio />} label="$50 - $60" />

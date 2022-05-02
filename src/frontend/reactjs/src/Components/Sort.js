@@ -34,7 +34,10 @@ export default function Sort() {
             id="SortbyOrder"
             value={sortOrder}
             label="Order"
-            onChange={(r) => setSortOrder(r.target.value)}
+            onChange={(r) => {
+              setSortOrder(r.target.value);
+              window.location.reload();
+            } }
           >
     
             <MenuItem value={1}>
