@@ -41,6 +41,7 @@ const Payment = ({handleClose}) => {
 
   const handleSubmit = async () => {
     
+    console.log(auth.currentUser.email)
 
     try {
       const q = query(collection(db,"Reservations"), where("accountId", "==", auth.currentUser.email));
@@ -51,7 +52,7 @@ const Payment = ({handleClose}) => {
         const date = doc.data().checkIn
         console.log(doc.data().checkIn)
         console.log(localStorage.getItem("checkin"))
-        
+
         if(date == (localStorage.getItem("checkin"))){
           console.log(doc.data().checkIn)
           setAlert({
