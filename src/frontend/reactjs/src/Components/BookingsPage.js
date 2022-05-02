@@ -77,34 +77,51 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   //    }
   //  }
 
-  
+
+
+
+export default function BookingsPage() {
+
+const classes = useStyles();
 
 const getReservation = async () => {
 
     try{
         const reservationGet = await api.reservation.getAll(auth.currentUser.email)
-
+        setState(reservationGet)
     } catch(error) {
         console.log(error);
     }
-
-
 };
 
-  return (
+    const [state, setState] = useState([]);
+
+    useEffect(() => {
+        getReservation();
+      }, []);
+
+
+      // (!state.name)? 'Nope':state.name;
+      // (!state.url)? 'Nope':state.url;
+      // (!state.checkin)? 'Nope':state.checkin;
+      // (!state.checkout)? 'Nope':state.checkout;
+      // (!state.price)? 'Nope':state.price;
+
+
+  return(
     <Grid container spacing={4}>
-      {loading &&
+      {
         state.map((card, index) => (
           <Grid item key={card} xs={12} sm={6} md={7}>
             <Card
               className={classes.card}
               key={index}
-              link="/reservationpage/${card.id}"
+             
             >
               <Box>
                 <CardMedia
                   className={classes.cardMedia}
-                  image={card.optimizedThumbUrls.srpDesktop}
+                  image={card.url}
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
@@ -112,14 +129,14 @@ const getReservation = async () => {
                     {card.name}
                   </Typography>
                   <Typography gutterBottom variant="h6" component="h1">
-                    {card.address.streetAddress}, {card.address.locality},{" "}
-                    {card.address.postalCode}, {card.address.region}
-                  </Typography>
+                    {card.checkin},{" "}
+                    {card.checkout}
+                    </Typography>
                   <Typography>Rewards</Typography>
                   <Typography>{card.guestReviews.rating}</Typography>
-                  <Typography>Price: {card.ratePlan.price.current}</Typography>
+                  <Typography>Price: {state.price}</Typography>
                 </CardContent>
-                <CardActions>
+                {/* <CardActions>
                   <Button
                     variant="contained"
                     color="secondary"
@@ -133,7 +150,7 @@ const getReservation = async () => {
                   >
                     Book Now
                   </Button>
-                </CardActions>
+                </CardActions> */}
               </Box>
             </Card>
           </Grid>
@@ -143,4 +160,4 @@ const getReservation = async () => {
 }
 
 
-// export default BookingsPage;
+ 
