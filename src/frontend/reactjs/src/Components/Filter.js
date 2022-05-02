@@ -69,7 +69,7 @@ export default function Filter() {
       
       return (
         <List
-          sx={{ width: '150px' }}
+          sx={{ width: '500px' }}
           component="nav"
           subheader={
             <ListSubheader component="div" id="filterList" color="white">

@@ -1,17 +1,60 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Footer from './Footer';
 import Header from './Header';
+import { useState } from 'react';
+import { Box, Button, TextField } from "@material-ui/core";
+import { NavigationState } from '../NavigationContext';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import Container from './Container';
 
 const SignUp = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const {setAlert} = NavigationState();
+
+  const handleSubmit = async () => {
+    if (password !== confirmPassword){
+      setAlert({
+        open: true,
+        message: 'passwords do not match',
+        type:'error',
+      });
+      return;
+    }
+
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+        );
+
+        console.log(result);
+
+        setAlert({
+          open: true,
+          message: 'Thank you for joining LikeHome.com!',
+          type: 'success',
+        });
+
+    } catch (error){
+      setAlert({
+        open: true,
+        message: error.message,
+        type: 'error',
+      });
+    }
+  };
+
   return (
       <>
       <br/>
@@ -65,6 +108,8 @@ const SignUp = () => {
                   label="Email *"
                   variant="outlined"
                   name={'email'}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   fullWidth
                 />
               </Grid>
@@ -77,6 +122,22 @@ const SignUp = () => {
                   variant="outlined"
                   name={'password'}
                   type={'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+                  Re-enter Password
+                </Typography>
+                <TextField
+                  label="Password *"
+                  variant="outlined"
+                  name={'repassword'}
+                  type={'repassword'}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   fullWidth
                 />
               </Grid>
@@ -103,7 +164,7 @@ const SignUp = () => {
                       </Link>
                     </Typography>
                   </Box>
-                  <Button  href='/signup/' size={'large'} variant={'contained'} type={'submit'}>
+                  <Button  href='/signup/' size={'large'} variant={'contained'} onClick={handleSubmit}>
                     Sign up
                   </Button>
                 </Box>
