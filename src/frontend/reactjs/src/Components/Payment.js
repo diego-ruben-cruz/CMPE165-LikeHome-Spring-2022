@@ -66,9 +66,9 @@ const Payment = ({handleClose}) => {
         
         accountId: email,
         // hotelId: "624429",
-        price: "300",
-        checkIn: "04-23-19",
-        checkOut: "04-24-19",
+        price: localStorage.getItem("price"),
+        checkIn: localStorage.getItem("checkin"),
+        checkOut: localStorage.getItem("checkout"),
         guests: localStorage.getItem("guests")
       }) 
 
