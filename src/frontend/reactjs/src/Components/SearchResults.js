@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import * as api from "../api";
+import { PanoramaSharp } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -60,52 +61,15 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var name = localStorage.getItem("name");
 console.log(name);
 
-{/*Changes based on event*/}
+var params = {};
+
+{/*Changes based on what user wants to Sort*/}
 var sortOrder = localStorage.getItem("setOrder");
-
-{/*Get Info about the Sort*/}
-var direction = "";
-var choiceSort = "";
-function checkSortOrder(){
-  if(sortOrder == 2 || sortOrder == 4 || sortOrder == 6){
-    direction = "esc";
-  }
-  else if(sortOrder == 1 || sortOrder == 3 || sortOrder == 5){
-    direction = "Ascen";
-  }
-
-  if(sortOrder == 1 || sortOrder == 2){
-      choiceSort = "name";
-  }
-  else if(sortOrder == 3 || sortOrder == 4){
-    choiceSort = "ratings";
-  }
-  else if(sortOrder == 5 || sortOrder == 6){
-    choiceSort = "price";
-  }
-}
 
 {/*Changes based on event*/}
 var filterHotelName = localStorage.getItem("filterHotelName");
 var filterStars = localStorage.getItem("filterStars");
 var filterPrice= localStorage.getItem("filterPrice");
-
-{/*Changes based on event*/}
-var pointOne = 0;
-var pointTwo = 0;
-function checkFilterPrice(){
-  if(filterPrice.equals("50<")){
-    pointOne = 50;
-  }
-  else if(filterPrice.equals(">500")){
-    pointOne = 500;
-  }
-  else{
-    const arr = filterPrice.split("-");
-    pointOne = arr[0];
-    pointTwo = arr[1];
-  }
-}
 
 const handleSubmit = async () => {
   const hotelInfo = await api.hotel.getInfo("624429");
@@ -128,12 +92,50 @@ export default function SearchResults() {
     getData();
   }, []);
 
+  {/*Get Info about the Sort*/}
+  var direction = "";
+  var choiceSort = "";
+
+  if(sortOrder == 2 || sortOrder == 4 || sortOrder == 6){
+    direction = "esc";
+  }
+  else if(sortOrder == 1 || sortOrder == 3 || sortOrder == 5){
+    direction = "Ascen";
+  }
+
+  if(sortOrder == 1 || sortOrder == 2){
+      choiceSort = "name";
+  }
+  else if(sortOrder == 3 || sortOrder == 4){
+    choiceSort = "ratings";
+  }
+  else if(sortOrder == 5 || sortOrder == 6){
+    choiceSort = "price";
+  }
+
+  {/*Check if there is max/min price filter, then retrieve it*/}
+  var pointOne = 0;
+  var pointTwo = 0;
+
+  if(filterPrice === "50<"){
+    pointOne = 50;
+    params = {...params, maxPrice: pointOne};
+  }
+  else if(filterPrice === ">500"){
+    pointOne = 500;
+    params = {... params, minPrice: pointOne};
+  }
+  else{
+    const arr = filterPrice.split("-");
+    pointOne = arr[0];
+    pointTwo = arr[1];
+    params = {...params, minPrice: pointOne, maxPrice: pointTwo};
+  }
+  
   const getData = async () => {
     try {
       setLoading(true);
-      fetch(`http://localhost:8080/api/hotel/search?location=${name}`)
-        .then((response) => response.json())
-        .then((res) => setState(res));
+      api.hotel.search({...params, starRatings: filterStars, location: name}).then((res) =>setState(res));
     } catch (err) {
       alert(err.message);
     }
