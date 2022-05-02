@@ -34,7 +34,7 @@ export default function Filter() {
     });
     useEffect(() => {
       localStorage.setItem("filterHotelName", filterHotelName);
-      window.location.reload(true);
+      
     }, [filterHotelName]);
 
     const [filterStars,setFilterStars]= useState(() =>{
@@ -44,7 +44,7 @@ export default function Filter() {
     });
     useEffect(() => {
       localStorage.setItem("filterStars", filterStars);
-      window.location.reload(true);
+      
     }, [filterStars]);
 
     const [filterPrice, setFilterPrice] = useState(() =>{
@@ -54,7 +54,7 @@ export default function Filter() {
     });
     useEffect(() => {
       localStorage.setItem("filterPrice", filterPrice);
-      window.location.reload(true);
+
     }, [filterPrice]);
 
       {/*Sets the filter for each object*/}
