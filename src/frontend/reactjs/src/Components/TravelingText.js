@@ -23,7 +23,7 @@ const TravelingText = () => {
               color="text.primary"
               sx={{ fontWeight: 700, color: '#222B45' }}
             >
-              Stuff here about Traveling.
+              About the Code Monkeys
             </Typography>
           </Box>
           <Box marginBottom={3}>
@@ -33,7 +33,7 @@ const TravelingText = () => {
               color="text.primary"
               sx={{ color: '#222B45' }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus in massa tempor nec feugiat nisl pretium fusce id. In dictum non consectetur a erat. Aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin. In dictum non consectetur a erat nam at lectus.
+              We're a team of 10 developers, each with a different skillset, making a site not unlike hotels.com. We committed several counts of crimes in the name of Agile development, ingested several liters from the house of lean, and declared war on paywalled features. We've built this website for the CMPE 165 course at San Jose State University for the Spring 2022 semester.
             </Typography>
           </Box>
           <Box
@@ -42,8 +42,10 @@ const TravelingText = () => {
             color="primary"
             size="large"
             height={54}
+            href="https://youtu.be/dQw4w9WgXcQ" target="_blank"
           >
-            Discover the offer
+            Check out our other work
+            
           </Box>
         </Grid>
         <Grid

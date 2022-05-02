@@ -7,18 +7,18 @@ import { useTheme } from '@mui/material/styles';
 
 const mock = [
   {
-    title: 'Your brand platform',
+    title: 'The Colors',
     description:
-      'Monetize your website and manage all guest interactions with your own brand, logo and domains.',
+      'We used the SJSU colors as the main inspiration for this site, with some exploration done to create a darkmode with the colors. This feature was not further developed as the team decided to more closely follow the design language of hotels.com',
     illustration:
       'https://assets.maccarianagency.com/svg/illustrations/illustration4.svg',
     illustrationDark:
       'https://assets.maccarianagency.com/svg/illustrations/illustration4--dark.svg',
   },
   {
-    title: 'Mobile compatible platform',
+    title: 'The Assets',
     description:
-      'Introduce your brand-new mobile friendly website to your customers. Seamlessly integrates with WiFi hardware and marketing automation software.',
+      'We used the MaterialUI (MUI) framework for React, which allowed us to cut the FE development times during the early development stages. This allowed us to explore different GUI elements and quickly mock up different implementations.',
     illustration:
       'https://assets.maccarianagency.com/svg/illustrations/illustration1.svg',
     illustrationDark:
@@ -26,9 +26,9 @@ const mock = [
   },
   {
     label: 'Client portal access',
-    title: 'Simple customer dashboards',
+    title: 'The Data',
     description:
-      'Give sub-users access to a simplified dashboard with limited permission levels to offer remote management and real-time analytics.',
+      'We used a a mixture of our own in-house solutions and public APIs as well as Google Firebase to handle data relating to the user, hotels, reservations, and payments.',
     illustration:
       'https://assets.maccarianagency.com/svg/illustrations/illustration2.svg',
     illustrationDark:
@@ -50,7 +50,7 @@ const Template1 = () => {
     <Box>
       <Box marginBottom={4}>
         <Typography variant={'h4'} sx={{ fontWeight: 700 }} align={'center'}>
-          We are a small agency of talented designers & developers
+          LikeHome is a web application which shares a catalog of hotels and properties
         </Typography>
         <Typography
           variant="h6"
@@ -58,8 +58,7 @@ const Template1 = () => {
           color="text.secondary"
           align={'center'}
         >
-          Unlike teams from big agencies, we will treat your project as ours. We
-          will walk you through our smooth and simple process.
+          LikeHome is an easy to use application, with emphasis placed on usability, good GUI design, and user-friendliness.
         </Typography>
         <Box marginTop={2} display={'flex'} justifyContent={'center'}>
           <Button
@@ -78,6 +77,7 @@ const Template1 = () => {
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
             }
+            href="https://www.youtube.com/watch?v=b8G0ni2TTac" target="_blank"
           >
             Contact us
           </Button>
@@ -130,6 +130,7 @@ const Template1 = () => {
                       />
                     </Box>
                   }
+                  href="https://github.com/diego-ruben-cruz/CMPE-165-LikeHome-Spring-2022" target="_blank"
                 >
                   Learn more
                 </Button>

@@ -34,9 +34,9 @@ const mock = [
         />
       </svg>
     ),
-    title: 'Sign Up',
+    title: 'Learn the languages',
     subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'React was used in this project using the MaterialUI framework, along with node.js for both Front and Back ends.',
   },
   {
     icon: (
@@ -56,9 +56,9 @@ const mock = [
         />
       </svg>
     ),
-    title: 'Create Events',
+    title: 'Learn the technologies',
     subtitle:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Firebase and public APIs were used in this project, with some in-house solutions connecting the two together with typescript.',
   },
 ];
 
@@ -80,13 +80,14 @@ const Template3 = () => {
         <Grid item xs={12} md={6} data-aos={isMd ? 'fade-right' : 'fade-up'}>
           <Box marginBottom={4}>
             <Typography sx={{ fontWeight: 700 }} variant={'h4'} gutterBottom>
-              Ask an expert
+              What questions do you have for us?
             </Typography>
             <Typography variant={'h6'} component={'p'} color={'text.secondary'}>
-              Lorem ipsum dolor sit amet,
+              Diego - Project Manager
               <br />
-              consectetur adipiscing elit. Id ultricies sed ultricies fringilla
-              commodo.
+              Eric - FE Technical Lead
+              <br />
+              Sean - BE Technical Lead
             </Typography>
           </Box>
           <List
@@ -121,7 +122,9 @@ const Template3 = () => {
                   </Box>
                 </ListItemAvatar>
                 <ListItemText primary={item.title} secondary={item.subtitle} />
-                <Button variant={'contained'} sx={{ marginTop: 2 }}>
+                <Button variant={'contained'} sx={{ marginTop: 2 }}
+                href="https://youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye" target="_blank"
+                >
                   Get started
                 </Button>
               </ListItem>

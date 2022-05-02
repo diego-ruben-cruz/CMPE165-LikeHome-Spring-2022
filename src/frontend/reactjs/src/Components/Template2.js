@@ -7,9 +7,9 @@ import Typography from '@mui/material/Typography';
 
 const mock = [
   {
-    title: 'Web design',
+    title: 'Authentication',
     subtitle:
-      'We design and develop beautiful, lightning fast, scalable, and marketing-focused websites tailored to grow your business.',
+      'Basic login/signup procedures, all taken care of with Google Firebase.',
     icon: (
       <svg
         height={24}
@@ -29,9 +29,9 @@ const mock = [
     ),
   },
   {
-    title: 'UI / UX Design',
+    title: 'Reservations',
     subtitle:
-      'We craft great user centered interfaces for web and mobile apps. We ensure to deliver intuitive and seamless experiences.',
+      'Users can create, modify, and cancel their reservations, all while never having to worry about accidentally making a booking within the same dates.',
     icon: (
       <svg
         height={24}
@@ -51,9 +51,9 @@ const mock = [
     ),
   },
   {
-    title: 'Product Design',
+    title: 'Search',
     subtitle:
-      'We help you to carefully improve your digital product to deliver a great user experience, grow its user base and increase retention.',
+      'Users can search for hotels/properties, filter those results, and sort those results using parameters like rating, price, and amenities/accessibility',
     icon: (
       <svg
         height={24}
@@ -73,9 +73,9 @@ const mock = [
     ),
   },
   {
-    title: 'Branding',
+    title: 'Payment',
     subtitle:
-      'We transform businesses into brands through high quality brand identity design.',
+      'Payments are handled with an in-house solution and safely stored with Google Firestore. Like hotels.com, we will charge a cancellation fee as well as any additional fees incurred upon arrival to the hotel.',
     icon: (
       <svg
         height={24}
@@ -95,9 +95,9 @@ const mock = [
     ),
   },
   {
-    title: 'Optimization',
+    title: 'My Bookings',
     subtitle:
-      'We help you optimize your website or mobile app to increase your conversion rates.',
+      'Users can view any previous bookings they have made through the "My Reservations" page. This includes any active and cancelled reservations.',
     icon: (
       <svg
         height={24}
@@ -117,9 +117,9 @@ const mock = [
     ),
   },
   {
-    title: 'Automation',
+    title: 'Rewards Program',
     subtitle:
-      'We help your business gain leverage and efficiency through smart automation.',
+      'Users are able to gain rewards seals for making reservations. 7 seals grants you one free night of reservations, and 4 seals thereafter for each additional night.',
     icon: (
       <svg
         height={24}
@@ -157,7 +157,7 @@ const Template2 = () => {
           align={'center'}
           sx={{ fontWeight: 700 }}
         >
-          We craft beautiful websites and digital products
+          The features of LikeHome
         </Typography>
         <Typography
           variant={'h6'}
@@ -165,8 +165,7 @@ const Template2 = () => {
           color={'text.secondary'}
           align={'center'}
         >
-          We design, develop and launch websites and products for startups,
-          companies and ourselves.
+          Below are some of the functions implemented into LikeHome as per the Scope of Work on the Project Specifications Document.
         </Typography>
       </Box>
       <Box>
