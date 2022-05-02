@@ -2,7 +2,6 @@ import './Header.css';
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import LoginModal from '../Authentication/LoginModal';
-import RegisterModal from '../Authentication/RegisterModal';
 import { NavigationState } from "../NavigationContext";
 import { auth } from '../firebase';
 import SideDrawer from '../MUI components/SideDrawer';
@@ -24,13 +23,12 @@ const Header = () => {
                     <Tabs style={{marginLeft: 'auto'}} color = 'white'>
                         <Tab label="Search"/>
                         <Tab label="About us"/>
+                        <Button  href='/login/' style={{borderRadius: '50px'}}variant="contained">Log in</Button>
+                        <Button  href='/signup/'style={{marginLeft: '10px', borderRadius: '50px'}} variant="contained">Sign Up</Button>
                         {user? "HELLO" : <LoginModal/>}
                         {user? "HELLO" : <RegisterModal/>}   
                         
-                        
-                    </Tabs>
-                </Toolbar>
-            </AppBar>
+           
         </>
     );
 }

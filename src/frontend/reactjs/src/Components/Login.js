@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
@@ -10,8 +10,45 @@ import Footer from './Footer';
 import Header from './Header';
 import Container from './Container';
 import CardMedia from '@mui/material/CardMedia';
-import town from './town.svg';
+import { NavigationState } from '../NavigationContext';
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 const Login = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const {setAlert} = NavigationState();
+
+  const handleSubmit = async () => {
+    if(!email || !password) {
+      setAlert({
+        open: true,
+        message:" missing email or password",
+        type: 'error',
+      });
+      return;
+    }
+    try{
+      const result = await signInWithEmailAndPassword(
+        auth,email, password
+      );
+
+          setAlert({
+            open:true,
+            message: `Welcome Back ${result.user.email}`,
+            type: 'success',
+          });
+
+    }catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: 'error',
+      });
+    }
+  };
+  
   return (
       <>
       <br/>
@@ -43,6 +80,8 @@ const Login = () => {
                   label="Email *"
                   variant="outlined"
                   name={'email'}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   fullWidth
                 />
               </Grid>
@@ -76,6 +115,8 @@ const Login = () => {
                   variant="outlined"
                   name={'password'}
                   type={'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   fullWidth
                 />
               </Grid>
@@ -102,7 +143,7 @@ const Login = () => {
                       </Link>
                     </Typography>
                   </Box>
-                  <Button  href='/login/' size={'large'} variant={'contained'} type={'submit'}>
+                  <Button size={'large'} variant={'contained'} onClick={handleSubmit}>
                     Login
                   </Button>
                 </Box>

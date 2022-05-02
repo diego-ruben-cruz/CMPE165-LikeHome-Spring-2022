@@ -73,6 +73,7 @@ const Profile = ({handleClose}) => {
         Profile
     </Typography>
     <div>
+
     <Box 
         p={3}
         style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 100, marginTop: 60}}
