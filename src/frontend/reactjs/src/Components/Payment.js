@@ -52,7 +52,6 @@ const Payment = ({handleClose}) => {
         const date = doc.data().checkIn
         console.log(doc.data().checkIn)
         console.log(localStorage.getItem("checkin"))
-
         if(date == (localStorage.getItem("checkin"))){
           console.log(doc.data().checkIn)
           setAlert({
@@ -68,10 +67,12 @@ const Payment = ({handleClose}) => {
         
         accountId: email,
         // hotelId: "624429",
+        hotename: localStorage.getItem("hotelname"),
         price: localStorage.getItem("price"),
         checkIn: localStorage.getItem("checkin"),
         checkOut: localStorage.getItem("checkout"),
-        guests: localStorage.getItem("guests")
+        guests: localStorage.getItem("guests"),
+        url: localStorage.getItem("url")
       }) 
 
 

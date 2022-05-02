@@ -3,7 +3,7 @@ import { Box, Button, TextField } from "@material-ui/core";
 import { NavigationState } from '../NavigationContext';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-
+import { Link } from 'react-router-dom';
 
 const Login = ({handleClose}) => {
 
@@ -20,6 +20,7 @@ const Login = ({handleClose}) => {
       });
       return;
     }
+    
     try{
       const result = await signInWithEmailAndPassword(
         auth,email, password
@@ -71,6 +72,7 @@ const Login = ({handleClose}) => {
             onClick={handleSubmit}
           >
             Login
+            <Link to="/profile"> </Link>
           </Button>
         </Box>
   )
