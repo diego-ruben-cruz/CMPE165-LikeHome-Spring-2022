@@ -56,7 +56,7 @@ const Payment = ({handleClose}) => {
           console.log(doc.data().checkIn)
           setAlert({
             open: true,
-            message: 'Cannot Reserve a Hotel on the same day',
+            message: 'Cannot Reserve with conflicting dates',
             type:'error',
           });
           return;

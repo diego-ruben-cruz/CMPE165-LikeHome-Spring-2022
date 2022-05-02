@@ -26,8 +26,8 @@ const Header = () => {
                     <Tabs style={{marginLeft: 'auto'}} color = 'white'>
                         <Tab label="Search"/>
                         <Tab label="About us"/>
-                        {user? <Logout/>: <LoginModal/>}
-                        {user? <ProfileButton/>: <RegisterModal/>}   
+                        {user? <Logout/>: <Button  href='/login/' style={{borderRadius: '50px'}}variant="contained">Log in</Button>}
+                        {user? <ProfileButton/>: <Button  href='/signup/'style={{marginLeft: '10px', borderRadius: '50px'}} variant="contained">Sign Up</Button>}   
                         
                         
                     </Tabs>
