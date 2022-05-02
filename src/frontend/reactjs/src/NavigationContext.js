@@ -1,16 +1,32 @@
 import { onAuthStateChanged } from "firebase/auth";
+import { doc, onSnapshot } from "firebase/firestore";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
 
 const Navigation = createContext();
 
 const NavigationContext = ({ children }) => {
   const[user, setUser] = useState(null);
+  const [sealNumber, setSealNumber] = useState(0);
   const[alert, setAlert] = useState({
     open:false,
     message:'',
     type: " success"
   })
+
+  useEffect(() => {
+    if (user) {
+      const docRef = doc(db, "Users", user.email)
+      onSnapshot(
+        docRef,  
+        (doc) => {
+          setSealNumber(doc.data().seals)
+          console.log(sealNumber)
+        });
+    }
+    
+  },);
+
 
   useEffect(() => {
     onAuthStateChanged(auth, user => {

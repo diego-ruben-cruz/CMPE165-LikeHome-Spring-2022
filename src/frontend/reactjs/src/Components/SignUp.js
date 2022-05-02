@@ -8,17 +8,21 @@ import Header from './Header';
 import { useState } from 'react';
 import { Box, Button, TextField } from "@material-ui/core";
 import { NavigationState } from '../NavigationContext';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import Container from './Container';
+import { useHistory } from 'react-router-dom';
+import { doc, setDoc } from 'firebase/firestore';
 
 const SignUp = () => {
 
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const history = useHistory()
   const {setAlert} = NavigationState();
 
   const handleSubmit = async () => {
@@ -32,6 +36,16 @@ const SignUp = () => {
     }
 
     try {
+      const result1 = await setDoc(doc(db, "Users", '${email}'), {
+        firstName:firstName,
+        lastName: lastName,
+        email: email,
+
+      },
+     {merge: true}
+      );
+
+      
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -39,12 +53,14 @@ const SignUp = () => {
         );
 
         console.log(result);
-
+        
+        
         setAlert({
           open: true,
           message: 'Thank you for joining LikeHome.com!',
           type: 'success',
         });
+       
 
     } catch (error){
       setAlert({
@@ -87,6 +103,7 @@ const SignUp = () => {
                   variant="outlined"
                   name={'firstName'}
                   fullWidth
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -98,6 +115,7 @@ const SignUp = () => {
                   variant="outlined"
                   name={'lastName'}
                   fullWidth
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>

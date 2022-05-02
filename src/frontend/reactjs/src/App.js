@@ -11,6 +11,8 @@ import BookingsPage from "./Components/BookingsPage";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Alert from './Components/Alert';
 import ProfileDetails from './Components/ProfileDetails';
+import Rewards from './Components/Rewards';
+import Conditions from './Components/Conditions';
 
 function App() {
   return (
@@ -26,7 +28,9 @@ function App() {
         <Route path="/profile" component={ProfileDetails}/>
         <Route path="/payment" component={Payment} />
         <Route path="/bookings" component={BookingsPage} />
-    <Home/>
+        <Route path="/TermsandConditions" component={Conditions}/>
+        
+    
     </Switch>
     <Alert/>
     </div>

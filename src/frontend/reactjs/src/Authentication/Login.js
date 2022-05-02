@@ -72,7 +72,7 @@ const Login = ({handleClose}) => {
             onClick={handleSubmit}
           >
             Login
-            <Link to="/profile"> </Link>
+            
           </Button>
         </Box>
   )

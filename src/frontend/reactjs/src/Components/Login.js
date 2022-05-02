@@ -13,6 +13,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { NavigationState } from '../NavigationContext';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
 
@@ -20,6 +21,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const {setAlert} = NavigationState();
 
+  const history = useHistory()
+
+
+  
   const handleSubmit = async () => {
     if(!email || !password) {
       setAlert({
@@ -39,6 +44,8 @@ const Login = () => {
             message: `Welcome Back ${result.user.email}`,
             type: 'success',
           });
+
+          history.push("/profile")
 
     }catch (error) {
       setAlert({
@@ -144,6 +151,7 @@ const Login = () => {
                     </Typography>
                   </Box>
                   <Button size={'large'} variant={'contained'} onClick={handleSubmit}>
+                    
                     Login
                   </Button>
                 </Box>

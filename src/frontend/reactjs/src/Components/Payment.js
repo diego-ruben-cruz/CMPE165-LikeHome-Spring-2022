@@ -14,6 +14,8 @@ import { doc, query, setDoc, collection, getDocs, where } from 'firebase/firesto
 import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase/auth';
 import * as api from '../api';
 import { NavigationState } from '../NavigationContext';
+import { CheckBox } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 
@@ -333,12 +335,13 @@ const Payment = ({handleClose}) => {
                 <Grid item container xs={12}>
                   <Box
                     display="flex"
-                    flexDirection={{ xs: 'column', sm: 'row' }}
-                    alignItems={{ xs: 'stretched', sm: 'center' }}
+                    flexDirection={{ xs: 'column', sm: 'column' }}
+                    alignItems={{ xs: 'stretched', sm: 'left' }}
                     justifyContent={'space-between'}
                     width={1}
                     margin={'0 auto'}
                   >
+                    
                     <Button
                       size={'large'}
                       variant="contained"
@@ -347,6 +350,15 @@ const Payment = ({handleClose}) => {
                     >
                       Submit
                     </Button>
+                    <CheckBox/>
+                    <Link 
+                      to="/profile"
+                      style={{ 
+                      textDecoration:'none',
+                      color:'white'
+                       }}
+                  >By checking this box you agree to the terms and conditions
+                  </Link>
                   </Box>
                 </Grid>
               </Grid>

@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase
 import Header from './Header';
 import Footer from './Footer';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
+import Rewards from './Rewards';
+
 
 const Profile = ({handleClose}) => {
 
@@ -15,6 +17,7 @@ const Profile = ({handleClose}) => {
   const [email, setEmail ]= useState("");
   const[sealNumber, setSealNumber] = useState("");
   const {setAlert} = NavigationState();
+
 
   const handleSubmit = async () => {
     try{
@@ -37,7 +40,7 @@ const Profile = ({handleClose}) => {
       });
     }
     try{
-      const result1 = await setDoc(doc(db, "Users", auth.currentUser.uid), {
+      const result1 = await setDoc(doc(db, "Users", auth.currentUser.email), {
         Name:fullName ,
         Phone: phoneNumber,
         email: email,
@@ -56,23 +59,7 @@ const Profile = ({handleClose}) => {
     }
   };
   
-  const startQuery = async () =>{
-    try{
-      const docRef = doc(db, "Users", auth.currentUser.email);
-      const docSnap = await getDoc(docRef);
-      console.log(docSnap.data)
-      
-     setSealNumber(docSnap.data().seals)
-     console.log(sealNumber)
-    }
-    catch (error){
-      setAlert({
-        open: true,
-        message: error.message,
-        type: 'error',
-      });
-    }
-  }
+
 
 
   return (
@@ -93,10 +80,12 @@ const Profile = ({handleClose}) => {
         Profile
     </Typography>
     <div>
-
+    <Box
+      style= {{ display: "flex", flexDirection: "row"}}
+    >
     <Box 
         p={3}
-        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 100, marginTop: 60}}
+        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 250, marginTop: 60}}
         >
           
           <TextField
@@ -155,18 +144,7 @@ const Profile = ({handleClose}) => {
             Confirm
           </Button>
         </Box>
-        <Box 
-        p={3}
-        style= {{ display: "flex", flexDirection: "column", gap: "20px", width:500, marginLeft: 100, marginTop: 60}}
-        >
-          <Typography
-          style={{ marginTop: -590,  marginLeft:900}}
-          >
-            Rewards:{sealNumber}
-          </Typography>
-          <Typography>
-            {sealNumber}
-          </Typography>
+        <Rewards/>
         </Box>
         </div>
         <Footer/>
