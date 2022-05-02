@@ -31,7 +31,7 @@ const Payment = ({handleClose}) => {
   const [address, setAddress] = useState("");
   const [zip, setZip] = useState("");
   const [cardname, setCardName] = useState("");
-
+  
   
   //const [name, setName] = useState("");
   
@@ -43,10 +43,12 @@ const Payment = ({handleClose}) => {
         
         accountId: email,
         // hotelId: "624429",
+        hotename: localStorage.getItem("hotelname"),
         price: localStorage.getItem("price"),
         checkIn: localStorage.getItem("checkin"),
         checkOut: localStorage.getItem("checkout"),
-        guests: localStorage.getItem("guests")
+        guests: localStorage.getItem("guests"),
+        url: localStorage.getItem("url")
       }) 
 
 

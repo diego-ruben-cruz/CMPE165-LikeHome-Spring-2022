@@ -74,6 +74,19 @@ export default function SearchResults() {
     localStorage.setItem("price", price);
   }, [price]);
 
+  const [urlimage, setUrlimage] = useState(urlimage);
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("urlimage", urlimage);
+  }, [urlimage]);
+
+  const [hotelname, setHotelName] = useState(hotelname);
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("hotelname", hotelname);
+  }, [hotelname]);
+
+
   const [state, setState] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -144,9 +157,9 @@ export default function SearchResults() {
                     onChange={(card) => setPrice(card.ratePlan.price.current)}
                     sx={{ position: "absolute", top: "-305px", left: "380px" }}
                     onClick={() => {
-                      localStorage.setItem("price", card.ratePlan.price.current); 
-                      localStorage.setItem("id", card.id);
-                      localStorage.setItem("url", card.optimizedThumbUrls.srpDesktop);
+                      localStorage.setItem("price", card.ratePlan.price.current)
+                      localStorage.setItem("urlimage", card.optimizedThumbUrls.srpDesktop)
+                      localStorage.setItem("hotelname", card.name)
                     }}
                     href="/reservationpage/"
                   >

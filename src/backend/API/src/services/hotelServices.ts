@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-const API_KEYS = ['0037920bb1msh7e448a635989d78p138d01jsn4b7e7f35cba9', '9e25cd5a46msh60f9cd26501badcp11a6a7jsn02657b7b4fc0'];
+const API_KEYS = ['9e25cd5a46msh60f9cd26501badcp11a6a7jsn02657b7b4fc0'];
 let k = 0;
 
 export const search = async (location: string) => {
