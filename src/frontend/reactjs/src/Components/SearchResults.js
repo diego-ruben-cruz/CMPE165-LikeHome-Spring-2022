@@ -60,6 +60,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var name = localStorage.getItem("name");
 console.log(name);
 
+{/*Holds the the sort and filter options*/}
 var params = {};
 
 {/*Changes based on what user wants to Sort*/}
@@ -76,24 +77,24 @@ function checkSort(){
     return;
   }
 
-  var direction = "";
-  var choiceSort = "";
-  if(sortOrder == 2 || sortOrder == 4 || sortOrder == 6){
-   direction = "esc";
+  if(sortOrder == 1 ){
+     params = {...params, sortOrder: "PRICE_HIGHEST_FIRST" };
   }
-  else if(sortOrder == 1 || sortOrder == 3 || sortOrder == 5){
-   direction = "Ascen";
+  else if(sortOrder == 2){
+    params = {...params, sortOrder: "PRICE_LOWEST_FIRST"};
   }
-
-  if(sortOrder == 1 || sortOrder == 2){
-     choiceSort = "name";
+  else if(sortOrder == 3 ){
+    params = {...params, sortOrder: "STAR_RATING_HIGHEST_FIRST"};
   }
-  else if(sortOrder == 3 || sortOrder == 4){
-   choiceSort = "ratings";
+  else if(sortOrder == 4){
+     params = {...params, sortOrder: "STAR_RATING_LOWEST_FIRST"};
   }
-  else if(sortOrder == 5 || sortOrder == 6){
-   choiceSort = "price";
-  }  
+  else if(sortOrder == 5){
+    params = {...params, sortOrder: "BEST_SELLER"};
+  }
+  else if(sortOrder == 6){
+     params = {...params, sortOrder: "PRICE"};
+   }  
 }
  function checkFilterStars(){
    if(filterStars === ""){
