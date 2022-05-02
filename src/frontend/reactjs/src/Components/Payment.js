@@ -41,6 +41,7 @@ const Payment = ({handleClose}) => {
 
   const handleSubmit = async () => {
     
+    console.log(auth.currentUser.email)
 
     try {
       const q = query(collection(db,"Reservations"), where("accountId", "==", auth.currentUser.email));
@@ -66,10 +67,12 @@ const Payment = ({handleClose}) => {
         
         accountId: email,
         // hotelId: "624429",
+        hotename: localStorage.getItem("hotelname"),
         price: localStorage.getItem("price"),
         checkIn: localStorage.getItem("checkin"),
         checkOut: localStorage.getItem("checkout"),
-        guests: localStorage.getItem("guests")
+        guests: localStorage.getItem("guests"),
+        url: localStorage.getItem("url")
       }) 
 
 
