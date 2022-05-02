@@ -24,8 +24,8 @@ const Header = () => {
                     <Tabs style={{marginLeft: 'auto'}} color = 'white'>
                         <Tab label="Search"/>
                         <Tab label="About us"/>
-                        <LoginModal/>
-                        <RegisterModal/>    
+                        {user? "HELLO" : <LoginModal/>}
+                        {user? "HELLO" : <RegisterModal/>}   
                         
                         
                     </Tabs>
