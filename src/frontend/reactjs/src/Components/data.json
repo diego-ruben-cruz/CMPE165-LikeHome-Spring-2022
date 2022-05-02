@@ -1,0 +1,437 @@
+{
+    "result": "OK",
+    "data": {
+        "body": {
+            "pdpHeader": {
+                "hotelId": "111803",
+                "destinationId": "1457952",
+                "pointOfSaleId": "HCOM_US",
+                "currencyCode": "USD",
+                "occupancyKey": "A2",
+                "hotelLocation": {
+                    "coordinates": {
+                        "latitude": 37.352253,
+                        "longitude": -121.995008
+                    },
+                    "resolvedLocation": "CITY:1457952:PROVIDED:PROVIDED",
+                    "locationName": "Santa Clara"
+                }
+            },
+            "overview": {
+                "overviewSections": [
+                    {
+                        "title": "Main amenities",
+                        "type": "HOTEL_FEATURE",
+                        "content": [
+                            "74 smoke-free guestrooms",
+                            "Daily housekeeping",
+                            "Outdoor pool",
+                            "24-hour front desk",
+                            "Self-serve laundry",
+                            "Multilingual staff",
+                            "Free WiFi and free parking "
+                        ],
+                        "contentType": "LIST"
+                    },
+                    {
+                        "title": "For families",
+                        "type": "FAMILY_FRIENDLY_SECTION",
+                        "content": [
+                            "Microwave",
+                            "Refrigerator",
+                            "Private bathroom",
+                            "Premium TV channels",
+                            "Television",
+                            "Free toiletries"
+                        ],
+                        "contentType": "LIST"
+                    },
+                    {
+                        "title": "What’s around",
+                        "type": "LOCATION_SECTION",
+                        "content": [
+                            "Kaiser Permanente Santa Clara Medical Center - 24 min walk",
+                            "Central Park - 34 min walk",
+                            "Golfland USA - 23 min walk",
+                            "Levi's Stadium - 4.8 mi / 7.7 km"
+                        ],
+                        "contentType": "LIST"
+                    },
+                    {
+                        "type": "TAGLINE",
+                        "content": [
+                            "<b>Motel with outdoor pool, near Golfland USA </b>"
+                        ],
+                        "contentType": "LIST"
+                    },
+                    {
+                        "type": "HOTEL_FREEBIES",
+                        "content": [
+                            "Free WiFi and free parking"
+                        ],
+                        "contentType": "LIST"
+                    }
+                ]
+            },
+            "hotelWelcomeRewards": {
+                "applies": true,
+                "info": "You can collect Hotels.com® Rewards stamps here"
+            },
+            "propertyDescription": {
+                "clientToken": "OZuwY3GM-TPzJtnEGKveKJkXzow.",
+                "address": {
+                    "countryName": "United States of America",
+                    "cityName": "Santa Clara",
+                    "postalCode": "95051",
+                    "provinceName": "CA",
+                    "addressLine1": "3580 El Camino Real",
+                    "countryCode": "USA",
+                    "pattern": "AddressLine1,#AddressLine2,#CityName,#ProvinceName,#PostalCode,#CountryName",
+                    "fullAddress": "3580 El Camino Real, Santa Clara, CA, 95051, United States of America"
+                },
+                "priceMatchEnabled": false,
+                "name": "Hotel E Real",
+                "starRatingTitle": "2 stars",
+                "starRating": 2,
+                "featuredPrice": {
+                    "beforePriceText": "Lowest price",
+                    "afterPriceText": "",
+                    "pricingAvailability": "available on 05/07/22",
+                    "pricingTooltip": "Price may be available on other dates",
+                    "currentPrice": {
+                        "formatted": "$72",
+                        "plain": 72
+                    },
+                    "taxInclusiveFormatting": false,
+                    "bookNowButton": false
+                },
+                "mapWidget": {
+                    "staticMapUrl": "https://maps-api-ssl.google.com/maps/api/staticmap?center=37.352253,-121.995008&format=jpg&sensor=false&key=AIzaSyDaDqDNrxWrxcURixO2l6TbtV68X0Klf4U&zoom=16&size=834x443&scale&signature&signature=eJGWpq2zzg7CJp-S4Lx-Igq2Ajo="
+                },
+                "roomTypeNames": [
+                    "Standard Room, 1 Queen Bed",
+                    "Standard Room, 1 King Bed",
+                    "Standard Room, 2 Queen Beds",
+                    "Triple Room (Queen)",
+                    "Standard Studio, Kitchen",
+                    "Standard Room, 1 King Bed, Accessible",
+                    "Standard Room, 2 Queen Beds, Accessible"
+                ],
+                "tagline": [
+                    "<b>Motel with outdoor pool, near Golfland USA </b>"
+                ],
+                "freebies": [
+                    "Free WiFi and free parking"
+                ]
+            },
+            "guestReviews": {
+                "brands": {
+                    "scale": 10,
+                    "formattedScale": "10",
+                    "rating": 6.2,
+                    "formattedRating": "6.2",
+                    "lowRating": false,
+                    "badgeText": "Good",
+                    "total": 218
+                }
+            },
+            "atAGlance": {
+                "keyFacts": {
+                    "hotelSize": [
+                        "74 rooms",
+                        "Arranged over 2 floors"
+                    ],
+                    "arrivingLeaving": [
+                        "Check-in time 3 PM-2:00 AM",
+                        "Check-out time is  11 AM"
+                    ],
+                    "specialCheckInInstructions": [
+                        "This property doesn't offer after-hours check-in. Front desk staff will greet guests on arrival. An adult age 18 or older must assume all liability for the booking. "
+                    ],
+                    "requiredAtCheckIn": [
+                        "Credit card or cash deposit required for incidental charges",
+                        "Government-issued photo ID may be required",
+                        "Minimum check-in age is 18"
+                    ]
+                },
+                "travellingOrInternet": {
+                    "travelling": {
+                        "children": [
+                            "No cribs (infant beds)"
+                        ],
+                        "pets": [
+                            "Pets not allowed",
+                            "Service animals welcome"
+                        ],
+                        "extraPeople": []
+                    },
+                    "internet": [
+                        "Free WiFi in public areas",
+                        "Free WiFi in rooms"
+                    ]
+                },
+                "transportAndOther": {
+                    "transport": {
+                        "transfers": [],
+                        "parking": [
+                            "<em>Free</em> onsite self parking",
+                            "<em>Free</em> onsite RV/bus/truck parking",
+                            "Wheelchair-accessible parking and van parking on site"
+                        ],
+                        "offsiteTransfer": []
+                    },
+                    "otherInformation": [
+                        "Smoke-free property"
+                    ],
+                    "otherInclusions": []
+                }
+            },
+            "amenities": [
+                {
+                    "heading": "At the motel",
+                    "listItems": [
+                        {
+                            "heading": "Things to do",
+                            "listItems": [
+                                "Number of outdoor pools -  1"
+                            ]
+                        },
+                        {
+                            "heading": "Services",
+                            "listItems": [
+                                "24-hour front desk",
+                                "Laundry facilities",
+                                "Multilingual staff"
+                            ]
+                        },
+                        {
+                            "heading": "Accessibility",
+                            "listItems": [
+                                "Wheelchair-accessible path of travel",
+                                "Wheelchair-accessible parking",
+                                "Wheelchair-accessible van parking",
+                                "Wheelchair-accessible registration desk",
+                                "Wheelchair-accessible pool"
+                            ]
+                        },
+                        {
+                            "heading": "Languages Spoken",
+                            "listItems": [
+                                "English",
+                                "Spanish"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "In the room",
+                    "listItems": [
+                        {
+                            "heading": "Home comforts",
+                            "listItems": [
+                                "In-room climate control (air conditioning)",
+                                "Coffee/tea maker",
+                                "Iron/ironing board"
+                            ]
+                        },
+                        {
+                            "heading": "Sleep well",
+                            "listItems": [
+                                "Blackout drapes/curtains"
+                            ]
+                        },
+                        {
+                            "heading": "Freshen up",
+                            "listItems": [
+                                "Private bathroom",
+                                "Free toiletries",
+                                "Hair dryer"
+                            ]
+                        },
+                        {
+                            "heading": "Be entertained",
+                            "listItems": [
+                                "40-inch TV",
+                                "Premium TV channels"
+                            ]
+                        },
+                        {
+                            "heading": "Stay connected",
+                            "listItems": [
+                                "Desk",
+                                "Free WiFi",
+                                "Free local calls"
+                            ]
+                        },
+                        {
+                            "heading": "Food and drink",
+                            "listItems": [
+                                "Refrigerator",
+                                "Microwave"
+                            ]
+                        },
+                        {
+                            "heading": "More",
+                            "listItems": [
+                                "Daily housekeeping"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "hygieneAndCleanliness": {
+                "title": "COVID-19: Hygiene and cleanliness",
+                "hygieneQualifications": {
+                    "title": "Official standards",
+                    "qualifications": [
+                        "This property advises that it adheres to SafeStay (AHLA - USA) cleaning and disinfection practices. "
+                    ]
+                },
+                "healthAndSafetyMeasures": {
+                    "title": "Enhanced health and safety measures",
+                    "description": "This property advises that enhanced cleaning and guest safety measures are currently in place.",
+                    "measures": [
+                        "Property is cleaned with disinfectant",
+                        "Staff wears personal protective equipment",
+                        "Property confirms they are implementing enhanced cleaning measures",
+                        "Shield between guests and staff in main contact areas",
+                        "Social distancing measures are in place",
+                        "Gap period enforced between guest stays - 24 hours",
+                        "Contactless check-in is available",
+                        "Protective clothing is available to guests",
+                        "Gloves are available to guests",
+                        "Guests are provided with free hand sanitizer"
+                    ]
+                }
+            },
+            "smallPrint": {
+                "alternativeNames": [
+                    "Santa Clara Vagabond Inn",
+                    "Hotel E Real Motel Santa Clara",
+                    "Vagabond Inn Motel Santa Clara",
+                    "Hotel E Real Santa Clara",
+                    "Vagabond Hotel Santa Clara",
+                    "Vagabond Inn Santa Clara Hotel Santa Clara",
+                    "Vagabond Motel Santa Clara",
+                    "Vagabond Inn Santa Clara Motel",
+                    "Hotel E Real Motel",
+                    "Hotel E Real Santa Clara"
+                ],
+                "mandatoryFees": [
+                    "<p>Deposit: USD 100.00 per accommodation, per stay</p>"
+                ],
+                "optionalExtras": [
+                    "<p><strong>Late check-out</strong> can be arranged for an extra charge</p>",
+                    "<p><strong>Pets</strong> are allowed for an extra charge of USD $40.00</p>Service animals exempt from fees"
+                ],
+                "policies": [
+                    "<p>This property does not have elevators. </p><p>Guests can rest easy knowing there's a carbon monoxide detector, a smoke detector, and window guards on site.</p><p>This property advises that enhanced cleaning and guest safety measures are currently in place.</p><p>Disinfectant is used to clean the property; commonly-touched surfaces are cleaned with disinfectant between stays; bed sheets and towels are laundered at a temperature of at least 60°C/140°F.</p><p>Personal protective equipment, including gloves, will be available to guests.</p><p>Social distancing measures are in place; staff at the property wear personal protective equipment; a shield is in place between staff and guests in main contact areas; periodic temperature checks are conducted on staff; guests are provided with hand sanitizer.</p><p>Contactless check-in and contactless check-out are available.</p><p>Each guestroom is kept vacant for a minimum of 24 hours between bookings.</p><p>This property affirms that it adheres to the cleaning and disinfection practices of SafeStay (AHLA - USA).</p>",
+                    "<p>The name on the credit card used at check-in to pay for incidentals must be the primary name on the guestroom reservation. </p><p>This property accepts credit cards and cash.</p>"
+                ],
+                "mandatoryTaxesOrFees": false,
+                "display": true
+            },
+            "specialFeatures": {
+                "sections": []
+            },
+            "miscellaneous": {
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "showLegalInfoForStrikethroughPrices": true,
+                "legalInfoForStrikethroughPrices": "The struck-out price is based on the property’s standard rate on our app, as determined and supplied by the property."
+            },
+            "pageInfo": {
+                "pageType": "dateless",
+                "errors": [],
+                "errorKeys": []
+            },
+            "unavailable": {}
+        },
+        "common": {
+            "pointOfSale": {
+                "numberSeparators": ",.",
+                "brandName": "Hotels.com"
+            },
+            "tracking": {
+                "omniture": {
+                    "s.prop34": "2022.04.946",
+                    "s.eVar69": "Mob :: aApp",
+                    "s.currencyCode": "USD",
+                    "s.eVar26": "US:TX:KATY:618",
+                    "s.eVar16": "Mob :: aApp",
+                    "s.products": "LOCAL;41945",
+                    "s.eVar29": "Mob :: aApp",
+                    "s.eVar40": "D=v0",
+                    "s.eVar95": "Unknown",
+                    "s.eVar41": "USD",
+                    "s.eVar31": "D=v0",
+                    "s.eVar4": "|SI:anonymous|VS:returnVisitor|HCR:notApplicable|FC:notApplicable|NS:unknown|TI:notApplicable|SM:notApplicable|IR:anonymous|",
+                    "s.eVar43": "en_US|HCOM_US|www.hotels.com",
+                    "s.eVar32": "D=v0",
+                    "s.eVar34": "H1068:005.001,H1871:007.002,M4869:001.000,M4953:001.000,M5342:000.000,M5756:001.000,M5758:001.000,M5759:001.000,M5760:001.000,M6271:001.000,M6439:000.000,M6553:000.000,M6946:000.000,M7296:000.000,M7305:000.000,M7308:000.000,M7353:000.000,M7362.0,M7635:000.000,M7844:000.000,M7983:000.000,M7990:000.000,M8033:000.000,M8073:000.000,M8248:000.000,M8336:000.000,M8400:000.000,M9035:000.000,M9056:000.000,M9167:000.000,M9168:000.000,M9469:000.000,M9475:000.000,M9493:000.000,M9629:000.000,M9733:007.001,M9810:000.000,M9890:000.000,M9924:000.000,M9930:000.000,M9974:000.000,M10013:002.001,M10025:000.000,M10049:000.000,M10057:000.000,M10101:000.000,M10268:000.000,M10291:000.000,M10335:000.000,M10473:000.000,M10517:000.000,M9215:001.000",
+                    "s.eVar13": "389367",
+                    "s.server": "www.hotels.com",
+                    "s.prop28": "0",
+                    "s.prop27": "e06a9bf0-33b3-4e27-9b4f-c06b81044476",
+                    "s.prop5": "389367",
+                    "s.eVar80": "",
+                    "s.prop48": "hotel details without dates description tab",
+                    "s.prop36": "|SI:anonymous|VS:returnVisitor|HCR:notApplicable|FC:notApplicable|NS:unknown|TI:notApplicable|SM:notApplicable|IR:anonymous|",
+                    "s.eVar93": "aws.us-west-2.unknown"
+                },
+                "pageViewBeaconUrl": "/taps/v1/PageView?deviceType=App-Phone&rooms=1&destRegionID=1457952&hotelIds=&adults=2&userAgent=PDE.4.1.432&userGuid=e06a9bf0-33b3-4e27-9b4f-c06b81044476&pageName=Hotel-IS&slots=HIS_Car_A,HIS_Car_B,HIS_Car_C,HIS_Car_D,HIS_Car_E,HIS_Car_F,HIS_Car_G,HIS_Car_H,HIS_Car_I,HIS_Car_J&children=0&culture=en_US&testVersionOverride=4200.0,7983.0,7561.0,7990.0,8434.0,9493.0,10473.0&domain=www.hotels.com&action=pageview&publisher=expedia&userIP=127.0.0.1&programId=1"
+            }
+        }
+    },
+    "transportation": {
+        "transportLocations": [
+            {
+                "category": "airport",
+                "locations": [
+                    {
+                        "name": "Norman Y. Mineta San Jose Intl. Airport (SJC) -",
+                        "distance": "",
+                        "distanceInTime": "11 min drive"
+                    },
+                    {
+                        "name": "San Francisco Intl. Airport (SFO) -",
+                        "distance": "",
+                        "distanceInTime": "36 min drive"
+                    },
+                    {
+                        "name": "Oakland Intl. Airport (OAK) -",
+                        "distance": "",
+                        "distanceInTime": "42 min drive"
+                    },
+                    {
+                        "name": "Watsonville, CA (WVI-Watsonville Municipal) -",
+                        "distance": "",
+                        "distanceInTime": "55 min drive"
+                    }
+                ]
+            },
+            {
+                "category": "train-station",
+                "locations": [
+                    {
+                        "name": "Sunnyvale Lawrence Station -",
+                        "distance": "",
+                        "distanceInTime": "28 min walk"
+                    },
+                    {
+                        "name": "Sunnyvale Station -",
+                        "distance": "",
+                        "distanceInTime": "6 min drive"
+                    },
+                    {
+                        "name": "Santa Clara Station -",
+                        "distance": "",
+                        "distanceInTime": "6 min drive"
+                    }
+                ]
+            }
+        ]
+    },
+    "neighborhood": {
+        "neighborhoodName": "Downtown San Jose"
+    }
+}

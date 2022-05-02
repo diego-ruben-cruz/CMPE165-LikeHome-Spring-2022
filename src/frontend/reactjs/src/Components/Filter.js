@@ -1,74 +1,176 @@
 import React, { Component } from "react";
+import ListSubheader from '@mui/material/ListSubheader';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import StarBorder from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import HotelIcon from '@mui/icons-material/Hotel';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import TextField from '@mui/material/TextField';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControl from '@mui/material/FormControl';
 import './Filter.css';
 
-function Filter(){
-    return(
-        <div class="sidenav">
-            <h3>Filters</h3><br/>
-            <h4>Price</h4>
-            <form>
-                <input type = "radio" id ="" value = ""></input>
-                <label>$50 - $100</label><br/>
-                <input type = "radio" id =""></input>
-                <label>$100 - $200</label><br/>
-                <input type = "radio" id =""></input>
-                <label>$200 - $300</label><br/>
-                <input type = "radio" id =""></input>
-                <label>$300 - $400</label><br/>
-                <input type = "radio" id =""></input>
-                <label>$400 - $500</label><br/>
-            </form><br/>
-            <h4>Rooms</h4>
-            <form>
-                <input type = "radio" id ="" value = ""></input>
-                <label>1</label><br/>
-                <input type = "radio" id =""></input>
-                <label>2</label><br/>
-                <input type = "radio" id =""></input>
-                <label>3</label><br/>
-                <input type = "radio" id =""></input>
-                <label>4</label><br/>
-                <input type = "radio" id =""></input>
-                <label>5</label><br/>
-            </form><br/>
-            <h4>Amenities</h4>
-            <form>
-                <input type = "checkbox" id ="" value = ""></input>
-                <label>Wifi</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>Swimming Pool</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>Free Breakfast</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>Pet Friendly</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>Valet</label><br/>
-            </form><br/>
-            <h4>Ratings</h4>
-            <form>
-                <input type = "checkbox" id ="" value = ""></input>
-                <label>10</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>9</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>8</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>7</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>6</label>
-                <input type = "checkbox" id ="" value = ""></input>
-                <label>5</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>4</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>3</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>2</label><br/>
-                <input type = "checkbox" id =""></input>
-                <label>1</label><br/>
-            </form><br/>
-        </div>
 
-    );
+export default function Filter() {
+    {/*Opens/Closes the category menu*/}
+    const [open1, setOpen1] = React.useState(true);
+    const [open2, setOpen2] = React.useState(true);
+    const [open3, setOpen3] = React.useState(true);
+
+    {/*Sets the filter for each object*/}
+    const [hotelName, setHotelName] = React.useState();
+    const [stars,setStars] = React.useState();
+    const [sortPrice, setSortPrice] = React.useState();
+    
+
+    {/*Sets the filter for each object*/}
+    const handleClick = () => {
+        setOpen1(!open1);
+      };
+    
+      const handleClick2 = () => {
+        setOpen2(!open2);
+      };
+      
+      const handleClick3 = () => {
+        setOpen3(!open3);
+      };
+      
+      {/*Changes based on event*/}
+      const setFilter1 = (event) => {
+        
+      };
+
+      const setFilter2 = (event) => {
+
+      };
+
+      const setFilter3 = (event) => {
+          if(sortPrice.equals("50<")){
+
+          }
+          else if(sortPrice.equals(">500")){
+
+          }
+          else{
+            const values = sortPrice.split("-",2);
+
+          }
+      };
+    
+      
+      return (
+        <List
+          sx={{ width: '150px' }}
+          component="nav"
+          subheader={
+            <ListSubheader component="div" id="filterList" color="white">
+              Filter
+            </ListSubheader>
+          }
+        >
+          {/*Lists the location*/}
+          <ListItemButton onClick={handleClick}>
+            <ListItemIcon>
+              <HotelIcon />
+            </ListItemIcon>
+            <ListItemText primary="Name" />
+            {open1 ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={open1} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <StarBorder />
+                </ListItemIcon>
+                <TextField 
+                id="hotelName" 
+                label="Hotel Name" 
+                variant="standard" 
+                onChange={setFilter1}
+                />
+              </ListItemButton>
+            </List>
+          </Collapse>
+          
+          {/*Dropdown menu for Ratings*/}
+          <ListItemButton onClick={handleClick2}>
+            <ListItemIcon>
+              <StarIcon />
+            </ListItemIcon>
+            <ListItemText primary="Star Rating" />
+            {open2 ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={open2} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton sx={{ pl: 4 }}>
+                <FormControl>
+                  <RadioGroup
+                    aria-labelledby="star-buttons-group-label"
+                    name="stars-group"
+                    value = {stars}
+                    onChange={setFilter2}
+                  >
+                    <FormControlLabel value={10} control={<Radio />} label="10 Stars" />
+                    <FormControlLabel value={9} control={<Radio />} label="9 Stars" />
+                    <FormControlLabel value={8} control={<Radio />} label="8 Stars" />
+                    <FormControlLabel value={7} control={<Radio />} label="7 Stars" />
+                    <FormControlLabel value={6} control={<Radio />} label="6 Stars" />
+                    <FormControlLabel value={5} control={<Radio />} label="5 Stars" />
+                    <FormControlLabel value={4} control={<Radio />} label="4 Stars" />
+                    <FormControlLabel value={3} control={<Radio />} label="3 Stars" />
+                    <FormControlLabel value={2} control={<Radio />} label="2 Stars" />
+                    <FormControlLabel value={1} control={<Radio />} label="1 Star" />
+                  </RadioGroup>
+                </FormControl>
+              </ListItemButton>
+            </List>
+          </Collapse>
+          
+          {/*Dropdown menu for Prices*/}
+          <ListItemButton onClick={handleClick3}>
+            <ListItemIcon>
+              <AttachMoneyIcon />
+            </ListItemIcon>
+            <ListItemText primary="Price" />
+            {open3 ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={open3} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton sx={{ pl: 4 }}>
+                <FormControl>
+                  <RadioGroup
+                    aria-labelledby="price-buttons-group-label"
+                    name="price-group"
+                    value = {sortPrice}
+                    onChange={setFilter3}
+                  >
+                    <FormControlLabel value="50<" control={<Radio />} label="Less than $50" />
+                    <FormControlLabel value="50-60" control={<Radio />} label="$50 - $60" />
+                    <FormControlLabel value="60-70" control={<Radio />} label="$60 - $70" />
+                    <FormControlLabel value="70-80" control={<Radio />} label="$70 - $80" />
+                    <FormControlLabel value="80-90" control={<Radio />} label="$80 - $90" />
+                    <FormControlLabel value="90-100" control={<Radio />} label="$90 - $100" />
+                    <FormControlLabel value="100-200" control={<Radio />} label="$100 - $200" />
+                    <FormControlLabel value="200-300" control={<Radio />} label="$200 - $300" />
+                    <FormControlLabel value="300-400" control={<Radio />} label="$300 - $400" />
+                    <FormControlLabel value="400-500" control={<Radio />} label="$400 - $500" />
+                    <FormControlLabel value=">500" control={<Radio />} label="More Than $500" />
+                  </RadioGroup>
+                </FormControl>
+              
+              </ListItemButton>
+            </List>
+          </Collapse>  
+          
+        </List>
+      );
 }
-export default Filter;
