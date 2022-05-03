@@ -17,7 +17,12 @@ const NavigationContext = ({ children }) => {
 
 
 
-
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+        if(user) setUser(user);
+        else setUser(null);
+    });
+  },);
 
   return (
     <Navigation.Provider
