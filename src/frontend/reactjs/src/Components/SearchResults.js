@@ -64,32 +64,27 @@ function checkSort(){
   if(sortOrder === ""){
     return;
   }
-
+  
   if(sortOrder == 1 ){
      params = {...params, sortOrder: "PRICE_HIGHEST_FIRST" };
   }
   else if(sortOrder == 2){
-    params = {...params, sortOrder: "PRICE_LOWEST_FIRST"};
+    params = {...params, sortOrder: "PRICE"};
   }
   else if(sortOrder == 3 ){
     params = {...params, sortOrder: "STAR_RATING_HIGHEST_FIRST"};
   }
   else if(sortOrder == 4){
      params = {...params, sortOrder: "STAR_RATING_LOWEST_FIRST"};
-  }
-  else if(sortOrder == 5){
-    params = {...params, sortOrder: "BEST_SELLER"};
-  }
-  else if(sortOrder == 6){
-     params = {...params, sortOrder: "PRICE"};
-   }  
+  } 
 }
 
+
  function checkFilterStars(){
-   if(filterStars === ""){
+   if(filterStars === "" || filterStars == -1){
      return;
    }
-   params = {...params, guestRatingMin: Number(filterStars)};
+   params = {...params, starRatings: filterStars};
  }
 
 
@@ -126,19 +121,6 @@ export default function SearchResults() {
     localStorage.setItem("price", price);
   }, [price]);
 
-  const [urlimage, setUrlimage] = useState(urlimage);
-  useEffect(() => {
-    // storing input name
-    localStorage.setItem("urlimage", urlimage);
-  }, [urlimage]);
-
-  const [hotelname, setHotelName] = useState(hotelname);
-  useEffect(() => {
-    // storing input name
-    localStorage.setItem("hotelname", hotelname);
-  }, [hotelname]);
-
-
   const [state, setState] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -160,71 +142,59 @@ export default function SearchResults() {
     }
   };
 
-  //   useEffect(() => {
-  //     fetch("http://localhost:8080/api/hotel/search?location=Las Vegas")
-  //     .then(response => response.json())
-  //     .then(res => setState(res))
-  //  }, [])
-
-  //  const getContacts = async () => {
-  //    try {
-  //      const res = axios.get("http://localhost:8080/api/hotel/search?location=Los Angeles")
-  //      setContacts(res)
-  //      setLoading(true);
-  //    } catch (err) {
-  //      alert(err.message)
-  //    }
-  //  }
-
+  
   return (
     <Grid container spacing={4}>
-      {state.map((card, index) => (
-          <Grid item key={card} xs={12} sm={6} md={7}>
-            <Card
-              className={classes.card}
-              key={index}
-              link="/reservationpage/${card.id}"
-            >
-              <Box>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image={card.optimizedThumbUrls.srpDesktop}
-                  title="Image title"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h1">
-                    {card.name}
-                  </Typography>
-                  <Typography gutterBottom variant="h6" component="h1">
-                    {card.address.streetAddress}, {card.address.locality},{" "}
-                    {card.address.postalCode}, {card.address.region}
-                  </Typography>
-                  <Typography>Rewards</Typography>
-                  <Typography>{card.guestReviews.rating}</Typography>
-                  <Typography>Price: {card.ratePlan.price.current}</Typography>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    value={price}
-                    onChange={(card) => setPrice(card.ratePlan.price.current)}
-                    sx={{ position: "absolute", top: "-305px", left: "380px" }}
-                    onClick={() => {
-                      localStorage.setItem("price", card.ratePlan.price.current)
-                      localStorage.setItem("url", card.optimizedThumbUrls.srpDesktop)
-                      localStorage.setItem("hotelname", card.name)
-                      localStorage.setItem("id", card.id);
-                    }}
-                    href="/reservationpage/"
-                  >
-                    Book Now
-                  </Button>
-                </CardActions>
-              </Box>
-            </Card>
-          </Grid>
-        ))}
+      {state.map((card, index) => {
+        if(card.name.includes(filterHotelName)){
+          return(  
+              <Grid item key={card} xs={12} sm={6} md={7}>
+                <Card
+                  className={classes.card}
+                  key={index}
+                  link="/reservationpage/${card.id}"
+                >
+                  <Box>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={card.optimizedThumbUrls.srpDesktop}
+                      title="Image title"
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h1">
+                        {card.name}
+                      </Typography>
+                      <Typography gutterBottom variant="h6" component="h1">
+                        {card.address.streetAddress}, {card.address.locality},{" "}
+                        {card.address.postalCode}, {card.address.region}
+                      </Typography>
+                      <Typography>Rewards</Typography>
+                      <Typography>{card.starRating}</Typography>
+                      <Typography>Price: {card.ratePlan.price.current}</Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        value={price}
+                        onChange={(card) => setPrice(card.ratePlan.price.current)}
+                        sx={{ position: "absolute", top: "-305px", left: "380px" }}
+                        onClick={() => {
+                          localStorage.setItem("price", card.ratePlan.price.current); 
+                          localStorage.setItem("id", card.id);
+                          localStorage.setItem("url", card.optimizedThumbUrls.srpDesktop);
+                        }}
+                        href="/reservationpage/"
+                      >
+                        Book Now
+                      </Button>
+                    </CardActions>
+                  </Box>
+                </Card>
+              </Grid>
+        )}
+        })}
+
     </Grid>
   );
 }

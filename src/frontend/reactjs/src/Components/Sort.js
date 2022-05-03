@@ -39,26 +39,21 @@ export default function Sort() {
               window.location.reload();
             } }
           >
-    
+            <MenuItem value={0}>
+                Default
+            </MenuItem>
             <MenuItem value={1}>
-                High Price 
+                Highest to Lowest Price 
             </MenuItem>
             <MenuItem value={2}>
-                Low Price 
+                Lowest to Highest Price 
             </MenuItem>
             <MenuItem value={3}>
-                High Rating 
+                Highest to Lowest Rating 
             </MenuItem>
             <MenuItem value={4}>
-                Low Rating
+                Lowest to Highest Rating
             </MenuItem>
-            <MenuItem value={5}>
-                High Hotel Name 
-            </MenuItem>
-            <MenuItem value={6}>
-               Low Hotel Name
-            </MenuItem>
-            
           </Select>
         </FormControl>
       </Box>
