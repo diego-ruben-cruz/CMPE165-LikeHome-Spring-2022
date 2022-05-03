@@ -17,6 +17,7 @@ import { NavigationState } from '../NavigationContext';
 import { Link, useHistory } from 'react-router-dom';
 import { FormControlLabel } from '@mui/material';
 import { Checkbox } from '@mui/material';
+import { color } from '@mui/system';
 
 
 
@@ -47,17 +48,27 @@ const Payment = ({handleClose}) => {
   const handleSubmit = async () => {
     
     console.log(auth.currentUser.email)
-
+    console.log(checkedTerms)
     try {
+      if(checkedTerms==false){
+        setAlert({
+          open: true,
+          message: 'Must accept Terms and Conditions before paying.',
+          type:'error',
+        });
+        return;
+      }
+
       const q = query(collection(db,"Reservations"), where("accountId", "==", auth.currentUser.email));
       const querySnapshot= await getDocs(q);
 
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        const date = doc.data().checkIn
+        const date1 = doc.data().checkIn
+        const date2 = doc.data().checkOut
         console.log(doc.data().checkIn)
         console.log(localStorage.getItem("checkin"))
-        if(date == (localStorage.getItem("checkin"))){
+        if(date1 == (localStorage.getItem("checkin")) || date2 == (localStorage.getItem("checkout"))){
           console.log(doc.data().checkIn)
           setAlert({
             open: true,
@@ -101,6 +112,13 @@ const Payment = ({handleClose}) => {
         useSeals: checkedSeals
       })
       console.log(paymentResp);
+
+      setAlert({
+        open:true,
+        message: `You have successfully reserved this room`,
+        type: 'success',
+      });
+
 
     } catch (error) {
       console.log(error);
@@ -356,14 +374,22 @@ const Payment = ({handleClose}) => {
                     </Button>
                     <FormControlLabel
                     control={<Checkbox checked={checkedTerms} onChange={(e)=>setCheckedTerms(e.target.checked)}/>}
-                    label={<Link 
-                      to="/profile"
-                      style={{ 
-                      textDecoration:'none',
-                      color:'black'
-                       }}
-                  >By checking this box you agree to the terms and conditions
-                  </Link>}
+                    label={
+                    
+                    <Typography>
+                      By checking this box you agree to the
+                    <Link 
+                      to="/termsandconditions"
+                      style={{
+                        textTransform:"underlined",
+                        color:"blue"
+                      }}
+
+                  > terms and conditions
+                  </Link>
+                  </Typography>
+                  }
+                  
                   />
                     
                     

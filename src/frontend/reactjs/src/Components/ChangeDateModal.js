@@ -23,6 +23,7 @@ import Typography from "@material-ui/core/Typography";
 
 import Box from "@material-ui/core/Box";
 import { SettingsInputAntenna } from "@mui/icons-material";
+import { NavigationState } from "../NavigationContext";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -43,11 +44,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ChangeDateModal(props) {
 
-    const [checkout, setCheckOut] = useState("");
-const [checkin, setCheckin] = useState("");
+  const [checkout, setCheckOut] = useState("");
+  const [checkin, setCheckin] = useState("");
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+
+  const [alert, setAlert] = NavigationState()
 
   const handleOpen = async() => {
     {
@@ -60,9 +63,21 @@ const [checkin, setCheckin] = useState("");
              {merge: true}
               );
 
-        } catch(error){}
+              setAlert({
+                open:true,
+                message: `You have changes your reservation dates. If you decide to shorten your stay, you will be subject to fees/penalties upon arriving at the hotel. If you decide to extend your stay, the hotel will be notified and it will handle the extension on arrival.`,
+                type: 'success',
+              });
+              
+        } 
+        catch(error){
+          setAlert({
+            open: true,
+            message: error.message,
+            type: 'error',
+          });
 
-        
+        }
         
     }
     
