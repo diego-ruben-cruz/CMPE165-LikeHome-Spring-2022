@@ -17,11 +17,12 @@ const Rewards = () => {
       onSnapshot(
         docRef,  
         (doc) => {
-          setSealNumber(doc.data().seals)
+          if(doc.data().seals){
+            setSealNumber(doc.data().seals)
+          }  
+          
           console.log(sealNumber)
-          if(!doc.data().seals){
-            setSealNumber(0);
-          }
+          
         }
         );
       

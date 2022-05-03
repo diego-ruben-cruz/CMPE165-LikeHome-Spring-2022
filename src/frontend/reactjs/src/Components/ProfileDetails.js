@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import Rewards from './Rewards';
+import { useHistory } from 'react-router-dom';
 
 
 const Profile = ({handleClose}) => {
@@ -15,9 +16,8 @@ const Profile = ({handleClose}) => {
   const [fullName, setFullName ]= useState("");
   const [phoneNumber, setPhoneNumber ]= useState("");
   const [email, setEmail ]= useState("");
-  const[sealNumber, setSealNumber] = useState("");
   const {setAlert} = NavigationState();
-
+  const history = useHistory()
 
   const handleSubmit = async () => {
     try{
@@ -49,7 +49,7 @@ const Profile = ({handleClose}) => {
      {merge: true}
       );
       
-          
+     history.push("/")     
     }catch (error) {
       setAlert({
         open: true,
