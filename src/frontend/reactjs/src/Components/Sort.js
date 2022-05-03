@@ -26,8 +26,8 @@ export default function Sort() {
       }, [sortOrder]);
     
     return ( 
-      <Box sx={{ minWidth: 150 }}>
-        <FormControl fullWidth>
+      <Box sx={{ minWidth: 150, position: 'absolute', top: '150px', right: '45px' }}>
+        <FormControl>
           <InputLabel id="sorting">Sort:</InputLabel>
           <Select
             labelId="SortByOrderLabel"

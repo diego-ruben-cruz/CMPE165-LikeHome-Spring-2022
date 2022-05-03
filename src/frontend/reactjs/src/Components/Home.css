@@ -1,20 +1,7 @@
-.home {
-    font-size: 50px;
-    text-align: center;
-    padding: 40px;
+
+ body {
+  overflow-x: hidden !important;
 }
-
-.h1{
-    background-image: url("https://www.candorblog.com/wp-content/uploads/2017/05/travel-022.jpg");
-    
-}
-
-.rec1{
-    width: 50;
-    height: 50;
-}
-
-
 
 /* return (
     <>

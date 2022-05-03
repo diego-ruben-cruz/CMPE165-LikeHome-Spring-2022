@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import * as api from "../api";
 import { WindowSharp } from "@mui/icons-material";
+import Rating from '@mui/material/Rating';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(8),
   },
   card: {
-    height: "250px",
+    height: "275px",
     width: "1250px",
     display: "flex",
     flexDirection: "column",
@@ -30,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
     paddingTop: "25%",
     float: "left",
-    width: "25%",
-    height: "125px",
+    width: "350px",
+    height: "250px",
   },
   cardContent: {
     flexGrow: 1,
@@ -162,24 +163,27 @@ export default function SearchResults() {
                       title="Image title"
                     />
                     <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h5" component="h1">
+                      <Typography gutterBottom variant="h7" component="h1">
                         {card.name}
                       </Typography>
                       <Typography gutterBottom variant="h6" component="h1">
                         {card.address.streetAddress}, {card.address.locality},{" "}
                         {card.address.postalCode}, {card.address.region}
                       </Typography>
-                      <Typography>Rewards</Typography>
-                      <Typography>{card.starRating}</Typography>
-                      <Typography>Price: {card.ratePlan.price.current}</Typography>
+                      <Typography gutterBottom variant="h6" component="h1">Star Rating:
+                      <Rating name="half-rating-read" defaultValue={card.starRating} precision={0.5} readOnly />
+                      </Typography>
+                      <Typography gutterBottom variant="h6" component="h1">Price: {card.ratePlan.price.current}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button
+                      <Button style={{
+                      borderRadius: 35,
+                      backgroundColor: "#2B6FD4",
+                      color: 'white'
+                      }}
                         variant="contained"
-                        color="secondary"
                         value={price}
                         onChange={(card) => setPrice(card.ratePlan.price.current)}
-                        sx={{ position: "absolute", top: "-305px", left: "380px" }}
                         onClick={() => {
                           localStorage.setItem("price", card.ratePlan.price.current); 
                           localStorage.setItem("id", card.id);

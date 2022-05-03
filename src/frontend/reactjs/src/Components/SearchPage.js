@@ -5,7 +5,6 @@ import Footer from './Footer';
 import Filter from './Filter';
 import SearchResults from './SearchResults';
 import Stack from '@mui/material/Stack';
-import './SearchPage.css';
 import Container from './Container';
 import Sort from './Sort';
 
@@ -14,7 +13,7 @@ function SearchPage(){
         <>
         <Header/>
         <Container position={'relative'} zIndex={2}  sx={{position: "absolute",
-        top: "-305px", left: "380px"}}>
+        top: "-305px", left: "350px"}}>
         <SearchBar/>
         
         </Container>
@@ -36,6 +35,17 @@ function SearchPage(){
         <Filter/>
         <SearchResults/>
         </Stack>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <br/>
         <br/>
         <br/>
