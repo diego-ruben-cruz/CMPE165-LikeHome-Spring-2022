@@ -24,19 +24,9 @@ const Footer = () => {
               width={80}
             >
             </Box>
-            <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
-              <Box marginTop={1} marginRight={2}
-              href="/"
-              >
-                  Home
-              </Box>
-              <Box marginTop={1} marginRight={2}>
-                About Us
-              </Box>
               <Box marginTop={1}>
               </Box>
             </Box>
-          </Box>
         </Grid>
         <Grid item xs={12}>
           <Typography
