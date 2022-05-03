@@ -11,19 +11,19 @@ import Container from './Container';
 
 const mock = [
   {
-    title: 'Lorem 1',
+    title: 'Jerry Gao\'s TA',
     subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'I love to use LikeHome in my spare time to look for new views to grade the homework of CMPE 187 students to.',
   },
   {
-    title: 'Lorem 2',
+    title: 'Spring 2021 CMPE 133 Sec 02 Note Taker',
     subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Working with LikeHome is a good way for me to get some nice chill vibes while moderating the CMPE 165 class Discord server and it gives me another opportunity to roast Dan. #SproutGang',
   },
   {
-    title: 'Lorem 3',
+    title: 'David R',
     subtitle:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'A few of my students actually happened to work on LikeHome, it\'s such a great site to make reservations with my family when we take trips down to SoCal!',
   },
 ];
 
@@ -36,7 +36,7 @@ const ContainerCards = () => {
           <Typography fontWeight={700} variant={'h4'} sx={{
               paddingTop: '750px',
             }}>
-            Lorem
+            Some reviews from our power users:
           </Typography>
         </Box>
         <Grid container spacing={2} sx={{
