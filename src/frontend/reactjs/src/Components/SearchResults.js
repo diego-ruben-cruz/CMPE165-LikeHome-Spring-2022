@@ -142,7 +142,8 @@ export default function SearchResults() {
     }
   };
 
-  
+  console.log(state);
+
   return (
     <Grid container spacing={4}>
       {state.map((card, index) => {
@@ -183,6 +184,7 @@ export default function SearchResults() {
                           localStorage.setItem("price", card.ratePlan.price.current); 
                           localStorage.setItem("id", card.id);
                           localStorage.setItem("url", card.optimizedThumbUrls.srpDesktop);
+                          localStorage.setItem("hotelName", card.name);
                         }}
                         href="/reservationpage/"
                       >

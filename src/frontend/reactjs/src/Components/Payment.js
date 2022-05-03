@@ -15,8 +15,7 @@ import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase
 import * as api from '../api';
 import { NavigationState } from '../NavigationContext';
 import { CheckBox } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
-
+import { Link, useHistory } from 'react-router-dom';
 
 
 
@@ -39,7 +38,7 @@ const Payment = ({handleClose}) => {
   const {setAlert} = NavigationState();
   
   //const [name, setName] = useState("");
-  
+  const history = useHistory()
 
   const handleSubmit = async () => {
     
@@ -102,6 +101,7 @@ const Payment = ({handleClose}) => {
     } catch (error) {
       console.log(error);
     }
+    history.push('/bookings');
   };
 
 
