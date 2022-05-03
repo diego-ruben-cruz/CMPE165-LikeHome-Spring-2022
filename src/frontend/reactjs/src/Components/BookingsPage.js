@@ -22,6 +22,8 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { async } from "@firebase/util";
 import { doc, setDoc } from 'firebase/firestore';
 import ChangeDateModal from "./ChangeDateModal";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -134,6 +136,8 @@ const getReservation = async () => {
 
 
   return(
+    <>
+    <Header/>
     <Grid container spacing={4}>
       {
         state.map((card, index) => (
@@ -192,6 +196,8 @@ const getReservation = async () => {
           </Grid>
         ))}
     </Grid>
+    <Footer/>
+    </>
   );
 }
 

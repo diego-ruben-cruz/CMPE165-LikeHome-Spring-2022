@@ -1,12 +1,14 @@
 import { Button } from '@mui/material'
 import { signOut } from 'firebase/auth';
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import { NavigationState } from '../NavigationContext';
 
 const Logout = () => {
 
     const {setAlert} = NavigationState();
+    const history = useHistory();
 
     const handleSubmit = () => {
         signOut(auth)
@@ -16,6 +18,8 @@ const Logout = () => {
           type: "success",
           message: "Come back soon!"
         })
+
+        history.push("/")
       };
       
   return (
