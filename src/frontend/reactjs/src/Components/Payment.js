@@ -14,8 +14,9 @@ import { doc, query, setDoc, collection, getDocs, where } from 'firebase/firesto
 import { signInWithEmailAndPassword, updateEmail, updateProfile } from 'firebase/auth';
 import * as api from '../api';
 import { NavigationState } from '../NavigationContext';
-import { CheckBox } from '@mui/icons-material';
 import { Link, useHistory } from 'react-router-dom';
+import { FormControlLabel } from '@mui/material';
+import { Checkbox } from '@mui/material';
 
 
 
@@ -37,6 +38,8 @@ const Payment = ({handleClose}) => {
   const [cardname, setCardName] = useState("");
   const {setAlert} = NavigationState();
   
+  const [checkedSeals, setCheckedSeals] = React.useState(false);
+  const [checkedTerms, setCheckedTerms] = React.useState(true);
   //const [name, setName] = useState("");
   const history = useHistory()
 
@@ -93,8 +96,8 @@ const Payment = ({handleClose}) => {
             zip: zip,
 
            },
-        saveDetails: true
-        
+        saveDetails: true,
+        useSeals: checkedSeals
       })
       console.log(paymentResp);
 
@@ -350,15 +353,23 @@ const Payment = ({handleClose}) => {
                     >
                       Submit
                     </Button>
-                    <CheckBox/>
-                    <Link 
+                    <FormControlLabel
+                    control={<Checkbox checked={checkedTerms} onChange={(e)=>setCheckedTerms(e.target.checked)}/>}
+                    label={<Link 
                       to="/profile"
                       style={{ 
                       textDecoration:'none',
                       color:'black'
                        }}
                   >By checking this box you agree to the terms and conditions
-                  </Link>
+                  </Link>}
+                  />
+                    
+                    
+                  <FormControlLabel
+                    control={<Checkbox checked={checkedSeals} onChange={(e)=>setCheckedSeals(e.target.checked)}/>}
+                    label="Use Seals"
+                  />
                   </Box>
                 </Grid>
               </Grid>
