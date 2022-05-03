@@ -16,8 +16,8 @@ import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
+import Button from "@mui/material/Button";
 import './Filter.css';
-import { WindowSharp } from "@mui/icons-material";
 
 
 export default function Filter() {
@@ -98,13 +98,22 @@ export default function Filter() {
                 id="hotelName" 
                 label="Hotel Name" 
                 variant="standard"
-                value = {filterHotelName} 
-                onChange={(x) => {
-                  setFilterHotelName(x.target.value);
-                  window.location.reload();
-                 } }
+                value = {filterHotelName}
+                onChange={(e) => setFilterHotelName(e.target.value)} 
                 />
               </ListItemButton>
+              <Button
+                sx={{ height: 54, whiteSpace: "nowrap" }}
+                variant="contained"
+                color="primary"
+                size="medium"
+                fullWidth
+                onClick={(x) => {
+                  window.location.reload();
+                 } }
+              >
+                Search Hotel
+              </Button>
             </List>
           </Collapse>
           
@@ -129,16 +138,12 @@ export default function Filter() {
                       window.location.reload();
                     }}
                   >
-                    <FormControlLabel value={10} control={<Radio />} label="10 Stars" />
-                    <FormControlLabel value={9} control={<Radio />} label="9 Stars" />
-                    <FormControlLabel value={8} control={<Radio />} label="8 Stars" />
-                    <FormControlLabel value={7} control={<Radio />} label="7 Stars" />
-                    <FormControlLabel value={6} control={<Radio />} label="6 Stars" />
-                    <FormControlLabel value={5} control={<Radio />} label="5 Stars" />
-                    <FormControlLabel value={4} control={<Radio />} label="4 Stars" />
-                    <FormControlLabel value={3} control={<Radio />} label="3 Stars" />
-                    <FormControlLabel value={2} control={<Radio />} label="2 Stars" />
-                    <FormControlLabel value={1} control={<Radio />} label="1 Star" />
+                    <FormControlLabel value={-1} control={<Radio />} label="Default" />
+                    <FormControlLabel value={5} control={<Radio />} label="Around 5 Stars" />
+                    <FormControlLabel value={4} control={<Radio />} label="Around 4 Stars" />
+                    <FormControlLabel value={3} control={<Radio />} label="Around 3 Stars" />
+                    <FormControlLabel value={2} control={<Radio />} label="Around 2 Stars" />
+                    <FormControlLabel value={1} control={<Radio />} label="Around 1 Star" />
                   </RadioGroup>
                 </FormControl>
               </ListItemButton>
@@ -166,6 +171,7 @@ export default function Filter() {
                       window.location.reload();
                     } }
                   >
+                    <FormControlLabel value="" control={<Radio />} label="Default" />
                     <FormControlLabel value="50<" control={<Radio />} label="Less than $50" />
                     <FormControlLabel value="50-60" control={<Radio />} label="$50 - $60" />
                     <FormControlLabel value="60-70" control={<Radio />} label="$60 - $70" />

@@ -72,7 +72,6 @@ export const list = async (params: listParams) => {
     pageNumber: '1',
     pageSize: '25',
     adults1: '1',
-    sortOrder: 'PRICE'
   }
 
   // call hotels4 properties/list endpoint
