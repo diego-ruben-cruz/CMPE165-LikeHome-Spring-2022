@@ -160,7 +160,7 @@ export default function BookingsPage(props) {
                       window.location.reload();
                       // setAlert({
                       //   open: true,
-                      //   message: `Reservation successfully cancelled. You have incurred a cancellation fee of USD 25 and will be subject to further fees/penalties upon arriving at the hotel}`,
+                      //   message: `Reservation successfully cancelled. You have incurred a cancellation fee of USD 25 and will be subject to further fees/penalties upon arriving at the hotel.}`,
                       //   type: "success",
                       // });
                     }}
