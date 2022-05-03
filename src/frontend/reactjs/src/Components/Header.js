@@ -35,9 +35,9 @@ const Header = () => {
                     <Tabs style={{marginLeft: 'auto'}} color = 'white'>
                         
                         
-                        {user? <Logout/>: <Button  href='/login/' style={{borderRadius: '50px'}}variant="contained">Log in</Button>}
+                        {user? <BookingsButton/>: <Button  href='/login/' style={{borderRadius: '50px'}}variant="contained">Log in</Button>}
                         {user? <ProfileButton/>: <Button  href='/signup/'style={{marginLeft: '10px', borderRadius: '50px'}} variant="contained">Sign Up</Button>}   
-                        {user? <BookingsButton/>: <Button></Button>}   
+                        {user? <Logout/>: <Button></Button>}   
                         
                         
                     </Tabs>

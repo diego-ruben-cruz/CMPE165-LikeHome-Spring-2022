@@ -37,6 +37,7 @@ const Payment = ({handleClose}) => {
   const [zip, setZip] = useState("");
   const [cardname, setCardName] = useState("");
   const {setAlert} = NavigationState();
+  const [checkin, setCheckin] = useState("");
   
   const [checkedSeals, setCheckedSeals] = React.useState(false);
   const [checkedTerms, setCheckedTerms] = React.useState(true);

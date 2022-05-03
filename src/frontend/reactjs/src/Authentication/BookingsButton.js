@@ -15,7 +15,7 @@ const BookingsButton = () => {
             color:'white'
     
         }}
-        >MyBookings</Link>
+        >My Reservations</Link>
     </Button>
   )
 }
