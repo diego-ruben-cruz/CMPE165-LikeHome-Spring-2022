@@ -17,6 +17,7 @@ import { doc, setDoc } from 'firebase/firestore';
 
 const SignUp = () => {
 
+  
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -26,6 +27,7 @@ const SignUp = () => {
   const {setAlert} = NavigationState();
 
   const handleSubmit = async () => {
+    
     if (password !== confirmPassword){
       setAlert({
         open: true,
@@ -36,40 +38,47 @@ const SignUp = () => {
     }
 
     try {
-      const result1 = await setDoc(doc(db, "Users", '${email}'), {
+      const result1 = await setDoc(doc(db, "Users", `${email}`), {
         firstName:firstName,
         lastName: lastName,
         email: email,
-
+        seals: 0
       },
      {merge: true}
       );
 
-      
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
         password
         );
 
+
         console.log(result);
         
-        
+        history.push("/login")
+
         setAlert({
           open: true,
           message: 'Thank you for joining LikeHome.com!',
           type: 'success',
         });
        
+        
 
     } catch (error){
+
       setAlert({
         open: true,
         message: error.message,
         type: 'error',
+
       });
     }
+    
   };
+
+
 
   return (
       <>
@@ -182,7 +191,7 @@ const SignUp = () => {
                       </Link>
                     </Typography>
                   </Box>
-                  <Button  href='/signup/' size={'large'} variant={'contained'} onClick={handleSubmit}>
+                  <Button   size={'large'} variant={'contained'} onClick={handleSubmit}>
                     Sign up
                   </Button>
                 </Box>

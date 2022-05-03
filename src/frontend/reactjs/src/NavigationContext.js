@@ -7,33 +7,17 @@ const Navigation = createContext();
 
 const NavigationContext = ({ children }) => {
   const[user, setUser] = useState(null);
-  const [sealNumber, setSealNumber] = useState(0);
+ 
   const[alert, setAlert] = useState({
     open:false,
     message:'',
     type: " success"
   })
 
-  useEffect(() => {
-    if (user) {
-      const docRef = doc(db, "Users", user.email)
-      onSnapshot(
-        docRef,  
-        (doc) => {
-          setSealNumber(doc.data().seals)
-          console.log(sealNumber)
-        });
-    }
-    
-  },);
 
 
-  useEffect(() => {
-    onAuthStateChanged(auth, user => {
-        if(user) setUser(user);
-        else setUser(null);
-    });
-  },);
+
+
 
   return (
     <Navigation.Provider

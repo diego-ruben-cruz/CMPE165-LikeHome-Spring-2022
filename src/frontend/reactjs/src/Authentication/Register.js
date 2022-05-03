@@ -12,6 +12,7 @@ const Register = ({handleClose}) => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const {setAlert} = NavigationState();
+  
 
   const handleSubmit = async () => {
     if (password !== confirmPassword){
