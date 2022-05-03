@@ -158,11 +158,15 @@ export default function BookingsPage(props) {
                     onClick={async () => {
                       await api.reservation.delete(card.id);
                       window.location.reload();
+
                       // setAlert({
                       //   open: true,
-                      //   message: `Reservation successfully cancelled. You have incurred a cancellation fee of USD 25 and will be subject to further fees/penalties upon arriving at the hotel.}`,
+                      //   message: `Reservation successfully cancelled. You have incurred a cancellation fee of USD 25 and will be subject to further fees/penalties from the hotel.`,
                       //   type: "success",
                       // });
+                      // setTimeout(function () {
+                      //   window.location.reload();
+                      // }, 4000);
                     }}
                   >
                     Cancel Reservation

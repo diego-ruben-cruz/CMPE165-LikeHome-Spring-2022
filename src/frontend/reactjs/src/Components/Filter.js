@@ -139,11 +139,11 @@ export default function Filter() {
                     }}
                   >
                     <FormControlLabel value={-1} control={<Radio />} label="Default" />
-                    <FormControlLabel value={5} control={<Radio />} label="Around 5 Stars" />
-                    <FormControlLabel value={4} control={<Radio />} label="Around 4 Stars" />
-                    <FormControlLabel value={3} control={<Radio />} label="Around 3 Stars" />
-                    <FormControlLabel value={2} control={<Radio />} label="Around 2 Stars" />
-                    <FormControlLabel value={1} control={<Radio />} label="Around 1 Star" />
+                    <FormControlLabel value={5} control={<Radio />} label="5 Stars" />
+                    <FormControlLabel value={4} control={<Radio />} label="4 Stars" />
+                    <FormControlLabel value={3} control={<Radio />} label="3 Stars" />
+                    <FormControlLabel value={2} control={<Radio />} label="2 Stars" />
+                    <FormControlLabel value={1} control={<Radio />} label="1 Star" />
                   </RadioGroup>
                 </FormControl>
               </ListItemButton>
