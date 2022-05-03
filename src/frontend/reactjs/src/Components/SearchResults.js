@@ -52,12 +52,12 @@ console.log(name);
 var params = {};
 
 {/*Changes based on what user wants to Sort*/}
-var sortOrder = localStorage.getItem("sortOrder");
+var sortOrder = localStorage.getItem("sortOrder") || "";
 
 {/*Changes based on event*/}
-var filterHotelName = localStorage.getItem("filterHotelName");
-var filterStars = localStorage.getItem("filterStars");
-var filterPrice= localStorage.getItem("filterPrice");
+var filterHotelName = localStorage.getItem("filterHotelName") || "";
+var filterStars = localStorage.getItem("filterStars") || "";
+var filterPrice= localStorage.getItem("filterPrice") || "";
 
  {/*Get Info about the Sort*/}
 function checkSort(){
