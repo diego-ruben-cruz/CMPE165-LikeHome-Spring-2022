@@ -58,7 +58,7 @@ const Payment = ({handleClose}) => {
         });
         return;
       }
-
+      
       const q = query(collection(db,"Reservations"), where("accountId", "==", auth.currentUser.email));
       const querySnapshot= await getDocs(q);
 
@@ -78,6 +78,16 @@ const Payment = ({handleClose}) => {
           return;
         }
       });
+
+      if(checkedTerms==true){
+        setAlert({
+          open:true,
+          message: `You have successfully reserved this hotel`,
+          type: 'success',
+        });
+        return;
+      }
+
 
       const reservationResp = await api.reservation.create({
         
@@ -110,20 +120,17 @@ const Payment = ({handleClose}) => {
            },
         saveDetails: true,
         useSeals: checkedSeals
+        
       })
       console.log(paymentResp);
 
-      setAlert({
-        open:true,
-        message: `You have successfully reserved this room`,
-        type: 'success',
-      });
+     
 
 
     } catch (error) {
       console.log(error);
     }
-    history.push('/bookings');
+    
   };
 
 
@@ -377,16 +384,24 @@ const Payment = ({handleClose}) => {
                     label={
                     
                     <Typography>
-                      By checking this box you agree to the
-                    <Link 
-                      to="/termsandconditions"
+                      By checking this box you agree to the {' '}
+                    <Button 
+                      variant='text'
+                      href="https://drive.google.com/file/d/17ClzF5cX0dThaHC_qblYxPtcP7rV5dSK/view?usp=sharing" target="_blank"
+                      
                       style={{
-                        textTransform:"underlined",
+                        textTransform:"none",
                         color:"blue"
                       }}
 
-                  > terms and conditions
-                  </Link>
+                  >
+                    <Typography
+                      textTransform="underlined"
+                    >
+                      terms and conditions
+                    </Typography>
+                   
+                  </Button>
                   </Typography>
                   }
                   
