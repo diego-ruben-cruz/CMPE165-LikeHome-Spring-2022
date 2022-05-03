@@ -123,7 +123,7 @@ const Template3 = () => {
                 </ListItemAvatar>
                 <ListItemText primary={item.title} secondary={item.subtitle} />
                 <Button variant={'contained'} sx={{ marginTop: 2 }}
-                href="https://youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye" target="_blank"
+                href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo" target="_blank"
                 >
                   Get started
                 </Button>

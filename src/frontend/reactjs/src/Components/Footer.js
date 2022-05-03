@@ -24,26 +24,20 @@ const Footer = () => {
               width={80}
             >
             </Box>
-            <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
-              <Box marginTop={1} marginRight={2}>
-                  Home
-              </Box>
-              <Box marginTop={1} marginRight={2}>
-                About Us
-              </Box>
               <Box marginTop={1}>
               </Box>
             </Box>
-          </Box>
         </Grid>
         <Grid item xs={12}>
           <Typography
             align={'center'}
-            variant={'subtitle2'}
+            variant={'subtitle1'}
             color="white"
             gutterBottom
           >
-            &copy; Code Monkeys. 2022. All rights reserved
+            &copy; Code Monkeys 2022. 
+            <br/>
+            All Rights Reserved
           </Typography>
         </Grid>
         </Grid>
@@ -53,4 +47,3 @@ const Footer = () => {
 }
 
 export default Footer;
-

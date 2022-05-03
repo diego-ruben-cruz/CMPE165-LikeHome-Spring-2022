@@ -33,7 +33,7 @@ const TravelingText = () => {
               color="text.primary"
               sx={{ color: '#222B45' }}
             >
-              We're a team of 10 developers, each with a different skillset, making a site not unlike hotels.com. We committed several counts of crimes in the name of Agile development, ingested several liters from the house of lean, and declared war on paywalled features. We've built this website for the CMPE 165 course at San Jose State University for the Spring 2022 semester.
+              We're a team of 10 developers, each with a different skillset, making a site not unlike hotels.com. We committed several crimes in the name of Agile development, ingested several liters of lessons from the house of lean, and declared war on paywalled features. We've built this website for the CMPE 165 course at San Jose State University for the Spring 2022 semester.
             </Typography>
           </Box>
           <Box
@@ -45,7 +45,6 @@ const TravelingText = () => {
             href="https://youtu.be/dQw4w9WgXcQ" target="_blank"
           >
             Check out our other work
-            
           </Box>
         </Grid>
         <Grid

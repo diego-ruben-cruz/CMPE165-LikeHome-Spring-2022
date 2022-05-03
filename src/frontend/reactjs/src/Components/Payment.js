@@ -355,7 +355,7 @@ const Payment = ({handleClose}) => {
                       to="/profile"
                       style={{ 
                       textDecoration:'none',
-                      color:'white'
+                      color:'black'
                        }}
                   >By checking this box you agree to the terms and conditions
                   </Link>

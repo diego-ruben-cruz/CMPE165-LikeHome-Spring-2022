@@ -212,8 +212,9 @@ export default function SearchResults() {
                     sx={{ position: "absolute", top: "-305px", left: "380px" }}
                     onClick={() => {
                       localStorage.setItem("price", card.ratePlan.price.current)
-                      localStorage.setItem("urlimage", card.optimizedThumbUrls.srpDesktop)
+                      localStorage.setItem("url", card.optimizedThumbUrls.srpDesktop)
                       localStorage.setItem("hotelname", card.name)
+                      localStorage.setItem("id", card.id);
                     }}
                     href="/reservationpage/"
                   >
