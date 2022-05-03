@@ -99,21 +99,21 @@ const ReservationPage = () => {
       />
                     <Grid item xs={12}>
                     <Typography variant="h5" component="h1">
-            {(!state.data)? 'Nope':state.data.body.propertyDescription.name}
+            {(!state.data)? 'Loading Name...':state.data.body.propertyDescription.name}
             </Typography>
             <Typography variant="h5" component="h2">
-            Star Rating: {(!state.data)? 'Nope': state.data.body.propertyDescription.starRatingTitle}
+            Star Rating: {(!state.data)? 'Loading...': state.data.body.propertyDescription.starRatingTitle}
           </Typography>
               <Typography variant="h5" component="h2">
-            {(!state.data)? 'Nope': state.data.body.propertyDescription.address.fullAddress}
+            {(!state.data)? 'Loading Address...': state.data.body.propertyDescription.address.fullAddress}
           </Typography>
           <Typography variant="h5" component="h2">
-            Guest Rating: {(!state.data)? 'Nope': state.data.body.guestReviews.brands.formattedRating}
+            Guest Rating: {(!state.data)? 'Loading...': state.data.body.guestReviews.brands.formattedRating}
           </Typography>
           <br/>
           <br/>
               </Grid>
-              {(!state.data)? 'Nope': state.data.body.amenities.map((card, index) => (
+              {(!state.data)? 'Loading Amenities...': state.data.body.amenities.map((card, index) => (
                 <Grid xs={12} sm={6} md={7}>
                 <Typography>
                  {card.heading}: {card.listItems.map((card2, index) => (
@@ -133,7 +133,7 @@ const ReservationPage = () => {
             <br/>
             <br/>
             <Grid container spacing={4}>
-            {(!state.data)? 'Nope': state.data.body.propertyDescription.roomTypeNames.map((card) => (
+            {(!state.data)? 'Loading Rooms...': state.data.body.propertyDescription.roomTypeNames.map((card) => (
               
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card className={card}>
