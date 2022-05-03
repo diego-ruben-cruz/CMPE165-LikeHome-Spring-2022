@@ -69,17 +69,17 @@ const Rewards = () => {
           
       }}
       >
-          Each seal is earned after spending a certain amount of money on a reservation.
+          Each Seal is earned after spending a certain amount of money on a reservation.
           <br/>
-          USD &le;75  - 1 seal
+          USD &le;75  - 1 Seal
           <br/>
-          USD 75 - USD 150 - 2 seals
+          USD 75 - USD 150 - 2 Seals
           <br/>
-          USD 150 - USD 225 - 3 seals
+          USD 150 - USD 225 - 3 Seals
           <br/>
-          USD USD 225+ - 4 seals
+          USD USD 225+ - 4 Seals
           <br/>
-          You earn a free night in a One Bedroom Suite from any hotel after obtaining 7 seals, thereafter every additional night is 4 seals each.
+          You earn a free night in a One Bedroom Suite from any hotel after obtaining 7 Seals, thereafter every additional night is 4 Seals each.
       </Typography>
       
       {sealNumber<7 ? 
@@ -104,7 +104,9 @@ const Rewards = () => {
           fontSize: 18,
           
       }}
-      >Congratulations!!! You have earned enough Seals for a free night!</Typography>
+      >Congratulations! 
+      <br/>
+      You have earned enough Seals for a free stay!</Typography>
       }
 
       
