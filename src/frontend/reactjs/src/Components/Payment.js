@@ -42,8 +42,17 @@ const Payment = ({handleClose}) => {
   const handleSubmit = async () => {
     
     console.log(auth.currentUser.email)
-
+    console.log(checkedTerms)
     try {
+      if(checkedTerms==false){
+        setAlert({
+          open: true,
+          message: 'Must accept Terms and Conditions before paying.',
+          type:'error',
+        });
+        return;
+      }
+      
       const q = query(collection(db,"Reservations"), where("accountId", "==", auth.currentUser.email));
       const querySnapshot= await getDocs(q);
 
@@ -62,6 +71,16 @@ const Payment = ({handleClose}) => {
           return;
         }
       });
+
+      if(checkedTerms==true){
+        setAlert({
+          open:true,
+          message: `You have successfully reserved this hotel`,
+          type: 'success',
+        });
+        return;
+      }
+
 
       const reservationResp = await api.reservation.create({
         
@@ -92,14 +111,19 @@ const Payment = ({handleClose}) => {
             zip: zip,
 
            },
-        saveDetails: true
+        saveDetails: true,
+        useSeals: checkedSeals
         
       })
       console.log(paymentResp);
 
+     
+
+
     } catch (error) {
       console.log(error);
     }
+    
   };
 
 
@@ -347,6 +371,39 @@ const Payment = ({handleClose}) => {
                     >
                       Submit
                     </Button>
+                    <FormControlLabel
+                    control={<Checkbox checked={checkedTerms} onChange={(e)=>setCheckedTerms(e.target.checked)}/>}
+                    label={
+                    
+                    <Typography>
+                      By checking this box you agree to the {' '}
+                    <Button 
+                      variant='text'
+                      href="https://drive.google.com/file/d/17ClzF5cX0dThaHC_qblYxPtcP7rV5dSK/view?usp=sharing" target="_blank"
+                      
+                      style={{
+                        textTransform:"none",
+                        color:"blue"
+                      }}
+
+                  >
+                    <Typography
+                      textTransform="underlined"
+                    >
+                      terms and conditions
+                    </Typography>
+                   
+                  </Button>
+                  </Typography>
+                  }
+                  
+                  />
+                    
+                    
+                  <FormControlLabel
+                    control={<Checkbox checked={checkedSeals} onChange={(e)=>setCheckedSeals(e.target.checked)}/>}
+                    label="Use Seals"
+                  />
                   </Box>
                 </Grid>
               </Grid>
