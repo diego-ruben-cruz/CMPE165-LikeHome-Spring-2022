@@ -1,4 +1,3 @@
-import './Header.css';
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, useHistory } from 'react-router-dom';
 import LoginModal from '../Authentication/LoginModal';

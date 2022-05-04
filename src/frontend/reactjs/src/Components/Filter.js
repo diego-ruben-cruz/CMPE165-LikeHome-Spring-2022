@@ -17,7 +17,6 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import Button from "@mui/material/Button";
-import './Filter.css';
 
 
 export default function Filter() {

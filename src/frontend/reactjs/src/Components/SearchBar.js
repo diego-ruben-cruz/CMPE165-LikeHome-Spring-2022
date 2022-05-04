@@ -1,4 +1,4 @@
-import "./SearchBar.css";
+
 import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { alpha, useTheme } from "@mui/material/styles";

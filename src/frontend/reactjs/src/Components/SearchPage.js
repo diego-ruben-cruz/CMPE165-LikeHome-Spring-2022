@@ -5,7 +5,6 @@ import Footer from './Footer';
 import Filter from './Filter';
 import SearchResults from './SearchResults';
 import Stack from '@mui/material/Stack';
-import './SearchPage.css';
 import Container from './Container';
 import Sort from './Sort';
 

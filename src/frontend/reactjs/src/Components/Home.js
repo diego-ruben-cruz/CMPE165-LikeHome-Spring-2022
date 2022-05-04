@@ -16,9 +16,12 @@ import Template2 from './Template2';
 import Template3 from './Template3';
 import apartment from './street.svg';
 import SearchBar from './SearchBar';
+import './Home.css';
 
 const Home = () => {
   const theme = useTheme();
+
+  
 
   return (
     <>
