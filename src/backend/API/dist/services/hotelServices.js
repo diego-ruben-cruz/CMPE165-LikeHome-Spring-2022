@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.details = exports.list = exports.search = void 0;
 const axios_1 = __importDefault(require("axios"));
-const API_KEYS = ['2b1d99462emsh9c635f07393b079p114434jsna98d58434cdc'];
+const API_KEYS = ['5c3104f72dmsh661f1e90c0ad1e7p1edd66jsnc688bdbf11b0'];
 let k = 0;
 const search = (location) => __awaiter(void 0, void 0, void 0, function* () {
     // call hotels4 locations/v2/search endpoint

@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <>
         <Box color = 'white'>
-        <Grid  style={{ background: 'linear-gradient(#2B6FD4, #1b59b8)'}} container spacing={2} px={{ xs: 3, sm:5}} py={{ xs: 3, sm:5}} color = 'white'>
+        <Grid  style={{ background: 'linear-gradient(#2B6FD4, #1b59b8)'}} container spacing={1} px={{ xs: 3, sm:5}} py={{ xs: 3, sm:5}} color = 'white'>
         <Grid item xs={12}>
           <Box
             display={'flex'}
@@ -22,7 +22,7 @@ const Footer = () => {
               width={80}
             >
             </Box>
-              <Box marginTop={1}>
+              <Box marginTop={0}>
               </Box>
             </Box>
         </Grid>

@@ -13,7 +13,7 @@ function SearchPage(){
         <>
         <Header/>
         <Container position={'relative'} zIndex={2}  sx={{position: "absolute",
-        top: "-305px", left: "380px"}}>
+        top: "-305px", left: "350px"}}>
         <SearchBar/>
         
         </Container>
@@ -35,6 +35,17 @@ function SearchPage(){
         <Filter/>
         <SearchResults/>
         </Stack>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <br/>
         <br/>
         <br/>

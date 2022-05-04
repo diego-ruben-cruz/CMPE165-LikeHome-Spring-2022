@@ -17,6 +17,7 @@ import CardContent from '@material-ui/core/CardContent';
 import { useEffect } from 'react';
 import * as api from '../api';
 import  {useState} from 'react';
+import Rating from '@mui/material/Rating';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -138,12 +139,17 @@ const ReservationPage = () => {
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card className={card}>
                   <CardContent className={classes.cardContent}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={room}
+                    title="Image title"
+                  />
                     <Typography gutterBottom variant="h5" component="h2">
                     {card}
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button  href='/payment/' size={'large'} variant={'contained'} type={'submit'}>
+                    <Button  href='/payment/' size={'large'} variant={'contained'} type={'submit'} style={{}}>
                       Book Room
                     </Button>
                   </CardActions>
