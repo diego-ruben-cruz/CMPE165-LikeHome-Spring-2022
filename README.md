@@ -15,7 +15,9 @@ npm i
 
 ### To start the backend
 
-npm run build:start
+In: `src\backend\API`
+
+`npm run build:start`
 
 #### You must start the backend first before starting the frontend, otherwise the program will not work correctly.
 
@@ -32,5 +34,7 @@ npm install firebase
 
 ### To start the frontend
 
-On first run after installation: npm run build:start  
-On following runs: npm start
+In: `src\frontend\reactjs`
+
+On first run after installation: `npm run build:start`
+On following runs: `npm start`
